@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl_graphic = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -53,6 +53,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.checkBox_old_mode = new System.Windows.Forms.CheckBox();
             this.tabControl_graphic.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -110,33 +111,33 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chart_sinus.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
-            chartArea3.Name = "ChartArea1";
-            this.chart_sinus.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart_sinus.Legends.Add(legend3);
+            chartArea2.Name = "ChartArea1";
+            this.chart_sinus.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart_sinus.Legends.Add(legend2);
             this.chart_sinus.Location = new System.Drawing.Point(0, 21);
             this.chart_sinus.Name = "chart_sinus";
-            series7.BorderWidth = 3;
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series7.Legend = "Legend1";
-            series7.LegendText = "sinus";
-            series7.Name = "Series1";
-            series8.BorderWidth = 3;
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series8.Legend = "Legend1";
-            series8.LegendText = "triangle";
-            series8.Name = "Series2";
-            series9.BorderWidth = 3;
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series9.Legend = "Legend1";
-            series9.LegendText = "rectangle";
-            series9.Name = "Series3";
-            this.chart_sinus.Series.Add(series7);
-            this.chart_sinus.Series.Add(series8);
-            this.chart_sinus.Series.Add(series9);
+            series4.BorderWidth = 3;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series4.Legend = "Legend1";
+            series4.LegendText = "sinus";
+            series4.Name = "Series1";
+            series5.BorderWidth = 3;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Legend = "Legend1";
+            series5.LegendText = "triangle";
+            series5.Name = "Series2";
+            series6.BorderWidth = 3;
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Legend = "Legend1";
+            series6.LegendText = "rectangle";
+            series6.Name = "Series3";
+            this.chart_sinus.Series.Add(series4);
+            this.chart_sinus.Series.Add(series5);
+            this.chart_sinus.Series.Add(series6);
             this.chart_sinus.Size = new System.Drawing.Size(775, 496);
             this.chart_sinus.TabIndex = 0;
             this.chart_sinus.Text = "chart1";
@@ -192,6 +193,7 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.checkBox_old_mode);
             this.groupBox1.Controls.Add(this.textBox_N);
             this.groupBox1.Controls.Add(this.trackBar_d);
             this.groupBox1.Controls.Add(this.label6);
@@ -323,6 +325,17 @@
             this.tabPage2.Text = "Polyharmonic";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // checkBox_old_mode
+            // 
+            this.checkBox_old_mode.AutoSize = true;
+            this.checkBox_old_mode.Location = new System.Drawing.Point(187, 321);
+            this.checkBox_old_mode.Name = "checkBox_old_mode";
+            this.checkBox_old_mode.Size = new System.Drawing.Size(88, 20);
+            this.checkBox_old_mode.TabIndex = 12;
+            this.checkBox_old_mode.Text = "Old mode";
+            this.checkBox_old_mode.UseVisualStyleBackColor = true;
+            this.checkBox_old_mode.CheckedChanged += new System.EventHandler(this.checkBox_old_mode_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -371,6 +384,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.CheckBox checkBox_old_mode;
     }
 }
 

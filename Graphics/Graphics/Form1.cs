@@ -14,21 +14,23 @@ namespace Graphics
     public partial class Form1 : Form
     {
         private double A, N, F, f, N_number, d;
-        private double n,y,var;
-        private const double POROG = (double)1/2;
+        private double n, y, var;
+        private Boolean old_mode=false;
+        private const double POROG = (double)1 / 2;
+        private const double FREQUENCY_OF_DOT = 20;
 
         public Form1()
-        {            
+        {
             InitializeComponent();
             Default_params();
             draw_all();
         }
-        
+
         private void checkBox_sinus_CheckedChanged(object sender, EventArgs e)
         {
             if (this.checkBox_sinus.Checked)
-              //  if (this.tabControl_graphic.TabPages[0].Controls.OfType<CheckBox>().First().Checked)
-                {
+            //  if (this.tabControl_graphic.TabPages[0].Controls.OfType<CheckBox>().First().Checked)
+            {
                 change_sinus();
             }
             else
@@ -73,7 +75,7 @@ namespace Graphics
         private void textBox_N_KeyPress(object sender, KeyPressEventArgs e)
         {
             char number = e.KeyChar;
-            String line="";
+            String line = "";
             if (!Char.IsDigit(number) && number != 8)
             {
                 e.Handled = true;
@@ -121,7 +123,7 @@ namespace Graphics
             }
             else
             {
-                for(int i=0;i<this.chart_sinus.Series.Count;i++)
+                for (int i = 0; i < this.chart_sinus.Series.Count; i++)
                     this.chart_sinus.Series[i].Points.Clear();
             }
 
@@ -143,13 +145,13 @@ namespace Graphics
 
         private void trackBar_fo_ValueChanged(object sender, EventArgs e)
         {
-            f = (double)trackBar_fo.Value/trackBar_fo.Maximum*(2 * (double)(Math.PI));
+            f = (double)trackBar_fo.Value / trackBar_fo.Maximum * (2 * (double)(Math.PI));
             draw_all();
         }
 
         private void trackBar_d_ValueChanged(object sender, EventArgs e)
         {
-            d = (double)trackBar_d.Value/trackBar_d.Maximum;
+            d = (double)trackBar_d.Value / trackBar_d.Maximum;
             draw_all();
         }
 
@@ -157,19 +159,26 @@ namespace Graphics
         private void change_sinus()
         {
             n = POROG * N * (-1);
-            // GroupBox groupBox = this.tabControl_graphic.TabPages[0].Controls.OfType<GroupBox>().First();
-            double h = N/(F*20);
             this.chart_sinus.Series[0].Points.Clear();
-            //  chart.Series[0].Points.Clear();
-            while (n <= POROG * N)
-            {
-                y = A * (Math.Sin((2 * (double)(Math.PI)) * F * (double)(n / N) + f));
-                this.chart_sinus.Series[0].Points.AddXY(n, y);
-                n+=h;
+            if (old_mode){
+                while (n <= POROG * N)
+                {
+                    y = A * (Math.Sin((2 * (double)(Math.PI)) * F * (double)(n / N) + f));
+                    this.chart_sinus.Series[0].Points.AddXY(n, y);
+                    n++;
+                }
             }
-        }
+            else {
+                double h = N / (F * FREQUENCY_OF_DOT);
+                while (n <= POROG * N)
+                {
+                    y = A * (Math.Sin((2 * (double)(Math.PI)) * F * (double)(n / N) + f));
+                    this.chart_sinus.Series[0].Points.AddXY(n, y);
+                    n+=h;
+                }
+            }
 
-     
+        }   
 
         private void clear_sinus() { 
         this.chart_sinus.Series[0].Points.Clear();
@@ -178,51 +187,104 @@ namespace Graphics
         private void change_triangle() {
             n = POROG * N * (-1);
             this.chart_sinus.Series[1].Points.Clear();
-            while (n <= POROG * N)
+            if (old_mode)
             {
-                if ((2 * (double)(Math.PI) * F * (double)(n / N) + f - (double)(Math.PI) / 2) >= 0)
+                while (n <= POROG * N)
                 {
-                    y = ((double)(2 * A) / (double)(Math.PI) *
-                    (Math.Abs((Math.Abs(2 * (double)(Math.PI) * F * (double)(n / N) + f - (double)(Math.PI) / 2) % (2 * (double)(Math.PI))) - (double)(Math.PI)))) - A;
+                    if ((2 * (double)(Math.PI) * F * (double)(n / N) + f - (double)(Math.PI) / 2) >= 0)
+                    {
+                        y = ((double)(2 * A) / (double)(Math.PI) *
+                        (Math.Abs((Math.Abs(2 * (double)(Math.PI) * F * (double)(n / N) + f - (double)(Math.PI) / 2) % (2 * (double)(Math.PI))) - (double)(Math.PI)))) - A;
+                    }
+                    else
+                    {
+                        y = ((double)(2 * A) / (double)(Math.PI) *
+                        (Math.Abs((Math.Abs(2 * (double)(Math.PI) * F * (double)(n / N) + f - (double)(Math.PI) / 2 + (F * (2 * (double)(Math.PI)) * (Math.Abs((int)(n / N)) + 1))) % (2 * (double)(Math.PI))) - (double)(Math.PI)))) - A;
+                    }
+
+                    this.chart_sinus.Series[1].Points.AddXY(n, y);
+                    n++;
                 }
-                else {
-                    y = ((double)(2 * A) / (double)(Math.PI) *
-                    (Math.Abs((Math.Abs(2 * (double)(Math.PI) * F * (double)(n / N) + f - (double)(Math.PI) / 2+ (F * (2 * (double)(Math.PI)) * (Math.Abs((int)(n / N)) + 1))) % (2 * (double)(Math.PI))) - (double)(Math.PI)))) - A;
-                }
-              
-                this.chart_sinus.Series[1].Points.AddXY(n, y);
-                n++;         //n+=h; where h 
             }
+            else {
+                double h = N / (F * FREQUENCY_OF_DOT);
+                while (n <= POROG * N)
+                {
+                    if ((2 * (double)(Math.PI) * F * (double)(n / N) + f - (double)(Math.PI) / 2) >= 0)
+                    {
+                        y = ((double)(2 * A) / (double)(Math.PI) *
+                        (Math.Abs((Math.Abs(2 * (double)(Math.PI) * F * (double)(n / N) + f - (double)(Math.PI) / 2) % (2 * (double)(Math.PI))) - (double)(Math.PI)))) - A;
+                    }
+                    else
+                    {
+                        y = ((double)(2 * A) / (double)(Math.PI) *
+                        (Math.Abs((Math.Abs(2 * (double)(Math.PI) * F * (double)(n / N) + f - (double)(Math.PI) / 2 + (F * (2 * (double)(Math.PI)) * (Math.Abs((int)(n / N)) + 1))) % (2 * (double)(Math.PI))) - (double)(Math.PI)))) - A;
+                    }
+
+                    this.chart_sinus.Series[1].Points.AddXY(n, y);
+                    n+=h;
+                }
+            }
+ 
+        }
+
+        private void checkBox_old_mode_CheckedChanged(object sender, EventArgs e)
+        {
+            old_mode = this.checkBox_old_mode.Checked ? true : false;
+            draw_all();
         }
 
         private void clear_triangle() {
             this.chart_sinus.Series[1].Points.Clear();
         }
 
-        private void change_rectangle() {
-            n = POROG * N * (-1);
+        private void change_rectangle()
+        {
+            n = POROG * N * (-1);            
             this.chart_sinus.Series[2].Points.Clear();
-            while (n <= POROG * N)
-            {
-
-                if ((2 * (double)(Math.PI) * F * (double)(n / N) + f )>= 0)
+            if (old_mode) {
+                while (n <= POROG * N)
                 {
-                    var = (double)((Math.Abs((2 * (double)(Math.PI) * F * (double)(n / N) + f)) % (2 * (double)(Math.PI)))) / (2 * (double)(Math.PI));
 
+                    if ((2 * (double)(Math.PI) * F * (double)(n / N) + f) >= 0)
+                    {
+                        var = (double)((Math.Abs((2 * (double)(Math.PI) * F * (double)(n / N) + f)) % (2 * (double)(Math.PI)))) / (2 * (double)(Math.PI));
+
+                    }
+                    else
+                    {
+                        var = (double)((Math.Abs(
+                            (((2 * (double)(Math.PI) * (F * (double)(n / N)) + f + (F * (2 * (double)(Math.PI)) * (Math.Abs((int)(n / N)) + 1)))))) % (2 * (double)(Math.PI)))) / (2 * (double)(Math.PI));
+
+                    }
+
+                    // var = (double)((Math.Abs((2 * (double)(Math.PI) * F * (double)(n / N) + f)) % (2 * (double)(Math.PI)))) / (2 * (double)(Math.PI));
+
+                    y = ((var <= d) ? A : -A);
+                    this.chart_sinus.Series[2].Points.AddXY(n, y);
+                    n++;
                 }
-                else
+            }
+        else{
+        double h = N / (F * FREQUENCY_OF_DOT);
+                while (n <= POROG * N)
                 {
-                    var = (double)((Math.Abs(
-                        (((2 * (double)(Math.PI) * (F * (double)(n / N)) + f+ (F*(2 * (double)(Math.PI))*(Math.Abs((int)(n/N))+1)))))) % (2 * (double)(Math.PI)))) / (2 * (double)(Math.PI));
 
+                    if ((2 * (double)(Math.PI) * F * (double)(n / N) + f) >= 0)
+                    {
+                        var = (double)((Math.Abs((2 * (double)(Math.PI) * F * (double)(n / N) + f)) % (2 * (double)(Math.PI)))) / (2 * (double)(Math.PI));
+
+                    }
+                    else
+                    {
+                        var = (double)((Math.Abs(
+                            (((2 * (double)(Math.PI) * (F * (double)(n / N)) + f + (F * (2 * (double)(Math.PI)) * (Math.Abs((int)(n / N)) + 1)))))) % (2 * (double)(Math.PI)))) / (2 * (double)(Math.PI));
+
+                    }
+                    y = ((var <= d) ? A : -A);
+                    this.chart_sinus.Series[2].Points.AddXY(n, y);
+                    n+=h;
                 }
-
-                // var = (double)((Math.Abs((2 * (double)(Math.PI) * F * (double)(n / N) + f)) % (2 * (double)(Math.PI)))) / (2 * (double)(Math.PI));
-
-
-                y = ((var<=d)?A:-A);
-                this.chart_sinus.Series[2].Points.AddXY(n, y);
-                n++;
             }
         }
 
@@ -230,20 +292,21 @@ namespace Graphics
             this.chart_sinus.Series[2].Points.Clear();
         }
 
-        private void draw_all() { 
-            if (this.checkBox_sinus.Checked){
+        private void draw_all() {
+         
+                if (this.checkBox_sinus.Checked)
+                {
                     change_sinus();
                 }
-            if (this.checkBox_triangle.Checked)
-            {
-                change_triangle();
-            }
-            if (this.checkBox_rectangle.Checked)
-            {
-                change_rectangle();
+                if (this.checkBox_triangle.Checked)
+                {
+                    change_triangle();
+                }
+                if (this.checkBox_rectangle.Checked)
+                {
+                    change_rectangle();
 
-            }
-
+                }
         }
 
         private void Default_params() {           
