@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Graphics",
+    "\\Graphics\\Graphics"
   ],
+  "SelectedNode": "\\Graphics\\Graphics\\Form1.cs",
   "PreviewInSolutionExplorer": false
 }
