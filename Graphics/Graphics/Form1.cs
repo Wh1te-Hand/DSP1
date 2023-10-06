@@ -13,24 +13,27 @@ namespace Graphics
 {
     public partial class Form1 : Form
     {
-        private double A, N, F, f, N_number, d;
-        private double As, Ns, Fs, fs;
+ //       private double A, N, F, f, N_number, d;
+/*        private double As, Ns, Fs, fs;
         private double At, Nt, Ft, ft;
-        private double Ar, Nr, Fr, fr, dr;
-        private double n, y, var;
-        private byte A_limit, N_limit, F_limit, f_limit;
-        private DataPointCollection sinus_collection,triangle_collection,rectangle_collection,summary_collection;
+        private double Ar, Nr, Fr, fr, dr;*/
+        private double n, y, var, N_number;
+/*        private byte A_limit, N_limit, F_limit, f_limit;*/
         private Boolean old_mode=false;
         private Boolean flag_s, flag_t, flag_r;
         private const double POROG = (double)1 / 2;
         private const double FREQUENCY_OF_DOT = 20;
+        private Sinus sinus,sinus_start;
+        private Rectangle rectangle, rectangle_start;
+        private Triangle triangle, triangle_start;
 
-  
+
         public Form1()
         {
             InitializeComponent();
             Default_params();
             draw_all();
+
         }
         private void sinus_sum_CheckedChanged(object sender, EventArgs e)
         {
@@ -73,7 +76,6 @@ namespace Graphics
             else
             {
                 change_rectangle_all();
-
             }
         }
 
@@ -86,12 +88,14 @@ namespace Graphics
 
         public void change_sinus_all()
         {
-            n = POROG * Ns * (-1);
+            // n = POROG * Ns * (-1);
+            n = POROG * sinus.Length * (-1);
             this.chart_all.Series[0].Points.Clear();
-            double h = Ns / (Fs * FREQUENCY_OF_DOT);
-            while (n <= POROG * Ns)
+            // double h = Ns / (Fs * FREQUENCY_OF_DOT);
+            double h = sinus.Length/ (sinus.Frequency * FREQUENCY_OF_DOT);
+            while (n <= POROG * sinus.Length)
             {
-                y = As * (Math.Sin((2 * (double)(Math.PI)) * Fs * (double)(n / Ns) + fs));
+                y = sinus.Generate(n);
                 this.chart_all.Series[0].Points.AddXY(n, y);
                 n += h;
             }
@@ -116,10 +120,9 @@ namespace Graphics
                 N_number = double.Parse(line);
                 if (N_number > 0 && N_number != double.NaN)
                 {
-                    As = N_number;
+                    sinus.Amplitude = N_number;
                     chart_summary_draw();
                     draw_all_all();
-
                 }
             }
             else
@@ -148,7 +151,7 @@ namespace Graphics
                 N_number = double.Parse(line);
                 if (N_number > 0 && N_number != double.NaN)
                 {
-                    Fs = N_number;
+                    sinus.Frequency = N_number;
                     chart_summary_draw();
                     draw_all_all();
 
@@ -166,28 +169,28 @@ namespace Graphics
 
         private void trackBar_fsinus_ValueChanged(object sender, EventArgs e)
         {
-            fs = (double)trackBar_fsinus.Value / trackBar_fsinus.Maximum * (2 * (double)(Math.PI));
+            sinus.Phase = (double)trackBar_fsinus.Value / trackBar_fsinus.Maximum * (2 * (double)(Math.PI));
             chart_summary_draw();
             draw_all_all();
         }
 
         private void trackBar_ftriangle_ValueChanged(object sender, EventArgs e)
         {
-            ft = (double)trackBar_ftriangle.Value / trackBar_ftriangle.Maximum * (2 * (double)(Math.PI));
+            triangle.Phase = (double)trackBar_ftriangle.Value / trackBar_ftriangle.Maximum * (2 * (double)(Math.PI));
             chart_summary_draw();
             draw_all_all();
         }
 
         private void trackBar_frectangle_ValueChanged(object sender, EventArgs e)
         {
-            fr = (double)trackBar_frectangle.Value / trackBar_frectangle.Maximum * (2 * (double)(Math.PI));
+            rectangle.Phase = (double)trackBar_frectangle.Value / trackBar_frectangle.Maximum * (2 * (double)(Math.PI));
             chart_summary_draw();
             draw_all_all();
         }
 
         private void trackBar_dSum_ValueChanged(object sender, EventArgs e)
         {
-            dr= (double)trackBar_dSum.Value / trackBar_dSum.Maximum;
+            rectangle.Duty= (double)trackBar_dSum.Value / trackBar_dSum.Maximum;
             chart_summary_draw();
             draw_all_all();
         }
@@ -210,9 +213,9 @@ namespace Graphics
                 N_number = double.Parse(line);
                 if (N_number > 0 && N_number != double.NaN)
                 {
-                    Ns = N_number;
-                    Nt = N_number;
-                    Nr = N_number;
+                    sinus.Length = N_number;
+                    triangle.Length = N_number;
+                    rectangle.Length = N_number;
                     chart_summary_draw();
                     draw_all_all();
 
@@ -245,7 +248,7 @@ namespace Graphics
                 N_number = double.Parse(line);
                 if (N_number > 0 && N_number != double.NaN)
                 {
-                    At = N_number;
+                    triangle.Amplitude = N_number;
                     chart_summary_draw();
                     draw_all_all();
 
@@ -277,7 +280,7 @@ namespace Graphics
                 N_number = double.Parse(line);
                 if (N_number > 0 && N_number != double.NaN)
                 {
-                    Ft = N_number;
+                    triangle.Frequency = N_number;
                     chart_summary_draw();
                     draw_all_all();
 
@@ -309,10 +312,9 @@ namespace Graphics
                 N_number = double.Parse(line);
                 if (N_number > 0 && N_number != double.NaN)
                 {
-                    Ar = N_number;
+                    rectangle.Amplitude = N_number;
                     chart_summary_draw();
                     draw_all_all();
-
                 }
             }
             else
@@ -341,10 +343,9 @@ namespace Graphics
                 N_number = double.Parse(line);
                 if (N_number > 0 && N_number != double.NaN)
                 {
-                    Fr = N_number;
+                    rectangle.Frequency = N_number;
                     chart_summary_draw();
                     draw_all_all();
-
                 }
             }
             else
@@ -354,28 +355,22 @@ namespace Graphics
             }
         }
 
+
+
         public void remove_triangle_all() {
             this.chart_all.Series[1].Points.Clear();
         }
 
         public void change_triangle_all()
         {
-            n = POROG * Nt * (-1);
+            //n = POROG * Nt * (-1);
+            n = POROG * triangle.Length * (-1);
             this.chart_all.Series[1].Points.Clear();
-            double h = Nt / (Ft * FREQUENCY_OF_DOT);
-            while (n <= POROG * Nt)
+            // double h = Nt / (Ft * FREQUENCY_OF_DOT);
+            double h = triangle.Length / (triangle.Frequency * FREQUENCY_OF_DOT);
+            while (n <= POROG * triangle.Length)
             {
-                if ((2 * (double)(Math.PI) * Ft * (double)(n / Nt) + ft - (double)(Math.PI) / 2) >= 0)
-                {
-                    y = ((double)(2 * At) / (double)(Math.PI) *
-                    (Math.Abs((Math.Abs(2 * (double)(Math.PI) * Ft * (double)(n / Nt) + ft - (double)(Math.PI) / 2) % (2 * (double)(Math.PI))) - (double)(Math.PI)))) - At;
-                }
-                else
-                {
-                    y = ((double)(2 * At) / (double)(Math.PI) *
-                    (Math.Abs((Math.Abs(2 * (double)(Math.PI) * Ft * (double)(n / Nt) + ft - (double)(Math.PI) / 2 + (Ft * (2 * (double)(Math.PI)) * (Math.Abs((int)(n / Nt)) + 1))) % (2 * (double)(Math.PI))) - (double)(Math.PI)))) - At;
-                }
-
+                y = triangle.Generate(n);
                 this.chart_all.Series[1].Points.AddXY(n, y);
                 n += h;
             }
@@ -389,23 +384,14 @@ namespace Graphics
 
         public void change_rectangle_all()
         {
-            n = POROG * Nr * (-1);
+            //n = POROG * Nr * (-1);
+            n = POROG * rectangle.Length * (-1);
             this.chart_all.Series[2].Points.Clear();
-            double h = Nr / (Fr * FREQUENCY_OF_DOT);
-            while (n <= POROG * Nr)
+            // double h = Nr / (Fr * FREQUENCY_OF_DOT);
+            double h = rectangle.Length / (rectangle.Frequency * FREQUENCY_OF_DOT);
+            while (n <= POROG * rectangle.Length)
             {
-                if ((2 * (double)(Math.PI) * Fr * (double)(n / Nr) + fr) >= 0)
-                {
-                    var = (double)((Math.Abs((2 * (double)(Math.PI) * Fr * (double)(n / Nr) + fr)) % (2 * (double)(Math.PI)))) / (2 * (double)(Math.PI));
-
-                }
-                else
-                {
-                    var = (double)((Math.Abs(
-                        (((2 * (double)(Math.PI) * (Fr * (double)(n / Nr)) + fr + (Fr * (2 * (double)(Math.PI)) * (Math.Abs((int)(n / Nr)) + 1)))))) % (2 * (double)(Math.PI)))) / (2 * (double)(Math.PI));
-
-                }
-                y = ((var <= dr) ? Ar : -Ar);
+                y = rectangle.Generate(n);
                 this.chart_all.Series[2].Points.AddXY(n, y);
                 n += h;
             }
@@ -482,7 +468,6 @@ namespace Graphics
                       N = N_number;
                       draw_all();
                   }
-
               }*/
         }
 
@@ -495,7 +480,9 @@ namespace Graphics
                 N_number = double.Parse(line);
                 if (N_number > 0 && N_number != double.NaN)
                 {
-                    N = N_number;
+                    sinus_start.Length = N_number;
+                    triangle_start.Length = N_number;
+                    rectangle_start.Length=N_number;
                     draw_all();
                 }
             }
@@ -509,7 +496,9 @@ namespace Graphics
 
         private void trackBar_A_ValueChanged(object sender, EventArgs e)
         {
-            A = trackBar_A.Value;
+            sinus_start.Amplitude = trackBar_A.Value;
+            triangle_start.Amplitude = trackBar_A.Value;
+            rectangle_start.Amplitude = trackBar_A.Value;
             draw_all();
 
         }
@@ -517,40 +506,44 @@ namespace Graphics
 
         private void trackBar_F_ValueChanged(object sender, EventArgs e)
         {
-            F = trackBar_F.Value;
+            sinus_start.Frequency = trackBar_F.Value;
+            triangle_start.Frequency = trackBar_F.Value;
+            rectangle_start.Frequency = trackBar_F.Value;
             draw_all();
         }
 
         private void trackBar_fo_ValueChanged(object sender, EventArgs e)
         {
-            f = (double)trackBar_fo.Value / trackBar_fo.Maximum * (2 * (double)(Math.PI));
+            sinus_start.Phase = (double)trackBar_fo.Value / trackBar_fo.Maximum * (2 * (double)(Math.PI));
+            triangle_start.Phase = sinus_start.Phase;
+            rectangle_start.Phase= sinus_start.Phase;
             draw_all();
         }
 
         private void trackBar_d_ValueChanged(object sender, EventArgs e)
         {
-            d = (double)trackBar_d.Value / trackBar_d.Maximum;
+            rectangle_start.Duty = (double)trackBar_d.Value / trackBar_d.Maximum;
             draw_all();
         }
 
 
         private void change_sinus()
         {
-            n = POROG * N * (-1);
+            n = POROG * sinus_start.Length * (-1);
             this.chart_sinus.Series[0].Points.Clear();
             if (old_mode){
-                while (n <= POROG * N)
+                while (n <= POROG * sinus_start.Length)
                 {
-                    y = A * (Math.Sin((2 * (double)(Math.PI)) * F * (double)(n / N) + f));
+                    y = sinus_start.Generate(n);
                     this.chart_sinus.Series[0].Points.AddXY(n, y);
                     n++;
                 }
             }
             else {
-                double h = N / (F * FREQUENCY_OF_DOT);
-                while (n <= POROG * N)
+                double h = sinus_start.Length / (sinus_start.Frequency * FREQUENCY_OF_DOT);
+                while (n <= POROG * sinus_start.Length)
                 {
-                    y = A * (Math.Sin((2 * (double)(Math.PI)) * F * (double)(n / N) + f));
+                    y = sinus_start.Generate(n);
                     this.chart_sinus.Series[0].Points.AddXY(n, y);
                     n+=h;
                 }
@@ -563,42 +556,22 @@ namespace Graphics
         }
 
         private void change_triangle() {
-            n = POROG * N * (-1);
+            n = POROG * triangle_start.Length * (-1);
             this.chart_sinus.Series[1].Points.Clear();
             if (old_mode)
             {
-                while (n <= POROG * N)
+                while (n <= POROG * triangle_start.Length)
                 {
-                    if ((2 * (double)(Math.PI) * F * (double)(n / N) + f - (double)(Math.PI) / 2) >= 0)
-                    {
-                        y = ((double)(2 * A) / (double)(Math.PI) *
-                        (Math.Abs((Math.Abs(2 * (double)(Math.PI) * F * (double)(n / N) + f - (double)(Math.PI) / 2) % (2 * (double)(Math.PI))) - (double)(Math.PI)))) - A;
-                    }
-                    else
-                    {
-                        y = ((double)(2 * A) / (double)(Math.PI) *
-                        (Math.Abs((Math.Abs(2 * (double)(Math.PI) * F * (double)(n / N) + f - (double)(Math.PI) / 2 + (F * (2 * (double)(Math.PI)) * (Math.Abs((int)(n / N)) + 1))) % (2 * (double)(Math.PI))) - (double)(Math.PI)))) - A;
-                    }
-
+                    y = triangle_start.Generate(n);
                     this.chart_sinus.Series[1].Points.AddXY(n, y);
                     n++;
                 }
             }
             else {
-                double h = N / (F * FREQUENCY_OF_DOT);
-                while (n <= POROG * N)
+                double h = triangle_start.Length / (triangle_start.Frequency* FREQUENCY_OF_DOT);
+                while (n <= POROG * triangle_start.Length)
                 {
-                    if ((2 * (double)(Math.PI) * F * (double)(n / N) + f - (double)(Math.PI) / 2) >= 0)
-                    {
-                        y = ((double)(2 * A) / (double)(Math.PI) *
-                        (Math.Abs((Math.Abs(2 * (double)(Math.PI) * F * (double)(n / N) + f - (double)(Math.PI) / 2) % (2 * (double)(Math.PI))) - (double)(Math.PI)))) - A;
-                    }
-                    else
-                    {
-                        y = ((double)(2 * A) / (double)(Math.PI) *
-                        (Math.Abs((Math.Abs(2 * (double)(Math.PI) * F * (double)(n / N) + f - (double)(Math.PI) / 2 + (F * (2 * (double)(Math.PI)) * (Math.Abs((int)(n / N)) + 1))) % (2 * (double)(Math.PI))) - (double)(Math.PI)))) - A;
-                    }
-
+                    y=triangle_start.Generate(n);
                     this.chart_sinus.Series[1].Points.AddXY(n, y);
                     n+=h;
                 }
@@ -612,54 +585,30 @@ namespace Graphics
             draw_all();
         }
 
+
         private void clear_triangle() {
             this.chart_sinus.Series[1].Points.Clear();
         }
 
         private void change_rectangle()
         {
-            n = POROG * N * (-1);            
+            n = POROG * rectangle_start.Length * (-1);            
             this.chart_sinus.Series[2].Points.Clear();
             if (old_mode) {
-                while (n <= POROG * N)
+                while (n <= POROG * rectangle_start.Length)
                 {
-
-                    if ((2 * (double)(Math.PI) * F * (double)(n / N) + f) >= 0)
-                    {
-                        var = (double)((Math.Abs((2 * (double)(Math.PI) * F * (double)(n / N) + f)) % (2 * (double)(Math.PI)))) / (2 * (double)(Math.PI));
-
-                    }
-                    else
-                    {
-                        var = (double)((Math.Abs(
-                            (((2 * (double)(Math.PI) * (F * (double)(n / N)) + f + (F * (2 * (double)(Math.PI)) * (Math.Abs((int)(n / N)) + 1)))))) % (2 * (double)(Math.PI)))) / (2 * (double)(Math.PI));
-
-                    }
-
                     // var = (double)((Math.Abs((2 * (double)(Math.PI) * F * (double)(n / N) + f)) % (2 * (double)(Math.PI)))) / (2 * (double)(Math.PI));
 
-                    y = ((var <= d) ? A : -A);
+                    y = rectangle_start.Generate(n);
                     this.chart_sinus.Series[2].Points.AddXY(n, y);
                     n++;
                 }
             }
         else{
-        double h = N / (F * FREQUENCY_OF_DOT);
-                while (n <= POROG * N)
+        double h = rectangle_start.Length / (rectangle_start.Frequency * FREQUENCY_OF_DOT);
+                while (n <= POROG * rectangle_start.Length)
                 {
-
-                    if ((2 * (double)(Math.PI) * F * (double)(n / N) + f) >= 0)
-                    {
-                        var = (double)((Math.Abs((2 * (double)(Math.PI) * F * (double)(n / N) + f)) % (2 * (double)(Math.PI)))) / (2 * (double)(Math.PI));
-
-                    }
-                    else
-                    {
-                        var = (double)((Math.Abs(
-                            (((2 * (double)(Math.PI) * (F * (double)(n / N)) + f + (F * (2 * (double)(Math.PI)) * (Math.Abs((int)(n / N)) + 1)))))) % (2 * (double)(Math.PI)))) / (2 * (double)(Math.PI));
-
-                    }
-                    y = ((var <= d) ? A : -A);
+                    y = rectangle_start.Generate(n);
                     this.chart_sinus.Series[2].Points.AddXY(n, y);
                     n+=h;
                 }
@@ -702,42 +651,22 @@ namespace Graphics
         }
 
         private void chart_summary_draw() {
-            double F_max = Fs;           
+            double F_max = 0;           
             this.chart_summary.Series[0].Points.Clear();
-            F_max = find_max_frequense(Fs, Ft, Fr);
-            n = POROG * Ns * (-1);
-            double h= Ns / (F_max * FREQUENCY_OF_DOT);
-            while (n <= POROG * Ns)
+            F_max = find_max_frequense(sinus.Frequency, triangle.Frequency, rectangle.Frequency);
+            n = POROG * sinus.Length * (-1);
+            double h= sinus.Length / (F_max * FREQUENCY_OF_DOT);
+            while (n <= POROG * sinus.Length)
             {
                 double y_max = 0;
                 if (flag_s) {
-                    y_max+= As * (Math.Sin((2 * (double)(Math.PI)) * Fs * (double)(n / Ns) + fs));
+                    y_max+=sinus.Generate(n);
                 }
                 if (flag_t) {
-                    if ((2 * (double)(Math.PI) * Ft * (double)(n / Nt) + ft - (double)(Math.PI) / 2) >= 0)
-                    {
-                        y_max += ((double)(2 * At) / (double)(Math.PI) *
-                        (Math.Abs((Math.Abs(2 * (double)(Math.PI) * Ft * (double)(n / Nt) + ft - (double)(Math.PI) / 2) % (2 * (double)(Math.PI))) - (double)(Math.PI)))) - At;
-                    }
-                    else
-                    {
-                        y_max += ((double)(2 * At) / (double)(Math.PI) *
-                        (Math.Abs((Math.Abs(2 * (double)(Math.PI) * Ft * (double)(n / Nt) + ft - (double)(Math.PI) / 2 + (Ft * (2 * (double)(Math.PI)) * (Math.Abs((int)(n / Nt)) + 1))) % (2 * (double)(Math.PI))) - (double)(Math.PI)))) - At;
-                    }
+                 y_max+=triangle.Generate(n);
                 }
                 if (flag_r) {
-                    if ((2 * (double)(Math.PI) * Fr * (double)(n / Nr) + fr) >= 0)
-                    {
-                        var = (double)((Math.Abs((2 * (double)(Math.PI) * Fr * (double)(n / Nr) + fr)) % (2 * (double)(Math.PI)))) / (2 * (double)(Math.PI));
-
-                    }
-                    else
-                    {
-                        var = (double)((Math.Abs(
-                            (((2 * (double)(Math.PI) * (Fr * (double)(n / Nr)) + fr + (Fr * (2 * (double)(Math.PI)) * (Math.Abs((int)(n / Nr)) + 1)))))) % (2 * (double)(Math.PI)))) / (2 * (double)(Math.PI));
-
-                    }
-                    y_max+= ((var <= dr) ? Ar : -Ar);
+                 y_max+=rectangle.Generate(n);
                 }
                 this.chart_summary.Series[0].Points.AddXY(n, y_max);
                 n += h;
@@ -793,27 +722,28 @@ namespace Graphics
 
         }
         private void Default_params() {           
-            A = 5;
+/*            A = 5;
             F = 5;
             d = 0.5;
             f = (double)5*(2 * (double)(Math.PI))/20;
             N = 500;
-
-            As= 5;
-            Fs = 5;
-            fs = (double)5 * (2 * (double)(Math.PI)) / 20;
-            Ns = 500;
-
-            At = 5;
-            Ft = 5;
-            ft = (double)5 * (2 * (double)(Math.PI)) / 20;
-            Nt = 500;
-
             Ar = 5;
             Fr = 5;
             dr = 0.5;
             fr = (double)5 * (2 * (double)(Math.PI)) / 20;
             Nr = 500;
+            At = 5;
+            Ft = 5;
+            ft = (double)5 * (2 * (double)(Math.PI)) / 20;
+            Nt = 500;*/
+
+            sinus = new Sinus(5, 5, (double)5 * (2 * (double)(Math.PI)) / 20, 500);
+            triangle = new Triangle(5, 5, (double)5 * (2 * (double)(Math.PI)) / 20, 500);
+            rectangle = new Rectangle(5, 5, (double)5 * (2 * (double)(Math.PI)) / 20, 500, 0.5);
+
+            sinus_start = new Sinus(5, 5, (double)5 * (2 * (double)(Math.PI)) / 20, 500);
+            triangle_start = new Triangle(5, 5, (double)5 * (2 * (double)(Math.PI)) / 20, 500);
+            rectangle_start = new Rectangle(5, 5, (double)5 * (2 * (double)(Math.PI)) / 20, 500, 0.5);
 
             flag_s = false;
             flag_t = false;
