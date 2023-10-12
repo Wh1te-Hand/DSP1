@@ -26,6 +26,14 @@ namespace Graphics
             _N = N;
             _d = d;
         }
+        public Rectangle()
+        {
+            _A = 5;
+            _F = 5;
+            _f = 0.5;
+            _N = 500;
+            _d = 0.5;
+        }
 
         public double Amplitude
         {

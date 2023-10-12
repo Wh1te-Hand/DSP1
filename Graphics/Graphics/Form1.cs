@@ -585,6 +585,10 @@ namespace Graphics
             draw_all();
         }
 
+        private void button_add_chart_Click(object sender, EventArgs e)
+        {
+            this.comboBox_select_chart.Items.Add(this.textBox_chart_name.Text);
+        }
 
         private void clear_triangle() {
             this.chart_sinus.Series[1].Points.Clear();

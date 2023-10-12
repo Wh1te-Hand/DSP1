@@ -25,6 +25,14 @@ namespace Graphics
             _N = N;
         }
 
+        public Triangle()
+        {
+            _A = 5;
+            _F = 5;
+            _f = 0.5;
+            _N = 500;
+        }
+
         public double Amplitude
         {
             get => _A;
