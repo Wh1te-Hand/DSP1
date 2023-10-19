@@ -750,38 +750,139 @@ namespace Graphics
         }
 
         //------------------------------------------------DSP2_part---------------------------------------------------------
-        private Dictionary<string,Signal> signal_collection = new Dictionary<string, Signal>();
+        private Dictionary<string,Sinus> sinus_collection = new Dictionary<string, Sinus>();
+        private Dictionary<string, Triangle> triangle_collection = new Dictionary<string, Triangle>();
+        private Dictionary<string, Rectangle> rectangle_collection = new Dictionary<string, Rectangle>();
         private string current;
         private int standart = 0;
+        private Sinus currentSinus;
+        private Triangle currentTriangle;
+        private Rectangle currentRectangle; 
         private void button_add_chart_Click(object sender, EventArgs e)
         {
-            current = this.textBox_chart_name.Text;
-            if (signal_collection.ContainsKey(current))
+            current = this.textBox_chart_name.Text.Trim();
+            if (sinus_collection.ContainsKey(current))
             {
-                current = ($"standartSignal{standart}");
+                current = ($"defaultSignal{standart}");
                 standart++;
             }
             this.comboBox_select_chart.Items.Add(current);
-            Signal signal = new Sinus();
-            signal_collection.Add(current, signal);
+            Sinus sinus = new Sinus();
+            sinus_collection.Add(current, sinus);
+            currentSinus = sinus;
+            /*            Triangle triangle=new Triangle();
+                        triangle_collection.Add(current, triangle);*/
             select_and_update();            
         }
         private void button_delete_chart_Click(object sender, EventArgs e)
         {
-            signal_collection.Remove(current);
+            sinus_collection.Remove(current);
             this.comboBox_select_chart.Items.Remove(current);
             this.label_chart_current_name.Text = "";
         }
         private void select_and_update() { 
             this.label_chart_current_name.Text = current;
             this.comboBox_select_chart.Text = current;
+            if (sinus_collection.TryGetValue(current, out currentSinus))
+            {
+                this.comboBox_select_type.SelectedIndex = 0;
+            }
+            else if (triangle_collection.TryGetValue(current, out currentTriangle))
+            {
+                this.comboBox_select_type.SelectedIndex = 1;
+            }
+            else if (rectangle_collection.TryGetValue(current, out currentRectangle))
+            {
+                this.comboBox_select_type.SelectedIndex = 2;
+            }
         }
 
         private void comboBox_select_chart_SelectedIndexChanged(object sender, EventArgs e)
         {
             current = this.comboBox_select_chart.SelectedItem.ToString();
-            this.label_chart_current_name.Text = current;
-            this.comboBox_select_chart.Text = current;
+            select_and_update();
         }
+
+        private void comboBox_select_type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (sinus_collection.TryGetValue(current, out currentSinus))
+            {
+                if (this.comboBox_select_chart.SelectedIndex.ToString() == "1")
+                {
+                    Triangle triangle = new Triangle();
+                    triangle.Amplitude = currentSinus.Amplitude;
+                    triangle.Frequency = currentSinus.Frequency;
+                    triangle.Phase = currentSinus.Phase;
+                    triangle.Length=currentSinus.Length;
+                    triangle_collection.Add(current,triangle);
+                    currentTriangle = triangle;
+                }
+                else if (this.comboBox_select_chart.SelectedIndex.ToString() == "2")
+                {
+                    Rectangle rectangle = new Rectangle();
+                    rectangle.Amplitude = currentSinus.Amplitude;
+                    rectangle.Frequency = currentSinus.Frequency;
+                    rectangle.Phase = currentSinus.Phase;
+                    rectangle.Length = currentSinus.Length;
+                    rectangle_collection.Add(current,rectangle);
+                    currentRectangle = rectangle;
+                }
+
+                    sinus_collection.Remove(current);
+            }
+            else if (triangle_collection.TryGetValue(current, out currentTriangle))
+            {
+                if (this.comboBox_select_chart.SelectedIndex.ToString() == "0")
+                {
+                    Sinus sinus = new Sinus();
+                    sinus.Amplitude = currentTriangle.Amplitude; 
+                    sinus.Frequency = currentTriangle.Frequency;
+                    sinus.Phase = currentTriangle.Phase;
+                    sinus.Length = currentTriangle.Length;
+                    sinus_collection.Add(current,sinus);
+                    currentSinus=sinus;
+                }
+                else if (this.comboBox_select_chart.SelectedIndex.ToString() == "2")
+                {
+                    Rectangle rectangle = new Rectangle();
+                    rectangle.Amplitude = currentTriangle.Amplitude;
+                    rectangle.Frequency = currentTriangle.Frequency;
+                    rectangle.Phase = currentTriangle.Phase;
+                    rectangle.Length = currentTriangle.Length;
+                    rectangle_collection.Add(current, rectangle);
+                    currentRectangle = rectangle;
+                }
+
+                        triangle_collection.Remove(current);
+            }
+            else if (rectangle_collection.TryGetValue(current, out currentRectangle))
+            {
+                if (this.comboBox_select_chart.SelectedIndex.ToString() == "0")
+                {
+                    Sinus sinus = new Sinus();
+                    sinus.Amplitude = currentRectangle.Amplitude;
+                    sinus.Frequency = currentRectangle.Frequency;
+                    sinus.Phase = currentRectangle.Phase;
+                    sinus.Length = currentRectangle.Length;
+                    sinus_collection.Add(current, sinus);
+                    currentSinus = sinus;
+                }
+                else if (this.comboBox_select_chart.SelectedIndex.ToString() == "1")
+                {
+                    Triangle triangle = new Triangle();
+                    triangle.Amplitude = currentSinus.Amplitude;
+                    triangle.Frequency = currentSinus.Frequency;
+                    triangle.Phase = currentSinus.Phase;
+                    triangle.Length = currentSinus.Length;
+                    triangle_collection.Add(current, triangle);
+                    currentTriangle = triangle;
+                }
+
+                       rectangle_collection.Remove(current);
+            }
+
+     
+        }
+
     }
 }

@@ -111,17 +111,17 @@
             this.label_chart_current_name = new System.Windows.Forms.Label();
             this.comboBox_select_type = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox_lab2_N = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.button_delete_chart = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.trackBar4 = new System.Windows.Forms.TrackBar();
+            this.trackBar_lab2_d = new System.Windows.Forms.TrackBar();
+            this.trackBar_lab2_phase = new System.Windows.Forms.TrackBar();
             this.label25 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox_lab2_F = new System.Windows.Forms.TextBox();
+            this.textBox_lab2_A = new System.Windows.Forms.TextBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
@@ -150,8 +150,8 @@
             this.tabPage3.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_lab2_d)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_lab2_phase)).BeginInit();
             this.groupBox10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.groupBox11.SuspendLayout();
@@ -878,17 +878,17 @@
             this.groupBox9.Controls.Add(this.label_chart_current_name);
             this.groupBox9.Controls.Add(this.comboBox_select_type);
             this.groupBox9.Controls.Add(this.label21);
-            this.groupBox9.Controls.Add(this.textBox2);
+            this.groupBox9.Controls.Add(this.textBox_lab2_N);
             this.groupBox9.Controls.Add(this.label19);
             this.groupBox9.Controls.Add(this.button_delete_chart);
             this.groupBox9.Controls.Add(this.label17);
             this.groupBox9.Controls.Add(this.label20);
-            this.groupBox9.Controls.Add(this.trackBar1);
-            this.groupBox9.Controls.Add(this.trackBar4);
+            this.groupBox9.Controls.Add(this.trackBar_lab2_d);
+            this.groupBox9.Controls.Add(this.trackBar_lab2_phase);
             this.groupBox9.Controls.Add(this.label25);
             this.groupBox9.Controls.Add(this.label27);
-            this.groupBox9.Controls.Add(this.textBox6);
-            this.groupBox9.Controls.Add(this.textBox7);
+            this.groupBox9.Controls.Add(this.textBox_lab2_F);
+            this.groupBox9.Controls.Add(this.textBox_lab2_A);
             this.groupBox9.Location = new System.Drawing.Point(1036, 19);
             this.groupBox9.MaximumSize = new System.Drawing.Size(250, 1000);
             this.groupBox9.Name = "groupBox9";
@@ -908,10 +908,15 @@
             // comboBox_select_type
             // 
             this.comboBox_select_type.FormattingEnabled = true;
+            this.comboBox_select_type.Items.AddRange(new object[] {
+            "Sinus",
+            "Triangle",
+            "Rectangle"});
             this.comboBox_select_type.Location = new System.Drawing.Point(10, 257);
             this.comboBox_select_type.Name = "comboBox_select_type";
             this.comboBox_select_type.Size = new System.Drawing.Size(108, 24);
             this.comboBox_select_type.TabIndex = 28;
+            this.comboBox_select_type.SelectedIndexChanged += new System.EventHandler(this.comboBox_select_type_SelectedIndexChanged);
             // 
             // label21
             // 
@@ -922,13 +927,13 @@
             this.label21.TabIndex = 31;
             this.label21.Text = "Current chart -";
             // 
-            // textBox2
+            // textBox_lab2_N
             // 
-            this.textBox2.Location = new System.Drawing.Point(147, 193);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(86, 22);
-            this.textBox2.TabIndex = 30;
-            this.textBox2.Text = "512";
+            this.textBox_lab2_N.Location = new System.Drawing.Point(147, 193);
+            this.textBox_lab2_N.Name = "textBox_lab2_N";
+            this.textBox_lab2_N.Size = new System.Drawing.Size(86, 22);
+            this.textBox_lab2_N.TabIndex = 30;
+            this.textBox_lab2_N.Text = "512";
             // 
             // label19
             // 
@@ -967,25 +972,25 @@
             this.label20.TabIndex = 23;
             this.label20.Text = "d=";
             // 
-            // trackBar1
+            // trackBar_lab2_d
             // 
-            this.trackBar1.Location = new System.Drawing.Point(35, 131);
-            this.trackBar1.Maximum = 20;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(198, 56);
-            this.trackBar1.TabIndex = 22;
-            this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.trackBar1.Value = 10;
+            this.trackBar_lab2_d.Location = new System.Drawing.Point(35, 131);
+            this.trackBar_lab2_d.Maximum = 20;
+            this.trackBar_lab2_d.Name = "trackBar_lab2_d";
+            this.trackBar_lab2_d.Size = new System.Drawing.Size(198, 56);
+            this.trackBar_lab2_d.TabIndex = 22;
+            this.trackBar_lab2_d.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trackBar_lab2_d.Value = 10;
             // 
-            // trackBar4
+            // trackBar_lab2_phase
             // 
-            this.trackBar4.Location = new System.Drawing.Point(35, 59);
-            this.trackBar4.Maximum = 20;
-            this.trackBar4.Name = "trackBar4";
-            this.trackBar4.Size = new System.Drawing.Size(198, 56);
-            this.trackBar4.TabIndex = 18;
-            this.trackBar4.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.trackBar4.Value = 5;
+            this.trackBar_lab2_phase.Location = new System.Drawing.Point(35, 59);
+            this.trackBar_lab2_phase.Maximum = 20;
+            this.trackBar_lab2_phase.Name = "trackBar_lab2_phase";
+            this.trackBar_lab2_phase.Size = new System.Drawing.Size(198, 56);
+            this.trackBar_lab2_phase.TabIndex = 18;
+            this.trackBar_lab2_phase.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trackBar_lab2_phase.Value = 5;
             // 
             // label25
             // 
@@ -1005,21 +1010,21 @@
             this.label27.TabIndex = 6;
             this.label27.Text = "F=";
             // 
-            // textBox6
+            // textBox_lab2_F
             // 
-            this.textBox6.Location = new System.Drawing.Point(160, 21);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(73, 22);
-            this.textBox6.TabIndex = 5;
-            this.textBox6.Text = "5";
+            this.textBox_lab2_F.Location = new System.Drawing.Point(160, 21);
+            this.textBox_lab2_F.Name = "textBox_lab2_F";
+            this.textBox_lab2_F.Size = new System.Drawing.Size(73, 22);
+            this.textBox_lab2_F.TabIndex = 5;
+            this.textBox_lab2_F.Text = "5";
             // 
-            // textBox7
+            // textBox_lab2_A
             // 
-            this.textBox7.Location = new System.Drawing.Point(35, 21);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(73, 22);
-            this.textBox7.TabIndex = 0;
-            this.textBox7.Text = "5";
+            this.textBox_lab2_A.Location = new System.Drawing.Point(35, 21);
+            this.textBox_lab2_A.Name = "textBox_lab2_A";
+            this.textBox_lab2_A.Size = new System.Drawing.Size(73, 22);
+            this.textBox_lab2_A.TabIndex = 0;
+            this.textBox_lab2_A.Text = "5";
             // 
             // groupBox10
             // 
@@ -1141,8 +1146,8 @@
             this.groupBox8.PerformLayout();
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_lab2_d)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_lab2_phase)).EndInit();
             this.groupBox10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.groupBox11.ResumeLayout(false);
@@ -1210,12 +1215,12 @@
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TrackBar trackBar1;
-        private System.Windows.Forms.TrackBar trackBar4;
+        private System.Windows.Forms.TrackBar trackBar_lab2_d;
+        private System.Windows.Forms.TrackBar trackBar_lab2_phase;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox_lab2_F;
+        private System.Windows.Forms.TextBox textBox_lab2_A;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.GroupBox groupBox11;
@@ -1224,7 +1229,7 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox textBox_chart_name;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox_lab2_N;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button button_delete_chart;
         private System.Windows.Forms.ComboBox comboBox_select_type;
