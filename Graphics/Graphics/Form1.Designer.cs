@@ -102,11 +102,13 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.chart_all = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.comboBox_select_chart = new System.Windows.Forms.ComboBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.label18 = new System.Windows.Forms.Label();
             this.textBox_chart_name = new System.Windows.Forms.TextBox();
             this.button_add_chart = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.label_chart_current_name = new System.Windows.Forms.Label();
             this.comboBox_select_type = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -124,8 +126,6 @@
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.comboBox_select_chart = new System.Windows.Forms.ComboBox();
-            this.label_chart_current_name = new System.Windows.Forms.Label();
             this.tabControl_graphic.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -821,6 +821,17 @@
             this.tabPage3.Text = "DSP2";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // comboBox_select_chart
+            // 
+            this.comboBox_select_chart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox_select_chart.FormattingEnabled = true;
+            this.comboBox_select_chart.Location = new System.Drawing.Point(1151, 323);
+            this.comboBox_select_chart.Name = "comboBox_select_chart";
+            this.comboBox_select_chart.Size = new System.Drawing.Size(121, 24);
+            this.comboBox_select_chart.TabIndex = 9;
+            this.comboBox_select_chart.SelectedIndexChanged += new System.EventHandler(this.comboBox_select_chart_SelectedIndexChanged);
+            // 
             // groupBox8
             // 
             this.groupBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -885,6 +896,14 @@
             this.groupBox9.TabIndex = 7;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Parametrs";
+            // 
+            // label_chart_current_name
+            // 
+            this.label_chart_current_name.AutoSize = true;
+            this.label_chart_current_name.Location = new System.Drawing.Point(101, 225);
+            this.label_chart_current_name.Name = "label_chart_current_name";
+            this.label_chart_current_name.Size = new System.Drawing.Size(0, 16);
+            this.label_chart_current_name.TabIndex = 32;
             // 
             // comboBox_select_type
             // 
@@ -1081,24 +1100,6 @@
             this.chart2.Size = new System.Drawing.Size(1008, 229);
             this.chart2.TabIndex = 0;
             this.chart2.Text = "chart2";
-            // 
-            // comboBox_select_chart
-            // 
-            this.comboBox_select_chart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox_select_chart.FormattingEnabled = true;
-            this.comboBox_select_chart.Location = new System.Drawing.Point(1151, 323);
-            this.comboBox_select_chart.Name = "comboBox_select_chart";
-            this.comboBox_select_chart.Size = new System.Drawing.Size(121, 24);
-            this.comboBox_select_chart.TabIndex = 9;
-            // 
-            // label_chart_current_name
-            // 
-            this.label_chart_current_name.AutoSize = true;
-            this.label_chart_current_name.Location = new System.Drawing.Point(101, 225);
-            this.label_chart_current_name.Name = "label_chart_current_name";
-            this.label_chart_current_name.Size = new System.Drawing.Size(0, 16);
-            this.label_chart_current_name.TabIndex = 32;
             // 
             // Form1
             // 

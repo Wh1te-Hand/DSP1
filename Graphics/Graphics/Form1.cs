@@ -752,14 +752,19 @@ namespace Graphics
         //------------------------------------------------DSP2_part---------------------------------------------------------
         private Dictionary<string,Signal> signal_collection = new Dictionary<string, Signal>();
         private string current;
+        private int standart = 0;
         private void button_add_chart_Click(object sender, EventArgs e)
         {
             current = this.textBox_chart_name.Text;
+            if (signal_collection.ContainsKey(current))
+            {
+                current = ($"standartSignal{standart}");
+                standart++;
+            }
             this.comboBox_select_chart.Items.Add(current);
             Signal signal = new Sinus();
             signal_collection.Add(current, signal);
-            select_and_update();
-            
+            select_and_update();            
         }
         private void button_delete_chart_Click(object sender, EventArgs e)
         {
@@ -768,6 +773,13 @@ namespace Graphics
             this.label_chart_current_name.Text = "";
         }
         private void select_and_update() { 
+            this.label_chart_current_name.Text = current;
+            this.comboBox_select_chart.Text = current;
+        }
+
+        private void comboBox_select_chart_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            current = this.comboBox_select_chart.SelectedItem.ToString();
             this.label_chart_current_name.Text = current;
             this.comboBox_select_chart.Text = current;
         }
