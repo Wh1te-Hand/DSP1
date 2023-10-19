@@ -7,7 +7,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Graphics
 {
-    public class Rectangle
+    public class Rectangle:Signal
     {
         private const double POROG = (double)1 / 2;
         private const double FREQUENCY_OF_DOT = 20;

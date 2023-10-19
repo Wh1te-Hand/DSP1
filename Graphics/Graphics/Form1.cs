@@ -585,11 +585,6 @@ namespace Graphics
             draw_all();
         }
 
-        private void button_add_chart_Click(object sender, EventArgs e)
-        {
-            this.comboBox_select_chart.Items.Add(this.textBox_chart_name.Text);
-        }
-
         private void clear_triangle() {
             this.chart_sinus.Series[1].Points.Clear();
         }
@@ -752,6 +747,29 @@ namespace Graphics
             flag_s = false;
             flag_t = false;
             flag_r = false;
+        }
+
+        //------------------------------------------------DSP2_part---------------------------------------------------------
+        private Dictionary<string,Signal> signal_collection = new Dictionary<string, Signal>();
+        private string current;
+        private void button_add_chart_Click(object sender, EventArgs e)
+        {
+            current = this.textBox_chart_name.Text;
+            this.comboBox_select_chart.Items.Add(current);
+            Signal signal = new Sinus();
+            signal_collection.Add(current, signal);
+            select_and_update();
+            
+        }
+        private void button_delete_chart_Click(object sender, EventArgs e)
+        {
+            signal_collection.Remove(current);
+            this.comboBox_select_chart.Items.Remove(current);
+            this.label_chart_current_name.Text = "";
+        }
+        private void select_and_update() { 
+            this.label_chart_current_name.Text = current;
+            this.comboBox_select_chart.Text = current;
         }
     }
 }
