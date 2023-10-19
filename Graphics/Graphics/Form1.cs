@@ -754,6 +754,7 @@ namespace Graphics
         private Dictionary<string, Triangle> triangle_collection = new Dictionary<string, Triangle>();
         private Dictionary<string, Rectangle> rectangle_collection = new Dictionary<string, Rectangle>();
         private string current;
+        private int currentSignal; //0-sinus  1-triangle  2-rectangle
         private Boolean theFirst = false, isRectangle = false;
         private int standart = 0;
         private Sinus currentSinus;
@@ -775,6 +776,11 @@ namespace Graphics
             theFirst = true;
             select_and_update();
             theFirst = false;
+            this.chart_lab2_common.Series.Add(current);
+            this.chart_lab2_common.Series[current].ChartType=SeriesChartType.Line;
+            this.chart_lab2_common.Series[current].BorderWidth = 2;
+            this.chart_lab2_common.Legends.Add(current);
+            updateParametrs(current);
         }
         private void button_delete_chart_Click(object sender, EventArgs e)
         {
@@ -795,6 +801,7 @@ namespace Graphics
             theFirst = true;
             this.comboBox_select_type.SelectedIndex = 3;
             theFirst = false;
+            this.chart_lab2_common.Series.Remove(chart_lab2_common.Series.FindByName(current));
         }
         private void select_and_update() {
             this.label_chart_current_name.Text = current;
@@ -821,6 +828,7 @@ namespace Graphics
             theFirst = true;
             select_and_update();
             theFirst = false;
+            updateParametrs(current);
         }
 
         private void comboBox_select_type_SelectedIndexChanged(object sender, EventArgs e)
@@ -829,6 +837,7 @@ namespace Graphics
             { }
             else
             {
+                if (this.comboBox_select_type.SelectedIndex != 3) { 
                 trackBar_lab2_d.Enabled = false;
                 if (sinus_collection.TryGetValue(current, out currentSinus))
                 {
@@ -906,6 +915,7 @@ namespace Graphics
                     }
                     rectangle_collection.Remove(current);
                 }
+             }
 
             }
 
@@ -915,19 +925,125 @@ namespace Graphics
             if (sinus_collection.TryGetValue(thisCurrent, out currentSinus))
             {
                 this.trackBar_lab2_phase.Value = (int)((double)((currentSinus.Phase)* (this.trackBar_lab2_phase.Maximum))/(2*Math.PI)); //may be mistake
-                trackBar_lab2_d.Enabled = false;
+                this.textBox_lab2_A.Text= currentSinus.Amplitude.ToString();
+                this.textBox_lab2_F.Text = currentSinus.Frequency.ToString();
             }
             else if (triangle_collection.TryGetValue(thisCurrent, out currentTriangle))
             {
-                this.comboBox_select_type.SelectedIndex = 1;
-                trackBar_lab2_d.Enabled = false;
+                this.trackBar_lab2_phase.Value = (int)((double)((currentTriangle.Phase) * (this.trackBar_lab2_phase.Maximum)) / (2 * Math.PI)); //may be mistake
+                this.textBox_lab2_A.Text = currentTriangle.Amplitude.ToString();
+                this.textBox_lab2_F.Text = currentTriangle.Frequency.ToString();
             }
             else if (rectangle_collection.TryGetValue(thisCurrent, out currentRectangle))
             {
-                this.comboBox_select_type.SelectedIndex = 2;
-                trackBar_lab2_d.Enabled = true;
+                this.trackBar_lab2_phase.Value = (int)((double)((currentRectangle.Phase) * (this.trackBar_lab2_phase.Maximum)) / (2 * Math.PI)); //may be mistake
+                this.textBox_lab2_A.Text = currentRectangle.Amplitude.ToString();
+                this.textBox_lab2_F.Text = currentRectangle.Frequency.ToString();
+                this.trackBar_lab2_d.Value = (int)currentRectangle.Duty * this.trackBar_lab2_d.Maximum;
             }
         }
 
+        private void trackBar_lab2_phase_ValueChanged(object sender, EventArgs e)
+        {
+            if (sinus_collection.TryGetValue(current, out currentSinus))
+            {
+                sinus_collection[current].Phase=((double)trackBar_lab2_phase.Value/ trackBar_lab2_phase.Maximum)*2*Math.PI;
+            }
+            else if (triangle_collection.TryGetValue(current, out currentTriangle))
+            {
+                triangle_collection[current].Phase = ((double)trackBar_lab2_phase.Value / trackBar_lab2_phase.Maximum) * 2 * Math.PI;
+            }
+            else if (rectangle_collection.TryGetValue(current, out currentRectangle))
+            {
+                rectangle_collection[current].Phase = ((double)trackBar_lab2_phase.Value / trackBar_lab2_phase.Maximum) * 2 * Math.PI; 
+            }
+        }
+
+        private void trackBar_lab2_d_ValueChanged(object sender, EventArgs e)
+        {
+            if (rectangle_collection.TryGetValue(current, out currentRectangle))
+            {
+                rectangle_collection[current].Duty = ((double)trackBar_lab2_d.Value / trackBar_lab2_d.Maximum);
+            }
+        }
+
+
+        private void textBox_lab2_A_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            String line = "";
+            if (!Char.IsDigit(number) && number != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox_lab2_A_KeyUp(object sender, KeyEventArgs e)
+        {
+            String line = "";
+            line = this.textBox_lab2_A.Text;//
+            if (line != "")
+            {
+                N_number = double.Parse(line);
+                if (N_number > 0 && N_number != double.NaN)
+                {
+                    if (sinus_collection.TryGetValue(current, out currentSinus))
+                    {
+                        sinus_collection[current].Amplitude = N_number;
+                    }
+                    else if (triangle_collection.TryGetValue(current, out currentTriangle))
+                    {
+                        triangle_collection[current].Amplitude = N_number;
+                    }
+                    else if (rectangle_collection.TryGetValue(current, out currentRectangle))
+                    {
+                        rectangle_collection[current].Amplitude = N_number;
+                    }
+
+                }
+            }
+            else
+            {//очистка графиков
+            }
+        }
+
+        private void textBox_lab2_F_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            String line = "";
+            if (!Char.IsDigit(number) && number != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox_lab2_F_KeyUp(object sender, KeyEventArgs e)
+        {
+            String line = "";
+            line = this.textBox_lab2_F.Text;//
+            if (line != "")
+            {
+                N_number = double.Parse(line);
+                if (N_number > 0 && N_number != double.NaN)
+                {
+                    if (sinus_collection.TryGetValue(current, out currentSinus))
+                    {
+                        sinus_collection[current].Frequency = N_number;
+                    }
+                    else if (triangle_collection.TryGetValue(current, out currentTriangle))
+                    {
+                        triangle_collection[current].Frequency = N_number;
+                    }
+                    else if (rectangle_collection.TryGetValue(current, out currentRectangle))
+                    {
+                        rectangle_collection[current].Frequency = N_number;
+                    }
+
+                }
+            }
+            else
+            {//очистка графиков
+            }
+        }
     }
 }

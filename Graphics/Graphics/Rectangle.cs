@@ -31,7 +31,7 @@ namespace Graphics
             _A = 5;
             _F = 5;
             _f = 0.5;
-            _N = 500;
+            _N = 512;
             _d = 0.5;
         }
 
