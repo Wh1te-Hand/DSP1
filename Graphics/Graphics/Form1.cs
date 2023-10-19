@@ -13,17 +13,17 @@ namespace Graphics
 {
     public partial class Form1 : Form
     {
- //       private double A, N, F, f, N_number, d;
-/*        private double As, Ns, Fs, fs;
-        private double At, Nt, Ft, ft;
-        private double Ar, Nr, Fr, fr, dr;*/
+        //       private double A, N, F, f, N_number, d;
+        /*        private double As, Ns, Fs, fs;
+                private double At, Nt, Ft, ft;
+                private double Ar, Nr, Fr, fr, dr;*/
         private double n, y, var, N_number;
-/*        private byte A_limit, N_limit, F_limit, f_limit;*/
-        private Boolean old_mode=false;
+        /*        private byte A_limit, N_limit, F_limit, f_limit;*/
+        private Boolean old_mode = false;
         private Boolean flag_s, flag_t, flag_r;
         private const double POROG = (double)1 / 2;
         private const double FREQUENCY_OF_DOT = 20;
-        private Sinus sinus,sinus_start;
+        private Sinus sinus, sinus_start;
         private Rectangle rectangle, rectangle_start;
         private Triangle triangle, triangle_start;
 
@@ -46,7 +46,7 @@ namespace Graphics
             else
             {
                 change_sinus_all();
- 
+
             }
         }
 
@@ -61,7 +61,7 @@ namespace Graphics
             else
             {
                 change_triangle_all();
-               
+
             }
         }
 
@@ -92,7 +92,7 @@ namespace Graphics
             n = POROG * sinus.Length * (-1);
             this.chart_all.Series[0].Points.Clear();
             // double h = Ns / (Fs * FREQUENCY_OF_DOT);
-            double h = sinus.Length/ (sinus.Frequency * FREQUENCY_OF_DOT);
+            double h = sinus.Length / (sinus.Frequency * FREQUENCY_OF_DOT);
             while (n <= POROG * sinus.Length)
             {
                 y = sinus.Generate(n);
@@ -126,8 +126,8 @@ namespace Graphics
                 }
             }
             else
-            {                
-                    this.chart_all.Series[0].Points.Clear();
+            {
+                this.chart_all.Series[0].Points.Clear();
                 this.chart_summary.Series[0].Points.Clear();
             }
         }
@@ -159,7 +159,7 @@ namespace Graphics
             }
             else
             {
-                    this.chart_all.Series[0].Points.Clear();
+                this.chart_all.Series[0].Points.Clear();
                 this.chart_summary.Series[0].Points.Clear();
             }
         }
@@ -190,7 +190,7 @@ namespace Graphics
 
         private void trackBar_dSum_ValueChanged(object sender, EventArgs e)
         {
-            rectangle.Duty= (double)trackBar_dSum.Value / trackBar_dSum.Maximum;
+            rectangle.Duty = (double)trackBar_dSum.Value / trackBar_dSum.Maximum;
             chart_summary_draw();
             draw_all_all();
         }
@@ -256,7 +256,7 @@ namespace Graphics
             }
             else
             {
-                    this.chart_all.Series[1].Points.Clear();
+                this.chart_all.Series[1].Points.Clear();
                 this.chart_summary.Series[0].Points.Clear();
             }
         }
@@ -288,7 +288,7 @@ namespace Graphics
             }
             else
             {
-                    this.chart_all.Series[1].Points.Clear();
+                this.chart_all.Series[1].Points.Clear();
                 this.chart_summary.Series[0].Points.Clear();
             }
         }
@@ -319,7 +319,7 @@ namespace Graphics
             }
             else
             {
-                    this.chart_all.Series[2].Points.Clear();
+                this.chart_all.Series[2].Points.Clear();
                 this.chart_summary.Series[0].Points.Clear();
             }
         }
@@ -350,7 +350,7 @@ namespace Graphics
             }
             else
             {
-                    this.chart_all.Series[2].Points.Clear();
+                this.chart_all.Series[2].Points.Clear();
                 this.chart_summary.Series[0].Points.Clear();
             }
         }
@@ -482,7 +482,7 @@ namespace Graphics
                 {
                     sinus_start.Length = N_number;
                     triangle_start.Length = N_number;
-                    rectangle_start.Length=N_number;
+                    rectangle_start.Length = N_number;
                     draw_all();
                 }
             }
@@ -516,7 +516,7 @@ namespace Graphics
         {
             sinus_start.Phase = (double)trackBar_fo.Value / trackBar_fo.Maximum * (2 * (double)(Math.PI));
             triangle_start.Phase = sinus_start.Phase;
-            rectangle_start.Phase= sinus_start.Phase;
+            rectangle_start.Phase = sinus_start.Phase;
             draw_all();
         }
 
@@ -531,7 +531,7 @@ namespace Graphics
         {
             n = POROG * sinus_start.Length * (-1);
             this.chart_sinus.Series[0].Points.Clear();
-            if (old_mode){
+            if (old_mode) {
                 while (n <= POROG * sinus_start.Length)
                 {
                     y = sinus_start.Generate(n);
@@ -545,14 +545,14 @@ namespace Graphics
                 {
                     y = sinus_start.Generate(n);
                     this.chart_sinus.Series[0].Points.AddXY(n, y);
-                    n+=h;
+                    n += h;
                 }
             }
 
-        }   
+        }
 
-        private void clear_sinus() { 
-        this.chart_sinus.Series[0].Points.Clear();
+        private void clear_sinus() {
+            this.chart_sinus.Series[0].Points.Clear();
         }
 
         private void change_triangle() {
@@ -568,15 +568,15 @@ namespace Graphics
                 }
             }
             else {
-                double h = triangle_start.Length / (triangle_start.Frequency* FREQUENCY_OF_DOT);
+                double h = triangle_start.Length / (triangle_start.Frequency * FREQUENCY_OF_DOT);
                 while (n <= POROG * triangle_start.Length)
                 {
-                    y=triangle_start.Generate(n);
+                    y = triangle_start.Generate(n);
                     this.chart_sinus.Series[1].Points.AddXY(n, y);
-                    n+=h;
+                    n += h;
                 }
             }
- 
+
         }
 
         private void checkBox_old_mode_CheckedChanged(object sender, EventArgs e)
@@ -591,7 +591,7 @@ namespace Graphics
 
         private void change_rectangle()
         {
-            n = POROG * rectangle_start.Length * (-1);            
+            n = POROG * rectangle_start.Length * (-1);
             this.chart_sinus.Series[2].Points.Clear();
             if (old_mode) {
                 while (n <= POROG * rectangle_start.Length)
@@ -603,13 +603,13 @@ namespace Graphics
                     n++;
                 }
             }
-        else{
-        double h = rectangle_start.Length / (rectangle_start.Frequency * FREQUENCY_OF_DOT);
+            else {
+                double h = rectangle_start.Length / (rectangle_start.Frequency * FREQUENCY_OF_DOT);
                 while (n <= POROG * rectangle_start.Length)
                 {
                     y = rectangle_start.Generate(n);
                     this.chart_sinus.Series[2].Points.AddXY(n, y);
-                    n+=h;
+                    n += h;
                 }
             }
         }
@@ -619,19 +619,19 @@ namespace Graphics
         }
 
         private void draw_all() {
-         
-                if (this.checkBox_sinus.Checked)
-                {
-                    change_sinus();
-                }
-                if (this.checkBox_triangle.Checked)
-                {
-                    change_triangle();
-                }
-                if (this.checkBox_rectangle.Checked)
-                {
-                    change_rectangle();
-                }
+
+            if (this.checkBox_sinus.Checked)
+            {
+                change_sinus();
+            }
+            if (this.checkBox_triangle.Checked)
+            {
+                change_triangle();
+            }
+            if (this.checkBox_rectangle.Checked)
+            {
+                change_rectangle();
+            }
         }
 
         private void draw_all_all() {
@@ -650,22 +650,22 @@ namespace Graphics
         }
 
         private void chart_summary_draw() {
-            double F_max = 0;           
+            double F_max = 0;
             this.chart_summary.Series[0].Points.Clear();
             F_max = find_max_frequense(sinus.Frequency, triangle.Frequency, rectangle.Frequency);
             n = POROG * sinus.Length * (-1);
-            double h= sinus.Length / (F_max * FREQUENCY_OF_DOT);
+            double h = sinus.Length / (F_max * FREQUENCY_OF_DOT);
             while (n <= POROG * sinus.Length)
             {
                 double y_max = 0;
                 if (flag_s) {
-                    y_max+=sinus.Generate(n);
+                    y_max += sinus.Generate(n);
                 }
                 if (flag_t) {
-                 y_max+=triangle.Generate(n);
+                    y_max += triangle.Generate(n);
                 }
                 if (flag_r) {
-                 y_max+=rectangle.Generate(n);
+                    y_max += rectangle.Generate(n);
                 }
                 this.chart_summary.Series[0].Points.AddXY(n, y_max);
                 n += h;
@@ -720,21 +720,21 @@ namespace Graphics
             { return 0; }
 
         }
-        private void Default_params() {           
-/*            A = 5;
-            F = 5;
-            d = 0.5;
-            f = (double)5*(2 * (double)(Math.PI))/20;
-            N = 500;
-            Ar = 5;
-            Fr = 5;
-            dr = 0.5;
-            fr = (double)5 * (2 * (double)(Math.PI)) / 20;
-            Nr = 500;
-            At = 5;
-            Ft = 5;
-            ft = (double)5 * (2 * (double)(Math.PI)) / 20;
-            Nt = 500;*/
+        private void Default_params() {
+            /*            A = 5;
+                        F = 5;
+                        d = 0.5;
+                        f = (double)5*(2 * (double)(Math.PI))/20;
+                        N = 500;
+                        Ar = 5;
+                        Fr = 5;
+                        dr = 0.5;
+                        fr = (double)5 * (2 * (double)(Math.PI)) / 20;
+                        Nr = 500;
+                        At = 5;
+                        Ft = 5;
+                        ft = (double)5 * (2 * (double)(Math.PI)) / 20;
+                        Nt = 500;*/
 
             sinus = new Sinus(5, 5, (double)5 * (2 * (double)(Math.PI)) / 20, 500);
             triangle = new Triangle(5, 5, (double)5 * (2 * (double)(Math.PI)) / 20, 500);
@@ -750,14 +750,15 @@ namespace Graphics
         }
 
         //------------------------------------------------DSP2_part---------------------------------------------------------
-        private Dictionary<string,Sinus> sinus_collection = new Dictionary<string, Sinus>();
+        private Dictionary<string, Sinus> sinus_collection = new Dictionary<string, Sinus>();
         private Dictionary<string, Triangle> triangle_collection = new Dictionary<string, Triangle>();
         private Dictionary<string, Rectangle> rectangle_collection = new Dictionary<string, Rectangle>();
         private string current;
+        private Boolean theFirst = false, isRectangle = false;
         private int standart = 0;
         private Sinus currentSinus;
         private Triangle currentTriangle;
-        private Rectangle currentRectangle; 
+        private Rectangle currentRectangle;
         private void button_add_chart_Click(object sender, EventArgs e)
         {
             current = this.textBox_chart_name.Text.Trim();
@@ -766,122 +767,166 @@ namespace Graphics
                 current = ($"defaultSignal{standart}");
                 standart++;
             }
+            this.comboBox_select_chart.Text = current;
             this.comboBox_select_chart.Items.Add(current);
             Sinus sinus = new Sinus();
             sinus_collection.Add(current, sinus);
             currentSinus = sinus;
-            /*            Triangle triangle=new Triangle();
-                        triangle_collection.Add(current, triangle);*/
-            select_and_update();            
+            theFirst = true;
+            select_and_update();
+            theFirst = false;
         }
         private void button_delete_chart_Click(object sender, EventArgs e)
         {
-            sinus_collection.Remove(current);
+            if (sinus_collection.TryGetValue(current, out currentSinus))
+            {
+                sinus_collection.Remove(current);
+            }
+            else if (triangle_collection.TryGetValue(current, out currentTriangle))
+            {
+                triangle_collection.Remove(current);
+            }
+            else if (rectangle_collection.TryGetValue(current, out currentRectangle))
+            {
+                rectangle_collection.Remove(current);
+            }
             this.comboBox_select_chart.Items.Remove(current);
             this.label_chart_current_name.Text = "";
+            theFirst = true;
+            this.comboBox_select_type.SelectedIndex = 3;
+            theFirst = false;
         }
-        private void select_and_update() { 
+        private void select_and_update() {
             this.label_chart_current_name.Text = current;
-            this.comboBox_select_chart.Text = current;
             if (sinus_collection.TryGetValue(current, out currentSinus))
             {
                 this.comboBox_select_type.SelectedIndex = 0;
+                trackBar_lab2_d.Enabled = false;
             }
             else if (triangle_collection.TryGetValue(current, out currentTriangle))
             {
                 this.comboBox_select_type.SelectedIndex = 1;
+                trackBar_lab2_d.Enabled = false;
             }
             else if (rectangle_collection.TryGetValue(current, out currentRectangle))
             {
                 this.comboBox_select_type.SelectedIndex = 2;
+                trackBar_lab2_d.Enabled = true;
             }
         }
 
         private void comboBox_select_chart_SelectedIndexChanged(object sender, EventArgs e)
         {
             current = this.comboBox_select_chart.SelectedItem.ToString();
+            theFirst = true;
             select_and_update();
+            theFirst = false;
         }
 
         private void comboBox_select_type_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (sinus_collection.TryGetValue(current, out currentSinus))
+            if (theFirst)
+            { }
+            else
             {
-                if (this.comboBox_select_chart.SelectedIndex.ToString() == "1")
+                trackBar_lab2_d.Enabled = false;
+                if (sinus_collection.TryGetValue(current, out currentSinus))
                 {
-                    Triangle triangle = new Triangle();
-                    triangle.Amplitude = currentSinus.Amplitude;
-                    triangle.Frequency = currentSinus.Frequency;
-                    triangle.Phase = currentSinus.Phase;
-                    triangle.Length=currentSinus.Length;
-                    triangle_collection.Add(current,triangle);
-                    currentTriangle = triangle;
-                }
-                else if (this.comboBox_select_chart.SelectedIndex.ToString() == "2")
-                {
-                    Rectangle rectangle = new Rectangle();
-                    rectangle.Amplitude = currentSinus.Amplitude;
-                    rectangle.Frequency = currentSinus.Frequency;
-                    rectangle.Phase = currentSinus.Phase;
-                    rectangle.Length = currentSinus.Length;
-                    rectangle_collection.Add(current,rectangle);
-                    currentRectangle = rectangle;
-                }
+                    if (this.comboBox_select_type.SelectedIndex == 1)
+                    {
+                        Triangle triangle = new Triangle();
+                        triangle.Amplitude = currentSinus.Amplitude;
+                        triangle.Frequency = currentSinus.Frequency;
+                        triangle.Phase = currentSinus.Phase;
+                        triangle.Length = currentSinus.Length;
+                        triangle_collection.Add(current, triangle);
+                        currentTriangle = triangle;
+                    }
+                    else if (this.comboBox_select_type.SelectedIndex == 2)
+                    {
+                        Rectangle rectangle = new Rectangle();
+                        rectangle.Amplitude = currentSinus.Amplitude;
+                        rectangle.Frequency = currentSinus.Frequency;
+                        rectangle.Phase = currentSinus.Phase;
+                        rectangle.Length = currentSinus.Length;
+                        rectangle_collection.Add(current, rectangle);
+                        currentRectangle = rectangle;
+                        trackBar_lab2_d.Enabled = true;
+                    }
 
                     sinus_collection.Remove(current);
+                }
+                else if (triangle_collection.TryGetValue(current, out currentTriangle))
+                {
+                    if (this.comboBox_select_type.SelectedIndex == 0)
+                    {
+                        Sinus sinus = new Sinus();
+                        sinus.Amplitude = currentTriangle.Amplitude;
+                        sinus.Frequency = currentTriangle.Frequency;
+                        sinus.Phase = currentTriangle.Phase;
+                        sinus.Length = currentTriangle.Length;
+                        sinus_collection.Add(current, sinus);
+                        currentSinus = sinus;
+                    }
+                    else if (this.comboBox_select_type.SelectedIndex == 2)
+                    {
+                        Rectangle rectangle = new Rectangle();
+                        rectangle.Amplitude = currentTriangle.Amplitude;
+                        rectangle.Frequency = currentTriangle.Frequency;
+                        rectangle.Phase = currentTriangle.Phase;
+                        rectangle.Length = currentTriangle.Length;
+                        rectangle_collection.Add(current, rectangle);
+                        currentRectangle = rectangle;
+                        trackBar_lab2_d.Enabled = true;
+                    }
+
+                    triangle_collection.Remove(current);
+                }
+                else if (rectangle_collection.TryGetValue(current, out currentRectangle))
+                {
+                    if (this.comboBox_select_type.SelectedIndex == 0)
+                    {
+                        Sinus sinus = new Sinus();
+                        sinus.Amplitude = currentRectangle.Amplitude;
+                        sinus.Frequency = currentRectangle.Frequency;
+                        sinus.Phase = currentRectangle.Phase;
+                        sinus.Length = currentRectangle.Length;
+                        sinus_collection.Add(current, sinus);
+                        currentSinus = sinus;
+                    }
+                    else if (this.comboBox_select_type.SelectedIndex == 1)
+                    {
+                        Triangle triangle = new Triangle();
+                        triangle.Amplitude = currentSinus.Amplitude;
+                        triangle.Frequency = currentSinus.Frequency;
+                        triangle.Phase = currentSinus.Phase;
+                        triangle.Length = currentSinus.Length;
+                        triangle_collection.Add(current, triangle);
+                        currentTriangle = triangle;
+                    }
+                    rectangle_collection.Remove(current);
+                }
+
             }
-            else if (triangle_collection.TryGetValue(current, out currentTriangle))
+
+        }
+
+        public void updateParametrs(string thisCurrent){
+            if (sinus_collection.TryGetValue(thisCurrent, out currentSinus))
             {
-                if (this.comboBox_select_chart.SelectedIndex.ToString() == "0")
-                {
-                    Sinus sinus = new Sinus();
-                    sinus.Amplitude = currentTriangle.Amplitude; 
-                    sinus.Frequency = currentTriangle.Frequency;
-                    sinus.Phase = currentTriangle.Phase;
-                    sinus.Length = currentTriangle.Length;
-                    sinus_collection.Add(current,sinus);
-                    currentSinus=sinus;
-                }
-                else if (this.comboBox_select_chart.SelectedIndex.ToString() == "2")
-                {
-                    Rectangle rectangle = new Rectangle();
-                    rectangle.Amplitude = currentTriangle.Amplitude;
-                    rectangle.Frequency = currentTriangle.Frequency;
-                    rectangle.Phase = currentTriangle.Phase;
-                    rectangle.Length = currentTriangle.Length;
-                    rectangle_collection.Add(current, rectangle);
-                    currentRectangle = rectangle;
-                }
-
-                        triangle_collection.Remove(current);
+                this.trackBar_lab2_phase.Value = (int)((double)((currentSinus.Phase)* (this.trackBar_lab2_phase.Maximum))/(2*Math.PI)); //may be mistake
+                trackBar_lab2_d.Enabled = false;
             }
-            else if (rectangle_collection.TryGetValue(current, out currentRectangle))
+            else if (triangle_collection.TryGetValue(thisCurrent, out currentTriangle))
             {
-                if (this.comboBox_select_chart.SelectedIndex.ToString() == "0")
-                {
-                    Sinus sinus = new Sinus();
-                    sinus.Amplitude = currentRectangle.Amplitude;
-                    sinus.Frequency = currentRectangle.Frequency;
-                    sinus.Phase = currentRectangle.Phase;
-                    sinus.Length = currentRectangle.Length;
-                    sinus_collection.Add(current, sinus);
-                    currentSinus = sinus;
-                }
-                else if (this.comboBox_select_chart.SelectedIndex.ToString() == "1")
-                {
-                    Triangle triangle = new Triangle();
-                    triangle.Amplitude = currentSinus.Amplitude;
-                    triangle.Frequency = currentSinus.Frequency;
-                    triangle.Phase = currentSinus.Phase;
-                    triangle.Length = currentSinus.Length;
-                    triangle_collection.Add(current, triangle);
-                    currentTriangle = triangle;
-                }
-
-                       rectangle_collection.Remove(current);
+                this.comboBox_select_type.SelectedIndex = 1;
+                trackBar_lab2_d.Enabled = false;
             }
-
-     
+            else if (rectangle_collection.TryGetValue(thisCurrent, out currentRectangle))
+            {
+                this.comboBox_select_type.SelectedIndex = 2;
+                trackBar_lab2_d.Enabled = true;
+            }
         }
 
     }
