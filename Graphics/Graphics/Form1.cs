@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -989,7 +990,6 @@ namespace Graphics
             drawSignal(current);
         }
 
-
         private void textBox_lab2_A_KeyPress(object sender, KeyPressEventArgs e)
         {
             char number = e.KeyChar;
@@ -1149,7 +1149,9 @@ namespace Graphics
         }
 
         double prevMax = 0;
+        private List<PointF> sumList = new List<PointF>();
         public void UpdateSum(int mode) {
+            sumList.Clear();
             double var = 0;
             Boolean update_all = true;
             Boolean sin = false, tri = false, rec = false;
@@ -1390,7 +1392,6 @@ namespace Graphics
 
 
             this.chart_lab2_summary.Series[0].Points.Clear();
-
             int length = 0;
             int length1 = 0;
             int length2 = 0;
@@ -1433,7 +1434,7 @@ namespace Graphics
                 length = length3;
             }
 
-            List<PointF> sumList = new List<PointF>();
+            
             for (int j = 0; j < length; j++)
             {
                 float sum = 0;
@@ -1454,6 +1455,24 @@ namespace Graphics
             foreach (var point in sumList)
             {
                 this.chart_lab2_summary.Series[0].Points.AddXY(point.X,point.Y);
+            }
+            drawFurie();
+        }
+
+        public void drawFurie() { 
+         List<float> masAj= new List<float>();
+         List<float> phaseAj = new List<float>();
+         Furi furi = new Furi();
+            this.chart_lab2_spectrums.Series[0].Points.Clear();
+            this.chart_lab2_summary.Series[1].Points.Clear();
+            for (int j = 0; j < Math.Round((double)(sumList.Count / 2) - 1); j++) {
+                masAj.Add(furi.findAmplitude(furi.findCosinusComponent(sumList,sumList.Count,j),furi.findSinusComponent(sumList, sumList.Count, j)));
+                phaseAj.Add(furi.findPhase(furi.findCosinusComponent(sumList, sumList.Count, j), furi.findSinusComponent(sumList, sumList.Count, j)));
+                this.chart_lab2_spectrums.Series[0].Points.AddXY(j, masAj[0]);
+            }
+            for (int i = 0; i < sumList.Count; i++)
+            {
+                this.chart_lab2_summary.Series[1].Points.AddXY(sumList[i].X, (furi.recoverySignal(masAj,phaseAj, sumList.Count, i)));
             }
         }
     }
