@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Xml.Schema;
 
 namespace Graphics
 {
@@ -750,15 +751,18 @@ namespace Graphics
 
             chart_lab2_common.ChartAreas[0].AxisX.Minimum = 0;
             chart_lab2_common.ChartAreas[0].AxisX.Maximum = 1;
+
+            chart_lab2_summary.ChartAreas[0].AxisX.Minimum = 0;
+            chart_lab2_summary.ChartAreas[0].AxisX.Maximum = 1;
         }
 
         //------------------------------------------------DSP2_part---------------------------------------------------------
         private Dictionary<string, Sinus> sinus_collection = new Dictionary<string, Sinus>();
         private Dictionary<string, Triangle> triangle_collection = new Dictionary<string, Triangle>();
         private Dictionary<string, Rectangle> rectangle_collection = new Dictionary<string, Rectangle>();
-        private List<Point> sinusList = new List<Point>();
-        private List<Point> triangleList = new List<Point>();
-        private List<Point> rectangleList = new List<Point>();
+        private List<PointF> sinusList = new List<PointF>();
+        private List<PointF> triangleList = new List<PointF>();
+        private List<PointF> rectangleList = new List<PointF>();
 
         private string current;
         private int currentSignal; //0-sinus  1-triangle  2-rectangle
@@ -873,7 +877,7 @@ namespace Graphics
                     }
                         this.chart_lab2_common.Series[current].ChartType = SeriesChartType.Line;
                         sinus_collection.Remove(current);
-                }
+                    }
                 else if (triangle_collection.TryGetValue(current, out currentTriangle))
                 {
                     if (this.comboBox_select_type.SelectedIndex == 0)
@@ -901,7 +905,7 @@ namespace Graphics
                         }
 
                     triangle_collection.Remove(current);
-                }
+                    }
                 else if (rectangle_collection.TryGetValue(current, out currentRectangle))
                 {
                     if (this.comboBox_select_type.SelectedIndex == 0)
@@ -927,9 +931,11 @@ namespace Graphics
                             this.chart_lab2_common.Series[current].ChartType = SeriesChartType.Line;
                         }
                     rectangle_collection.Remove(current);
+                        
                 }
                     drawSignal(current);
-             }
+
+                }
 
             }
 
@@ -1079,6 +1085,7 @@ namespace Graphics
                     this.chart_lab2_common.Series[thisCurrent].Points.AddXY(var, y);
                     var += h;
                 }
+                UpdateSum(0);
             }
             else if (triangle_collection.TryGetValue(thisCurrent, out currentTriangle))
             {
@@ -1090,6 +1097,7 @@ namespace Graphics
                     this.chart_lab2_common.Series[thisCurrent].Points.AddXY(var, y);
                     var += h;
                 }
+                UpdateSum(1);
             }
             else if (rectangle_collection.TryGetValue(thisCurrent, out currentRectangle))
             {
@@ -1134,26 +1142,318 @@ namespace Graphics
                             flag = true;
                         }
                     }
-                   
+                    UpdateSum(2);
                 }
             }
+            
         }
 
+        double prevMax = 0;
         public void UpdateSum(int mode) {
             double var = 0;
-            if (mode == 0)
+            Boolean update_all = true;
+            Boolean sin = false, tri = false, rec = false;
+            double maxFrequency = 0;
+            foreach (var signal in sinus_collection)
             {
+                if (signal.Value.Frequency > maxFrequency)
+                { maxFrequency = signal.Value.Frequency; }
+            }
+            foreach (var signal in triangle_collection)
+            {
+                if (signal.Value.Frequency > maxFrequency)
+                { maxFrequency = signal.Value.Frequency; }
+            }
+            foreach (var signal in rectangle_collection)
+            {
+                if (signal.Value.Frequency > maxFrequency)
+                { maxFrequency = signal.Value.Frequency; }
+            }
+            if (maxFrequency > prevMax)
+            {
+                prevMax = maxFrequency;
+                update_all = true;
+            }
+
+            if (update_all)
+            {
+                sinusList.Clear();
+                Boolean first = true;
+
                 foreach (var signal in sinus_collection)
                 {
-                    double h = (double)1 / (double)(signal.Value.Frequency * 4);
-                    var -= (signal.Value.Phase + Math.PI * 0.5) / (signal.Value.Frequency * 2 * Math.PI);
-                    while (var <= 1)
+                    var = 0;
+                    double h = (double)1 / (double)(maxFrequency * 32);
+                    //  var -= (signal.Value.Phase + Math.PI * 0.5) / (signal.Value.Frequency * 2 * Math.PI);
+                    if (first)
                     {
-                        y = signal.Value.Generate2(var);
-                       // sinusList.Add(new Point(var, y));
-                        var += h;
+                        first = false;
+                        while (var <= 1)
+                        {
+                            y = signal.Value.Generate2(var);
+                            sinusList.Add(new PointF((float)var, (float)y));
+                            var += h;
+                        }
+                    }
+                    else
+                    {
+                        int i = 0;
+                        while (var <= 1)
+                        {
+                            y = signal.Value.Generate2(var);
+                            sinusList[i] = new PointF((float)var, (sinusList[i].Y + (float)y));
+                            var += h;
+                            if (i < sinusList.Count - 1) //kostyl
+                            {
+                                i++;
+                            }
+                        }
                     }
                 }
+                triangleList.Clear();
+                first = true;
+
+                foreach (var signal in triangle_collection)
+                {
+                    var = 0;
+                    double h = (double)1 / (double)(maxFrequency * 32);
+                    //  var -= (signal.Value.Phase + Math.PI * 0.5) / (signal.Value.Frequency * 2 * Math.PI);
+                    if (first)
+                    {
+                        first = false;
+                        while (var <= 1)
+                        {
+                            y = signal.Value.Generate2(var);
+                            triangleList.Add(new PointF((float)var, (float)y));
+                            var += h;
+                        }
+                    }
+                    else
+                    {
+                        int i = 0;
+                        while (var <= 1)
+                        {
+                            y = signal.Value.Generate2(var);
+                            triangleList[i] = new PointF((float)var, (sinusList[i].Y + (float)y));
+                            var += h;
+                            if (i < sinusList.Count - 1) //kostyl
+                            {
+                                i++;
+                            }
+
+                        }
+                    }
+                }
+                rectangleList.Clear();
+                first = true;
+
+                foreach (var signal in rectangle_collection)
+                {
+                    var = 0;
+                    double h = (double)1 / (double)(maxFrequency * 32);
+                    if (first)
+                    {
+                        first = false;
+                        while (var <= 1)
+                        {
+                            y = signal.Value.Generate2(var);
+                            rectangleList.Add(new PointF((float)var, (float)y));
+                            var += h;
+                        }
+                    }
+                    else
+                    {
+                        int i = 0;
+                        while (var <= 1)
+                        {
+                            y = signal.Value.Generate2(var);
+                            rectangleList[i] = new PointF((float)var, (sinusList[i].Y + (float)y));
+                            var += h;
+                            if (i < rectangleList.Count - 1) //kostyl
+                            {
+                                i++;
+                            }
+                        }
+                    }
+                }
+            }
+            else {
+                if (mode == 0)
+                {
+                    sinusList.Clear();
+                    Boolean first = true;
+
+                    foreach (var signal in sinus_collection)
+                    {
+                        var = 0;
+                        double h = (double)1 / (double)(maxFrequency * 32);
+                        //  var -= (signal.Value.Phase + Math.PI * 0.5) / (signal.Value.Frequency * 2 * Math.PI);
+                        if (first)
+                        {
+                            first = false;
+                            while (var <= 1)
+                            {
+                                y = signal.Value.Generate2(var);
+                                sinusList.Add(new PointF((float)var, (float)y));
+                                var += h;
+                            }
+                        }
+                        else
+                        {
+                            int i = 0;
+                            while (var <= 1)
+                            {
+                                y = signal.Value.Generate2(var);
+                                sinusList[i] = new PointF((float)var, (sinusList[i].Y + (float)y));
+                                var += h;
+                                if (i < sinusList.Count - 1) //kostyl
+                                {
+                                    i++;
+                                }
+                            }
+                        }
+                    }
+                }
+                else if (mode == 1)
+                {
+                    triangleList.Clear();
+                    Boolean first = true;
+
+                    foreach (var signal in triangle_collection)
+                    {
+                        var = 0;
+                        double h = (double)1 / (double)(maxFrequency * 32);
+                        //  var -= (signal.Value.Phase + Math.PI * 0.5) / (signal.Value.Frequency * 2 * Math.PI);
+                        if (first)
+                        {
+                            first = false;
+                            while (var <= 1)
+                            {
+                                y = signal.Value.Generate2(var);
+                                triangleList.Add(new PointF((float)var, (float)y));
+                                var += h;
+                            }
+                        }
+                        else
+                        {
+                            int i = 0;
+                            while (var <= 1)
+                            {
+                                y = signal.Value.Generate2(var);
+                                triangleList[i] = new PointF((float)var, (sinusList[i].Y + (float)y));
+                                var += h;
+                                if (i < sinusList.Count - 1) //kostyl
+                                {
+                                    i++;
+                                }
+
+                            }
+                        }
+                    }
+                }
+                else if (mode == 2) {
+                    rectangleList.Clear();
+                    Boolean first = true;
+
+                    foreach (var signal in rectangle_collection)
+                    {
+                        var = 0;
+                        double h = (double)1 / (double)(maxFrequency * 32);
+                        if (first)
+                        {
+                            first = false;
+                            while (var <= 1)
+                            {
+                                y = signal.Value.Generate2(var);
+                                rectangleList.Add(new PointF((float)var, (float)y));
+                                var += h;
+                            }
+                        }
+                        else
+                        {
+                            int i = 0;
+                            while (var <= 1)
+                            {
+                                y = signal.Value.Generate2(var);
+                                rectangleList[i] = new PointF((float)var, (sinusList[i].Y + (float)y));
+                                var += h;
+                                if (i < rectangleList.Count - 1) //kostyl
+                                {
+                                    i++;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+
+
+            this.chart_lab2_summary.Series[0].Points.Clear();
+
+            int length = 0;
+            int length1 = 0;
+            int length2 = 0;
+            int length3 = 0;
+            if (sinusList.Count != 0)
+            {
+                sin = true;
+                length1 = sinusList.Count;
+            }
+            if (triangleList.Count != 0)
+            { tri = true;
+                length2 = triangleList.Count;
+            }
+            if (rectangleList.Count != 0)
+            { rec = true;
+                length3 = rectangleList.Count;
+            }
+
+            if (sin && tri && rec)
+            {
+                if ((length1 <= length2) || (length1 <= length3))
+                {
+                    length = length1;
+                }
+                else if ((length2 <= length1) || (length2 <= length3))
+                {
+                    length = length2;
+                }
+                else { length = length3; }
+            }
+            else if (sin)
+            {
+                length = length1;
+            }
+            else if (tri)
+            {
+                length = length2;
+            }
+            else if (rec) {
+                length = length3;
+            }
+
+            List<PointF> sumList = new List<PointF>();
+            for (int j = 0; j < length; j++)
+            {
+                float sum = 0;
+                if (sin)
+                    sum += sinusList[j].Y;
+                if (tri)
+                    sum += triangleList[j].Y;
+                if (rec)
+                    sum += rectangleList[j].Y;
+                if (sin)
+                sumList.Add(new PointF(sinusList[j].X,sum)); 
+                else if (tri)
+                    sumList.Add(new PointF(triangleList[j].X, sum));
+                else if(rec)
+                    sumList.Add(new PointF(rectangleList[j].X, sum));
+            }
+
+            foreach (var point in sumList)
+            {
+                this.chart_lab2_summary.Series[0].Points.AddXY(point.X,point.Y);
             }
         }
     }
