@@ -768,6 +768,7 @@ namespace Graphics
         private string current;
         private int currentSignal; //0-sinus  1-triangle  2-rectangle
         private Boolean theFirst = false, isRectangle = false;
+        int lab2_k = 0;
         private int standart = 0;
         private Sinus currentSinus;
         private Triangle currentTriangle;
@@ -815,6 +816,7 @@ namespace Graphics
             this.comboBox_select_type.SelectedIndex = 3;
             theFirst = false;
             this.chart_lab2_common.Series.Remove(chart_lab2_common.Series.FindByName(current));
+            UpdateSum(0);
         }
         private void select_and_update() {
             this.label_chart_current_name.Text = current;
@@ -935,7 +937,6 @@ namespace Graphics
                         
                 }
                     drawSignal(current);
-
                 }
 
             }
@@ -988,6 +989,35 @@ namespace Graphics
                 rectangle_collection[current].Duty = ((double)trackBar_lab2_d.Value / trackBar_lab2_d.Maximum);
             }
             drawSignal(current);
+        }
+
+        private void textBox_lab2_k_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            String line = "";
+            if (!Char.IsDigit(number) && number != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox_lab2_k_KeyUp(object sender, KeyEventArgs e)
+        {
+            String line = "";
+            line = this.textBox_lab2_k.Text;//
+            if (line != "")
+            {
+                N_number = double.Parse(line);
+                if (N_number > 0 && N_number != double.NaN)
+                {
+                    lab2_k = (int)N_number;
+                    drawFurie();
+                }
+            }
+            else
+            {//очистка графиков
+                clearFourier();
+            }
         }
 
         private void textBox_lab2_A_KeyPress(object sender, KeyPressEventArgs e)
@@ -1459,12 +1489,15 @@ namespace Graphics
             drawFurie();
         }
 
+        public void clearFourier() {
+            this.chart_lab2_spectrums.Series[0].Points.Clear();
+            this.chart_lab2_summary.Series[1].Points.Clear();
+        }
         public void drawFurie() { 
          List<float> masAj= new List<float>();
          List<float> phaseAj = new List<float>();
          Furi furi = new Furi();
-            this.chart_lab2_spectrums.Series[0].Points.Clear();
-            this.chart_lab2_summary.Series[1].Points.Clear();
+            clearFourier();
             for (int j = 0; j < Math.Round((double)(sumList.Count / 2) - 1); j++) {
                 masAj.Add(furi.findAmplitude(furi.findCosinusComponent(sumList,sumList.Count,j),furi.findSinusComponent(sumList, sumList.Count, j)));
                 phaseAj.Add(furi.findPhase(furi.findCosinusComponent(sumList, sumList.Count, j), furi.findSinusComponent(sumList, sumList.Count, j)));
