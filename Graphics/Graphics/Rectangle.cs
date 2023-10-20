@@ -7,7 +7,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Graphics
 {
-    public class Rectangle:Signal
+    public class Rectangle
     {
         private const double POROG = (double)1 / 2;
         private const double FREQUENCY_OF_DOT = 20;
@@ -73,6 +73,25 @@ namespace Graphics
             {
                 var = (double)((Math.Abs(
                     (((2 * (double)(Math.PI) * (_F * (double)(x / _N)) + _f + (_F * (2 * (double)(Math.PI)) * (Math.Abs((int)(x / _N)) + 1)))))) % (2 * (double)(Math.PI)))) / (2 * (double)(Math.PI));
+
+            }
+            y = ((var <= _d) ? _A : -_A);
+            return y;
+        }
+
+        public double Generate2(double x)
+        {
+            double y;
+            double var;
+            if ((2 * (double)(Math.PI) * _F * (double)(x ) + _f) >= 0)
+            {
+                var = (double)((Math.Abs((2 * (double)(Math.PI) * _F * (double)(x) + _f)) % (2 * (double)(Math.PI)))) / (2 * (double)(Math.PI));
+
+            }
+            else
+            {
+                var = (double)((Math.Abs(
+                    (((2 * (double)(Math.PI) * (_F * (double)(x )) + _f + (_F * (2 * (double)(Math.PI)) * (Math.Abs((int)(x )) + 1)))))) % (2 * (double)(Math.PI)))) / (2 * (double)(Math.PI));
 
             }
             y = ((var <= _d) ? _A : -_A);

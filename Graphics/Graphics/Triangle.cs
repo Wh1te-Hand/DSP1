@@ -7,7 +7,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Graphics
 {
-    public class Triangle:Signal
+    public class Triangle
     {
         private const double POROG = (double)1 / 2;
         private const double FREQUENCY_OF_DOT = 20;
@@ -65,6 +65,22 @@ namespace Graphics
             {
                 y = ((double)(2 * _A) / (double)(Math.PI) *
                 (Math.Abs((Math.Abs(2 * (double)(Math.PI) * _F * (double)(x/ _N) + _f - (double)(Math.PI) / 2 + (_F * (2 * (double)(Math.PI)) * (Math.Abs((int)(x/ _N)) + 1))) % (2 * (double)(Math.PI))) - (double)(Math.PI)))) - _A;
+            }
+            return y;
+        }
+
+        public double Generate2(double x)
+        {
+            double y;
+            if ((2 * (double)(Math.PI) * _F * (double)(x ) + _f - (double)(Math.PI) / 2) >= 0)
+            {
+                y = ((double)(2 * _A) / (double)(Math.PI) *
+                (Math.Abs((Math.Abs(2 * (double)(Math.PI) * _F * (double)(x ) + _f - (double)(Math.PI) / 2) % (2 * (double)(Math.PI))) - (double)(Math.PI)))) - _A;
+            }
+            else
+            {
+                y = ((double)(2 * _A) / (double)(Math.PI) *
+                (Math.Abs((Math.Abs(2 * (double)(Math.PI) * _F * (double)(x) + _f - (double)(Math.PI) / 2 + (_F * (2 * (double)(Math.PI)) * (Math.Abs((int)(x )) + 1))) % (2 * (double)(Math.PI))) - (double)(Math.PI)))) - _A;
             }
             return y;
         }

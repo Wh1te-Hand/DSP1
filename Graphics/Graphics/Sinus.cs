@@ -7,7 +7,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Graphics
 {
-    public class Sinus : Signal
+    public class Sinus 
     {
         private const double POROG = (double)1 / 2;
         private const double FREQUENCY_OF_DOT = 20;
@@ -53,6 +53,11 @@ namespace Graphics
         }
         public double Generate(double x) {
            return _A * (Math.Sin((2 * (double)(Math.PI)) * _F * (double)(x / _N) + _f));
+        }
+
+        public double Generate2(double x)
+        {
+            return _A * (Math.Sin((2 * (double)(Math.PI)) * _F * (double)(x ) + _f));
         }
     }
 }

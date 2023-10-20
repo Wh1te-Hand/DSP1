@@ -8,5 +8,7 @@ namespace Graphics
 {
     public class Furi
     {
+
+
     }
 }
