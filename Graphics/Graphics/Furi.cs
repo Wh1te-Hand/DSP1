@@ -32,6 +32,27 @@ namespace Graphics
             }
             return (float)(sum * 2) / N;
         }
+        public float findCosinusComponent3(List<PointF> mas, int N, int j)
+        {
+
+            float sum = 0;
+            for (int i = 0; i < (N-1); i++)
+            {
+                sum += mas[(i)].Y * (float)Math.Cos((float)(2 * Math.PI * j * i) / N);
+            }
+            return (float)(sum * 2) / N;
+        }
+
+        public float findSinusComponent3(List<PointF> mas, int N, int j)
+        {
+
+            float sum = 0;
+            for (int i = 0; i < (N-1); i++)
+            {
+                sum += mas[i].Y * (float)Math.Sin((float)(2 * Math.PI * j * i) / N);
+            }
+            return (float)(sum * 2) / N;
+        }
         public float findCosinusComponent2(List<PointF> mas,int N,int j,double h) {
 
             float sum = 0;

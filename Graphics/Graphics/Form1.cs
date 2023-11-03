@@ -1254,7 +1254,7 @@ namespace Graphics
                         }
                         
                         first = false;
-                        while (var <= 1)
+                        while (var <= 1-h)
                         {
                             y = signal.Value.Generate2(var);
                             sinusList.Add(new PointF((float)var, (float)y));
@@ -1270,7 +1270,7 @@ namespace Graphics
                         }
 
                         int i = 0;
-                        while (var <= 1)
+                        while (var <= 1-h)
                         {
                             y = signal.Value.Generate2(var);
                             sinusList[i] = new PointF((float)var, (sinusList[i].Y + (float)y));
@@ -1306,7 +1306,7 @@ namespace Graphics
                         }
                         first = false;
 
-                        while (var <= 1)
+                        while (var <= 1-h)
                         {
                             y = signal.Value.Generate2(var);
                             triangleList.Add(new PointF((float)var, (float)y));
@@ -1321,7 +1321,7 @@ namespace Graphics
                         {
                             sumList3[z] = new PointF(variable[z].X, (variable[z].Y + sumList3[z].Y));
                         }
-                        while (var <= 1)
+                        while (var <= 1 - h)
                         {
                             y = signal.Value.Generate2(var);
                             triangleList[i] = new PointF((float)var, (triangleList[i].Y + (float)y));
@@ -1356,7 +1356,7 @@ namespace Graphics
                             }
                         }
                         first = false;
-                        while (var <= 1)
+                        while (var <= 1-h)
                         {
                             y = signal.Value.Generate2(var);
                             rectangleList.Add(new PointF((float)var, (float)y));
@@ -1371,7 +1371,7 @@ namespace Graphics
                             sumList3[z] = new PointF(variable[z].X, (variable[z].Y + sumList3[z].Y));
                         }
                         int i = 0;
-                        while (var <= 1)
+                        while (var <= 1 - h)
                         {
                             y = signal.Value.Generate2(var);
                             rectangleList[i] = new PointF((float)var, (rectangleList[i].Y + (float)y));
@@ -1670,13 +1670,15 @@ namespace Graphics
                 {
                     for (int j = 0; j < lab2_k; j++)
                     {
-                        masAj1.Add(furi.findAmplitude(furi.findCosinusComponent1(sumList, sumList.Count, j), furi.findSinusComponent1(sumList, sumList.Count, j)));
-                        phaseAj1.Add(furi.findPhase(furi.findCosinusComponent1(sumList, sumList.Count, j), furi.findSinusComponent1(sumList, sumList.Count, j)));
+                        /*                        masAj1.Add(furi.findAmplitude(furi.findCosinusComponent1(sumList, sumList.Count, j), furi.findSinusComponent1(sumList, sumList.Count, j)));
+                                                phaseAj1.Add(furi.findPhase(furi.findCosinusComponent1(sumList, sumList.Count, j), furi.findSinusComponent1(sumList, sumList.Count, j)));*/
+                        masAj1.Add(furi.findAmplitude(furi.findCosinusComponent3(sumList, sumList.Count, j), furi.findSinusComponent3(sumList, sumList.Count, j)));
+                        phaseAj1.Add(furi.findPhase(furi.findCosinusComponent3(sumList, sumList.Count, j), furi.findSinusComponent3(sumList, sumList.Count, j)));
 
                         { this.chart_lab2_spectrums.Series[0].Points.AddXY(j, masAj1[j]); };
                         this.chart_lab2_phase.Series[0].Points.AddXY(j, phaseAj1[j]);
                     }
-                    double h = (double)1 / sumList.Count;
+                    double h = (double)1 /( sumList.Count - 1);
                     for (int i = 0; i < sumList.Count; i++)
                     {
                           this.chart_lab2_summary.Series[1].Points.AddXY(sumList[i].X, (furi.recoverySignal(masAj1, phaseAj1, sumList.Count, (i))));
