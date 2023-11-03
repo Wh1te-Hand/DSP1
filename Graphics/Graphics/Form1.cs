@@ -755,6 +755,8 @@ namespace Graphics
 
             chart_lab2_summary.ChartAreas[0].AxisX.Minimum = 0;
             chart_lab2_summary.ChartAreas[0].AxisX.Maximum = 1;
+
+            chart_lab2_spectrums.ChartAreas[0].AxisX.Minimum = 0;
         }
 
         //------------------------------------------------DSP2_part---------------------------------------------------------
@@ -776,7 +778,7 @@ namespace Graphics
         private void button_add_chart_Click(object sender, EventArgs e)
         {
             current = this.textBox_chart_name.Text.Trim();
-            if (sinus_collection.ContainsKey(current))
+            if ((sinus_collection.ContainsKey(current))|| (triangle_collection.ContainsKey(current))|| (rectangle_collection.ContainsKey(current)))
             {
                 current = ($"defaultSignal{standart}");
                 standart++;
@@ -961,7 +963,7 @@ namespace Graphics
                 this.trackBar_lab2_phase.Value = (int)((double)((currentRectangle.Phase) * (this.trackBar_lab2_phase.Maximum)) / (2 * Math.PI)); //may be mistake
                 this.textBox_lab2_A.Text = currentRectangle.Amplitude.ToString();
                 this.textBox_lab2_F.Text = currentRectangle.Frequency.ToString();
-                this.trackBar_lab2_d.Value = (int)currentRectangle.Duty * this.trackBar_lab2_d.Maximum;
+                this.trackBar_lab2_d.Value = (int)(currentRectangle.Duty * this.trackBar_lab2_d.Maximum);
             }
         }
 
@@ -1011,11 +1013,13 @@ namespace Graphics
                 if (N_number > 0 && N_number != double.NaN)
                 {
                     lab2_k = (int)N_number;
-                    drawFurie();
+                    UpdateSum(1);
+                    //drawFurie();
                 }
             }
             else
             {//очистка графиков
+                lab2_k = 0;
                 clearFourier();
             }
         }
@@ -1131,7 +1135,7 @@ namespace Graphics
             }
             else if (rectangle_collection.TryGetValue(thisCurrent, out currentRectangle))
             {
-                double h = (double)1 / (currentRectangle.Frequency * 16);
+                double h = (double)1 / (currentRectangle.Frequency * 32);
                 double lambda = 0.002;
                 double fix = ((double)1 / (currentRectangle.Frequency))*currentRectangle.Duty;
                 Boolean flag = false;
@@ -1139,7 +1143,10 @@ namespace Graphics
                 var -= (currentRectangle.Phase + Math.PI * 0.5) / (currentRectangle.Frequency * 2 * Math.PI);
                 while (var <= 1)
                 {
-                    counter++;
+                    y = currentRectangle.Generate2(var);
+                    this.chart_lab2_common.Series[thisCurrent].Points.AddXY(var, y);
+                    var += h;
+                   /* counter++;
                     if (flag)
                     {
                         if (counter == 3)
@@ -1171,17 +1178,28 @@ namespace Graphics
                             this.chart_lab2_common.Series[thisCurrent].Points.AddXY(var - lambda , y);
                             flag = true;
                         }
-                    }
-                    UpdateSum(2);
+                    }*/                    
                 }
+                UpdateSum(2);
             }
             
         }
 
         double prevMax = 0;
+
+        private void checkBox_lab2_mode_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateSum(1);
+        }
+
         private List<PointF> sumList = new List<PointF>();
+        List<PointF> sumList2 = new List<PointF>();
+        List<PointF> sumList3 = new List<PointF>();
+
         public void UpdateSum(int mode) {
             sumList.Clear();
+            sumList2.Clear();
+            sumList3.Clear();
             double var = 0;
             Boolean update_all = true;
             Boolean sin = false, tri = false, rec = false;
@@ -1207,18 +1225,34 @@ namespace Graphics
                 update_all = true;
             }
 
+            this.label_lab2_Fk.Text=(maxFrequency*2).ToString();
             if (update_all)
             {
                 sinusList.Clear();
                 Boolean first = true;
+                
 
                 foreach (var signal in sinus_collection)
                 {
+                    
                     var = 0;
-                    double h = (double)1 / (double)(maxFrequency * 32);
+                    double h = (double)1 / (double)(maxFrequency * 16);
                     //  var -= (signal.Value.Phase + Math.PI * 0.5) / (signal.Value.Frequency * 2 * Math.PI);
                     if (first)
                     {
+                        if (sumList3.Count == 0)
+                        {
+                            sumList3 = findDotsFuriSinus(lab2_k, signal.Value);
+                        }
+                        else
+                        {
+                            var variable = findDotsFuriSinus(lab2_k, signal.Value);
+                            for (int z = 0; z < variable.Count; z++)
+                            {
+                                sumList3[z] = new PointF(variable[z].X, (variable[z].Y + sumList3[z].Y));
+                            }
+                        }
+                        
                         first = false;
                         while (var <= 1)
                         {
@@ -1229,6 +1263,12 @@ namespace Graphics
                     }
                     else
                     {
+                        var variable =findDotsFuriSinus(lab2_k, signal.Value);
+                        for (int z = 0; z < variable.Count; z++)
+                        {
+                            sumList3[z] = new PointF(variable[z].X, (variable[z].Y+ sumList3[z].Y));
+                        }
+
                         int i = 0;
                         while (var <= 1)
                         {
@@ -1248,11 +1288,24 @@ namespace Graphics
                 foreach (var signal in triangle_collection)
                 {
                     var = 0;
-                    double h = (double)1 / (double)(maxFrequency * 32);
+                    double h = (double)1 / (double)(maxFrequency * 16);
                     //  var -= (signal.Value.Phase + Math.PI * 0.5) / (signal.Value.Frequency * 2 * Math.PI);
                     if (first)
                     {
+                        if (sumList3.Count == 0)
+                        {
+                            sumList3 = findDotsFuriTriangle(lab2_k, signal.Value);
+                        }
+                        else
+                        {
+                            var variable = findDotsFuriTriangle(lab2_k, signal.Value);
+                            for (int z = 0; z < variable.Count; z++)
+                            {
+                                sumList3[z] = new PointF(variable[z].X, (variable[z].Y + sumList3[z].Y));
+                            }
+                        }
                         first = false;
+
                         while (var <= 1)
                         {
                             y = signal.Value.Generate2(var);
@@ -1263,10 +1316,15 @@ namespace Graphics
                     else
                     {
                         int i = 0;
+                        var variable = findDotsFuriTriangle(lab2_k, signal.Value);
+                        for (int z = 0; z < variable.Count; z++)
+                        {
+                            sumList3[z] = new PointF(variable[z].X, (variable[z].Y + sumList3[z].Y));
+                        }
                         while (var <= 1)
                         {
                             y = signal.Value.Generate2(var);
-                            triangleList[i] = new PointF((float)var, (sinusList[i].Y + (float)y));
+                            triangleList[i] = new PointF((float)var, (triangleList[i].Y + (float)y));
                             var += h;
                             if (i < sinusList.Count - 1) //kostyl
                             {
@@ -1285,6 +1343,18 @@ namespace Graphics
                     double h = (double)1 / (double)(maxFrequency * 32);
                     if (first)
                     {
+                        if (sumList3.Count == 0)
+                        {
+                            sumList3 = findDotsFuriRectangle(lab2_k, signal.Value);
+                        }
+                        else
+                        {
+                            var variable = findDotsFuriRectangle(lab2_k, signal.Value);
+                            for (int z = 0; z < variable.Count; z++)
+                            {
+                                sumList3[z] = new PointF(variable[z].X, (variable[z].Y + sumList3[z].Y));
+                            }
+                        }
                         first = false;
                         while (var <= 1)
                         {
@@ -1295,11 +1365,16 @@ namespace Graphics
                     }
                     else
                     {
+                        var variable = findDotsFuriRectangle(lab2_k, signal.Value);
+                        for (int z = 0; z < variable.Count; z++)
+                        {
+                            sumList3[z] = new PointF(variable[z].X, (variable[z].Y + sumList3[z].Y));
+                        }
                         int i = 0;
                         while (var <= 1)
                         {
                             y = signal.Value.Generate2(var);
-                            rectangleList[i] = new PointF((float)var, (sinusList[i].Y + (float)y));
+                            rectangleList[i] = new PointF((float)var, (rectangleList[i].Y + (float)y));
                             var += h;
                             if (i < rectangleList.Count - 1) //kostyl
                             {
@@ -1426,6 +1501,7 @@ namespace Graphics
             int length1 = 0;
             int length2 = 0;
             int length3 = 0;
+
             if (sinusList.Count != 0)
             {
                 sin = true;
@@ -1464,7 +1540,18 @@ namespace Graphics
                 length = length3;
             }
 
+            double hi ;
+            if (lab2_k == 0)
+            {
+              hi = length;
+            }
+            else
+            { hi = (double)length / (lab2_k);
             
+            }
+            
+
+                int num = 0;
             for (int j = 0; j < length; j++)
             {
                 float sum = 0;
@@ -1475,12 +1562,35 @@ namespace Graphics
                 if (rec)
                     sum += rectangleList[j].Y;
                 if (sin)
-                sumList.Add(new PointF(sinusList[j].X,sum)); 
+                {
+                    sumList.Add(new PointF(sinusList[j].X, sum));
+                   
+                    if ((num * hi) < j)
+                    {
+                        sumList2.Add(new PointF(sinusList[j].X, sum));
+                        num++;
+                    }
+                }
                 else if (tri)
+                {
                     sumList.Add(new PointF(triangleList[j].X, sum));
-                else if(rec)
+                    if ((num * hi) < j)
+                    {
+                        sumList2.Add(new PointF(triangleList[j].X, sum));
+                        num++;
+                    }
+                }
+                else if (rec)
+                {
                     sumList.Add(new PointF(rectangleList[j].X, sum));
+                    if ((num * hi) < j)
+                    {
+                        sumList2.Add(new PointF(rectangleList[j].X, sum));
+                        num++;
+                    }
+                }
             }
+
 
             foreach (var point in sumList)
             {
@@ -1492,21 +1602,149 @@ namespace Graphics
         public void clearFourier() {
             this.chart_lab2_spectrums.Series[0].Points.Clear();
             this.chart_lab2_summary.Series[1].Points.Clear();
+            this.chart_lab2_phase.Series[0].Points.Clear();
         }
         public void drawFurie() { 
          List<float> masAj= new List<float>();
          List<float> phaseAj = new List<float>();
-         Furi furi = new Furi();
+         List<float> masAj1 = new List<float>();
+         List<float> phaseAj1 = new List<float>();
+            Furi furi = new Furi();
             clearFourier();
-            for (int j = 0; j < Math.Round((double)(sumList.Count / 2) - 1); j++) {
-                masAj.Add(furi.findAmplitude(furi.findCosinusComponent(sumList,sumList.Count,j),furi.findSinusComponent(sumList, sumList.Count, j)));
-                phaseAj.Add(furi.findPhase(furi.findCosinusComponent(sumList, sumList.Count, j), furi.findSinusComponent(sumList, sumList.Count, j)));
-                this.chart_lab2_spectrums.Series[0].Points.AddXY(j, masAj[0]);
-            }
-            for (int i = 0; i < sumList.Count; i++)
+            int discret = (int)prevMax * 2;
+            if (lab2_k == 0)
             {
-                this.chart_lab2_summary.Series[1].Points.AddXY(sumList[i].X, (furi.recoverySignal(masAj,phaseAj, sumList.Count, i)));
+                for (int j = 0; j < Math.Round((double)(sumList.Count / 2) - 1); j++)
+               // for (int j = 0; j < sumList.Count; j++)
+                {
+                    masAj.Add(furi.findAmplitude(furi.findCosinusComponent1(sumList, sumList.Count, j), furi.findSinusComponent1(sumList, sumList.Count, j)));
+                    phaseAj.Add(furi.findPhase(furi.findCosinusComponent1(sumList, sumList.Count, j), furi.findSinusComponent1(sumList, sumList.Count, j)));
+
+                    /*if (masAj[j] < 1) {
+                        this.chart_lab2_spectrums.Series[0].Points.AddXY(j, 0);
+                    }
+                    else*/
+                    { this.chart_lab2_spectrums.Series[0].Points.AddXY(j, masAj[j]); };
+
+                    this.chart_lab2_phase.Series[0].Points.AddXY(j, phaseAj[j]);
+                }
+                for (int i = 0; i < sumList.Count; i++)
+                {
+                    this.chart_lab2_summary.Series[1].Points.AddXY(sumList[i].X, (furi.recoverySignal(masAj, phaseAj, sumList.Count, i)));
+                
+                }
+            }
+            else
+            {
+                if (!this.checkBox_lab2_mode.Checked)
+                { // for (int j = 0; j < Math.Round((double)(sumList2.Count / 2) - 1); j++)
+                    for (int j = 0; j < lab2_k; j++)
+                    {
+                        masAj1.Add(furi.findAmplitude(furi.findCosinusComponent1(sumList3, sumList3.Count, j), furi.findSinusComponent1(sumList3, sumList3.Count, j)));
+                        phaseAj1.Add(furi.findPhase(furi.findCosinusComponent1(sumList3, sumList3.Count, j), furi.findSinusComponent1(sumList3, sumList3.Count, j)));
+                       // masAj1.Add(furi.findAmplitude(furi.findCosinusComponent1(sumList, sumList.Count, j), furi.findSinusComponent1(sumList, sumList.Count, j)));
+                       // phaseAj1.Add(furi.findPhase(furi.findCosinusComponent1(sumList, sumList.Count, j), furi.findSinusComponent1(sumList, sumList.Count, j)));
+                        /*                    if (masAj1[j] < 1)
+                                            {
+                                                this.chart_lab2_spectrums.Series[0].Points.AddXY(j, 0);
+                                            }
+                                            else*/
+                        { this.chart_lab2_spectrums.Series[0].Points.AddXY(j, masAj1[j]); };
+                        this.chart_lab2_phase.Series[0].Points.AddXY(j, phaseAj1[j]);
+                    }
+                    // double h = (double)sumList.Count / (double)lab2_k;
+                    double h = (double)1 / sumList.Count;
+                    for (int i = 0; i < sumList.Count; i++)
+                    //  for (int i = 0; i < sumList2.Count - 1; i++)
+                    {
+
+                        // this.chart_lab2_summary.Series[1].Points.AddXY(sumList2[(int)(i*h)].X, (furi.recoverySignal(masAj1, phaseAj1, sumList2.Count, (int)(i*h))));
+                        //  this.chart_lab2_summary.Series[1].Points.AddXY(sumList2[(int)(i)].X, (furi.recoverySignal(masAj1, phaseAj1, sumList2.Count, (int)(i ))));
+                       // this.chart_lab2_summary.Series[1].Points.AddXY(sumList[i].X, (furi.recoverySignal(masAj1, phaseAj1, sumList.Count, (i))));
+                         this.chart_lab2_summary.Series[1].Points.AddXY(h*i, (furi.recoverySignal3(masAj1, phaseAj1, lab2_k, i*h)));
+
+                        // this.chart_lab2_spectrums.Series[0].Points.AddXY(i, masAj[(int)(i * h)]);
+                    }
+                }
+                else
+                {
+                    for (int j = 0; j < lab2_k; j++)
+                    {
+                        masAj1.Add(furi.findAmplitude(furi.findCosinusComponent1(sumList, sumList.Count, j), furi.findSinusComponent1(sumList, sumList.Count, j)));
+                        phaseAj1.Add(furi.findPhase(furi.findCosinusComponent1(sumList, sumList.Count, j), furi.findSinusComponent1(sumList, sumList.Count, j)));
+
+                        { this.chart_lab2_spectrums.Series[0].Points.AddXY(j, masAj1[j]); };
+                        this.chart_lab2_phase.Series[0].Points.AddXY(j, phaseAj1[j]);
+                    }
+                    double h = (double)1 / sumList.Count;
+                    for (int i = 0; i < sumList.Count; i++)
+                    {
+                          this.chart_lab2_summary.Series[1].Points.AddXY(sumList[i].X, (furi.recoverySignal(masAj1, phaseAj1, sumList.Count, (i))));
+                    }
+                }
+
+                /*if (lab2_k < discret)
+                {
+                    double h = sumList.Count / lab2_k;
+                    for (int j = 0; j < lab2_k; j++)
+                    {
+                        masAj.Add(furi.findAmplitude(furi.findCosinusComponent2(sumList, sumList.Count,j,h), furi.findSinusComponent2(sumList, sumList.Count, j, h)));
+                        phaseAj.Add(furi.findPhase(furi.findCosinusComponent2(sumList, sumList.Count, j, h), furi.findSinusComponent2(sumList, sumList.Count, j, h)));
+                        this.chart_lab2_spectrums.Series[0].Points.AddXY((int)(j * h), masAj[j]);
+                    }
+                    for (int i = 0; i < lab2_k; i++)
+                    {
+                        this.chart_lab2_summary.Series[1].Points.AddXY(sumList[(int)(i*h)].X, (furi.recoverySignal2(masAj, phaseAj, sumList.Count, (int)(i * h))));
+                    }
+                }
+                else  if (lab2_k>= discret)
+                {
+                    double h = sumList.Count / discret;
+                    for (int j = 0; j < discret; j++)
+                    {
+                        masAj.Add(furi.findAmplitude(furi.findCosinusComponent2(sumList, sumList.Count, j, h), furi.findSinusComponent2(sumList, sumList.Count, j, h)));
+                        phaseAj.Add(furi.findPhase(furi.findCosinusComponent2(sumList, sumList.Count, j, h), furi.findSinusComponent2(sumList, sumList.Count, j, h)));
+                        this.chart_lab2_spectrums.Series[0].Points.AddXY((int)(j * h), masAj[j]);
+                    }
+                    for (int i = 0; i < discret; i++)
+                    {
+                        this.chart_lab2_summary.Series[1].Points.AddXY(sumList[(int)(i * h)].X, (furi.recoverySignal2(masAj, phaseAj, sumList.Count, (int)(i * h))));
+                    }
+                }*/
             }
         }
+
+        public List<PointF> findDotsFuriSinus(int k_lab2, Sinus sinus)
+        {
+            double h = (double)1 / k_lab2;
+            List<PointF> result = new List<PointF>();
+            for (int i = 0; i < k_lab2; i++)
+            {
+                result.Add(new PointF((float)(i * h), (float)sinus.Generate2(i * h)));
+            }
+            return result;
+        }
+        public List<PointF> findDotsFuriTriangle(int k_lab2, Triangle triangle)
+        {
+            double h = (double)1 / k_lab2;
+            List<PointF> result = new List<PointF>();
+            for (int i = 0; i < k_lab2; i++)
+            {
+                result.Add(new PointF((float)(i * h), (float)triangle.Generate2(i * h)));
+            }
+            return result;
+        }
+
+        public List<PointF> findDotsFuriRectangle(int k_lab2, Rectangle rectangle)
+        {
+            double h = (double)1 / k_lab2;
+            List<PointF> result = new List<PointF>();
+            for (int i = 0; i < k_lab2; i++)
+            {
+                result.Add(new PointF((float)(i * h), (float)rectangle.Generate2(i * h)));
+            }
+            return result;
+        }
+
     }
 }

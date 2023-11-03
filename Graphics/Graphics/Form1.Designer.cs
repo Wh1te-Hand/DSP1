@@ -28,30 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea22 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend16 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series37 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series38 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series39 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea23 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend17 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series40 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea24 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend18 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series41 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series42 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series43 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea25 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend19 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series44 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea29 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend21 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series45 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea26 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea27 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series46 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea28 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend20 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series47 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea30 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend22 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series48 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea31 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend23 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series49 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series50 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series51 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea32 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend24 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series52 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series53 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea33 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea34 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend25 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series54 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea35 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series55 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl_graphic = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -105,6 +104,7 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.chart_all = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.checkBox_lab2_mode = new System.Windows.Forms.CheckBox();
             this.label_lab2_Fk = new System.Windows.Forms.Label();
             this.tabControl_dsp2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -113,6 +113,10 @@
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.chart_lab2_common = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.chart_lab2_phase = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.chart_lab2_spectrums = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.comboBox_select_chart = new System.Windows.Forms.ComboBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -133,10 +137,6 @@
             this.label27 = new System.Windows.Forms.Label();
             this.textBox_lab2_F = new System.Windows.Forms.TextBox();
             this.textBox_lab2_A = new System.Windows.Forms.TextBox();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.chart_lab2_spectrums = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.chart_lab2_phase = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabControl_graphic.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -166,14 +166,14 @@
             this.groupBox11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_lab2_common)).BeginInit();
             this.tabPage5.SuspendLayout();
+            this.groupBox13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_lab2_phase)).BeginInit();
+            this.groupBox12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_lab2_spectrums)).BeginInit();
             this.groupBox8.SuspendLayout();
             this.groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_lab2_d)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_lab2_phase)).BeginInit();
-            this.groupBox12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_lab2_spectrums)).BeginInit();
-            this.groupBox13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_lab2_phase)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl_graphic
@@ -222,33 +222,33 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chart_sinus.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
-            chartArea22.Name = "ChartArea1";
-            this.chart_sinus.ChartAreas.Add(chartArea22);
-            legend16.Name = "Legend1";
-            this.chart_sinus.Legends.Add(legend16);
+            chartArea29.Name = "ChartArea1";
+            this.chart_sinus.ChartAreas.Add(chartArea29);
+            legend21.Name = "Legend1";
+            this.chart_sinus.Legends.Add(legend21);
             this.chart_sinus.Location = new System.Drawing.Point(0, 21);
             this.chart_sinus.Name = "chart_sinus";
-            series37.BorderWidth = 3;
-            series37.ChartArea = "ChartArea1";
-            series37.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series37.Legend = "Legend1";
-            series37.LegendText = "sinus";
-            series37.Name = "Series1";
-            series38.BorderWidth = 3;
-            series38.ChartArea = "ChartArea1";
-            series38.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series38.Legend = "Legend1";
-            series38.LegendText = "triangle";
-            series38.Name = "Series2";
-            series39.BorderWidth = 3;
-            series39.ChartArea = "ChartArea1";
-            series39.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series39.Legend = "Legend1";
-            series39.LegendText = "rectangle";
-            series39.Name = "Series3";
-            this.chart_sinus.Series.Add(series37);
-            this.chart_sinus.Series.Add(series38);
-            this.chart_sinus.Series.Add(series39);
+            series45.BorderWidth = 3;
+            series45.ChartArea = "ChartArea1";
+            series45.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series45.Legend = "Legend1";
+            series45.LegendText = "sinus";
+            series45.Name = "Series1";
+            series46.BorderWidth = 3;
+            series46.ChartArea = "ChartArea1";
+            series46.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series46.Legend = "Legend1";
+            series46.LegendText = "triangle";
+            series46.Name = "Series2";
+            series47.BorderWidth = 3;
+            series47.ChartArea = "ChartArea1";
+            series47.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series47.Legend = "Legend1";
+            series47.LegendText = "rectangle";
+            series47.Name = "Series3";
+            this.chart_sinus.Series.Add(series45);
+            this.chart_sinus.Series.Add(series46);
+            this.chart_sinus.Series.Add(series47);
             this.chart_sinus.Size = new System.Drawing.Size(952, 595);
             this.chart_sinus.TabIndex = 0;
             this.chart_sinus.Text = "chart1";
@@ -764,19 +764,19 @@
             this.chart_summary.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea23.Name = "ChartArea1";
-            this.chart_summary.ChartAreas.Add(chartArea23);
-            legend17.Name = "Legend1";
-            this.chart_summary.Legends.Add(legend17);
+            chartArea30.Name = "ChartArea1";
+            this.chart_summary.ChartAreas.Add(chartArea30);
+            legend22.Name = "Legend1";
+            this.chart_summary.Legends.Add(legend22);
             this.chart_summary.Location = new System.Drawing.Point(6, 36);
             this.chart_summary.Name = "chart_summary";
-            series40.BorderWidth = 3;
-            series40.ChartArea = "ChartArea1";
-            series40.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series40.Color = System.Drawing.Color.Red;
-            series40.Legend = "Legend1";
-            series40.Name = "summary";
-            this.chart_summary.Series.Add(series40);
+            series48.BorderWidth = 3;
+            series48.ChartArea = "ChartArea1";
+            series48.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series48.Color = System.Drawing.Color.Red;
+            series48.Legend = "Legend1";
+            series48.Name = "summary";
+            this.chart_summary.Series.Add(series48);
             this.chart_summary.Size = new System.Drawing.Size(825, 174);
             this.chart_summary.TabIndex = 0;
             this.chart_summary.Text = "chart_summary";
@@ -799,34 +799,35 @@
             this.chart_all.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea24.Name = "ChartArea1";
-            this.chart_all.ChartAreas.Add(chartArea24);
-            legend18.Name = "Legend1";
-            this.chart_all.Legends.Add(legend18);
+            chartArea31.Name = "ChartArea1";
+            this.chart_all.ChartAreas.Add(chartArea31);
+            legend23.Name = "Legend1";
+            this.chart_all.Legends.Add(legend23);
             this.chart_all.Location = new System.Drawing.Point(0, 21);
             this.chart_all.Name = "chart_all";
-            series41.BorderWidth = 2;
-            series41.ChartArea = "ChartArea1";
-            series41.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series41.Legend = "Legend1";
-            series41.Name = "sinus";
-            series42.ChartArea = "ChartArea1";
-            series42.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series42.Legend = "Legend1";
-            series42.Name = "triangle";
-            series43.ChartArea = "ChartArea1";
-            series43.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series43.Legend = "Legend1";
-            series43.Name = "rectangle";
-            this.chart_all.Series.Add(series41);
-            this.chart_all.Series.Add(series42);
-            this.chart_all.Series.Add(series43);
+            series49.BorderWidth = 2;
+            series49.ChartArea = "ChartArea1";
+            series49.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series49.Legend = "Legend1";
+            series49.Name = "sinus";
+            series50.ChartArea = "ChartArea1";
+            series50.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series50.Legend = "Legend1";
+            series50.Name = "triangle";
+            series51.ChartArea = "ChartArea1";
+            series51.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series51.Legend = "Legend1";
+            series51.Name = "rectangle";
+            this.chart_all.Series.Add(series49);
+            this.chart_all.Series.Add(series50);
+            this.chart_all.Series.Add(series51);
             this.chart_all.Size = new System.Drawing.Size(831, 229);
             this.chart_all.TabIndex = 0;
             this.chart_all.Text = "chart_all";
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.checkBox_lab2_mode);
             this.tabPage3.Controls.Add(this.label_lab2_Fk);
             this.tabPage3.Controls.Add(this.tabControl_dsp2);
             this.tabPage3.Controls.Add(this.comboBox_select_chart);
@@ -841,11 +842,21 @@
             this.tabPage3.Text = "DSP2";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // checkBox_lab2_mode
+            // 
+            this.checkBox_lab2_mode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBox_lab2_mode.AutoSize = true;
+            this.checkBox_lab2_mode.Location = new System.Drawing.Point(1184, 363);
+            this.checkBox_lab2_mode.Name = "checkBox_lab2_mode";
+            this.checkBox_lab2_mode.Size = new System.Drawing.Size(88, 20);
+            this.checkBox_lab2_mode.TabIndex = 32;
+            this.checkBox_lab2_mode.Text = "Old mode";
+            this.checkBox_lab2_mode.UseVisualStyleBackColor = true;
+            this.checkBox_lab2_mode.CheckedChanged += new System.EventHandler(this.checkBox_lab2_mode_CheckedChanged);
+            // 
             // label_lab2_Fk
             // 
-            this.label_lab2_Fk.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_lab2_Fk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label_lab2_Fk.AutoSize = true;
             this.label_lab2_Fk.Location = new System.Drawing.Point(1191, 447);
             this.label_lab2_Fk.Name = "label_lab2_Fk";
@@ -897,25 +908,25 @@
             this.chart_lab2_summary.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea25.Name = "ChartArea1";
-            this.chart_lab2_summary.ChartAreas.Add(chartArea25);
-            legend19.Name = "Legend1";
-            this.chart_lab2_summary.Legends.Add(legend19);
+            chartArea32.Name = "ChartArea1";
+            this.chart_lab2_summary.ChartAreas.Add(chartArea32);
+            legend24.Name = "Legend1";
+            this.chart_lab2_summary.Legends.Add(legend24);
             this.chart_lab2_summary.Location = new System.Drawing.Point(6, 36);
             this.chart_lab2_summary.Name = "chart_lab2_summary";
-            series44.BorderWidth = 3;
-            series44.ChartArea = "ChartArea1";
-            series44.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series44.Legend = "Legend1";
-            series44.Name = "Summary";
-            series45.BorderWidth = 2;
-            series45.ChartArea = "ChartArea1";
-            series45.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series45.Color = System.Drawing.Color.Red;
-            series45.Legend = "Legend1";
-            series45.Name = "Fourier";
-            this.chart_lab2_summary.Series.Add(series44);
-            this.chart_lab2_summary.Series.Add(series45);
+            series52.BorderWidth = 4;
+            series52.ChartArea = "ChartArea1";
+            series52.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series52.Legend = "Legend1";
+            series52.Name = "Summary";
+            series53.BorderWidth = 2;
+            series53.ChartArea = "ChartArea1";
+            series53.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series53.Color = System.Drawing.Color.Red;
+            series53.Legend = "Legend1";
+            series53.Name = "Fourier";
+            this.chart_lab2_summary.Series.Add(series52);
+            this.chart_lab2_summary.Series.Add(series53);
             this.chart_lab2_summary.Size = new System.Drawing.Size(1000, 208);
             this.chart_lab2_summary.TabIndex = 0;
             this.chart_lab2_summary.Text = "chart1";
@@ -938,8 +949,8 @@
             this.chart_lab2_common.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea26.Name = "ChartArea1";
-            this.chart_lab2_common.ChartAreas.Add(chartArea26);
+            chartArea33.Name = "ChartArea1";
+            this.chart_lab2_common.ChartAreas.Add(chartArea33);
             this.chart_lab2_common.Location = new System.Drawing.Point(0, 21);
             this.chart_lab2_common.Name = "chart_lab2_common";
             this.chart_lab2_common.Size = new System.Drawing.Size(1006, 260);
@@ -957,6 +968,69 @@
             this.tabPage5.TabIndex = 1;
             this.tabPage5.Text = "Spectrum";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox13.Controls.Add(this.chart_lab2_phase);
+            this.groupBox13.Location = new System.Drawing.Point(6, 311);
+            this.groupBox13.MaximumSize = new System.Drawing.Size(2000, 1200);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(1012, 250);
+            this.groupBox13.TabIndex = 5;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "Phase spectre";
+            // 
+            // chart_lab2_phase
+            // 
+            this.chart_lab2_phase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea34.Name = "ChartArea1";
+            this.chart_lab2_phase.ChartAreas.Add(chartArea34);
+            legend25.Name = "Legend1";
+            this.chart_lab2_phase.Legends.Add(legend25);
+            this.chart_lab2_phase.Location = new System.Drawing.Point(6, 21);
+            this.chart_lab2_phase.Name = "chart_lab2_phase";
+            series54.ChartArea = "ChartArea1";
+            series54.Legend = "Legend1";
+            series54.Name = "Summary";
+            this.chart_lab2_phase.Series.Add(series54);
+            this.chart_lab2_phase.Size = new System.Drawing.Size(1000, 208);
+            this.chart_lab2_phase.TabIndex = 0;
+            this.chart_lab2_phase.Text = "chart1";
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox12.Controls.Add(this.chart_lab2_spectrums);
+            this.groupBox12.Location = new System.Drawing.Point(0, 3);
+            this.groupBox12.MaximumSize = new System.Drawing.Size(2000, 400);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(1020, 293);
+            this.groupBox12.TabIndex = 4;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Spectrums";
+            // 
+            // chart_lab2_spectrums
+            // 
+            this.chart_lab2_spectrums.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea35.Name = "ChartArea1";
+            this.chart_lab2_spectrums.ChartAreas.Add(chartArea35);
+            this.chart_lab2_spectrums.Location = new System.Drawing.Point(0, 21);
+            this.chart_lab2_spectrums.Name = "chart_lab2_spectrums";
+            series55.BorderWidth = 3;
+            series55.ChartArea = "ChartArea1";
+            series55.Name = "Series1";
+            this.chart_lab2_spectrums.Series.Add(series55);
+            this.chart_lab2_spectrums.Size = new System.Drawing.Size(1014, 260);
+            this.chart_lab2_spectrums.TabIndex = 0;
+            this.chart_lab2_spectrums.Text = "chart2";
             // 
             // comboBox_select_chart
             // 
@@ -1011,6 +1085,7 @@
             // 
             // textBox_lab2_k
             // 
+            this.textBox_lab2_k.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_lab2_k.Location = new System.Drawing.Point(1071, 441);
             this.textBox_lab2_k.Name = "textBox_lab2_k";
             this.textBox_lab2_k.Size = new System.Drawing.Size(86, 22);
@@ -1020,6 +1095,7 @@
             // 
             // label19
             // 
+            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(1043, 444);
             this.label19.Name = "label19";
@@ -1170,75 +1246,6 @@
             this.textBox_lab2_A.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_lab2_A_KeyPress);
             this.textBox_lab2_A.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_lab2_A_KeyUp);
             // 
-            // groupBox12
-            // 
-            this.groupBox12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox12.Controls.Add(this.chart_lab2_spectrums);
-            this.groupBox12.Location = new System.Drawing.Point(0, 3);
-            this.groupBox12.MaximumSize = new System.Drawing.Size(2000, 400);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(1020, 293);
-            this.groupBox12.TabIndex = 4;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "Spectrums";
-            // 
-            // chart_lab2_spectrums
-            // 
-            this.chart_lab2_spectrums.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea27.Name = "ChartArea1";
-            this.chart_lab2_spectrums.ChartAreas.Add(chartArea27);
-            this.chart_lab2_spectrums.Location = new System.Drawing.Point(0, 21);
-            this.chart_lab2_spectrums.Name = "chart_lab2_spectrums";
-            series46.BorderWidth = 3;
-            series46.ChartArea = "ChartArea1";
-            series46.Name = "Series1";
-            this.chart_lab2_spectrums.Series.Add(series46);
-            this.chart_lab2_spectrums.Size = new System.Drawing.Size(1014, 260);
-            this.chart_lab2_spectrums.TabIndex = 0;
-            this.chart_lab2_spectrums.Text = "chart2";
-            // 
-            // groupBox13
-            // 
-            this.groupBox13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox13.Controls.Add(this.chart_lab2_phase);
-            this.groupBox13.Location = new System.Drawing.Point(6, 311);
-            this.groupBox13.MaximumSize = new System.Drawing.Size(2000, 1200);
-            this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(1012, 250);
-            this.groupBox13.TabIndex = 5;
-            this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "Phase spectre";
-            // 
-            // chart_lab2_phase
-            // 
-            this.chart_lab2_phase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea28.Name = "ChartArea1";
-            this.chart_lab2_phase.ChartAreas.Add(chartArea28);
-            legend20.Name = "Legend1";
-            this.chart_lab2_phase.Legends.Add(legend20);
-            this.chart_lab2_phase.Location = new System.Drawing.Point(6, 21);
-            this.chart_lab2_phase.Name = "chart_lab2_phase";
-            series47.ChartArea = "ChartArea1";
-            series47.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series47.Legend = "Legend1";
-            series47.Name = "Summary";
-            series48.ChartArea = "ChartArea1";
-            series48.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series48.Legend = "Legend1";
-            series48.Name = "Fourier";
-            this.chart_lab2_phase.Series.Add(series47);
-            this.chart_lab2_phase.Series.Add(series48);
-            this.chart_lab2_phase.Size = new System.Drawing.Size(1000, 208);
-            this.chart_lab2_phase.TabIndex = 0;
-            this.chart_lab2_phase.Text = "chart1";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1283,16 +1290,16 @@
             this.groupBox11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart_lab2_common)).EndInit();
             this.tabPage5.ResumeLayout(false);
+            this.groupBox13.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart_lab2_phase)).EndInit();
+            this.groupBox12.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart_lab2_spectrums)).EndInit();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_lab2_d)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_lab2_phase)).EndInit();
-            this.groupBox12.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart_lab2_spectrums)).EndInit();
-            this.groupBox13.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart_lab2_phase)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1384,6 +1391,7 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart_lab2_spectrums;
         private System.Windows.Forms.GroupBox groupBox13;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart_lab2_phase;
+        private System.Windows.Forms.CheckBox checkBox_lab2_mode;
     }
 }
 
