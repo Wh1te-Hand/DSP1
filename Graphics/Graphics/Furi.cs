@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Graphics
 {
-    public class Furi
+    public  static class Furi
     {
-        public Furi() {;}
+      //  public Furi() {;}
 
-        public float findCosinusComponent1(List<PointF> mas, int N, int j)
+        public static float findCosinusComponent1(List<PointF> mas, int N, int j)
         {
 
             float sum = 0;
@@ -22,7 +22,7 @@ namespace Graphics
             return (float)(sum * 2) / N;
         }
 
-        public float findSinusComponent1(List<PointF> mas, int N, int j)
+        public static float findSinusComponent1(List<PointF> mas, int N, int j)
         {
 
             float sum = 0;
@@ -32,7 +32,7 @@ namespace Graphics
             }
             return (float)(sum * 2) / N;
         }
-        public float findCosinusComponent3(List<PointF> mas, int N, int j)
+        public static float findCosinusComponent3(List<PointF> mas, int N, int j)
         {
 
             float sum = 0;
@@ -43,7 +43,7 @@ namespace Graphics
             return (float)(sum * 2) / N;
         }
 
-        public float findSinusComponent3(List<PointF> mas, int N, int j)
+        public static float findSinusComponent3(List<PointF> mas, int N, int j)
         {
 
             float sum = 0;
@@ -53,7 +53,7 @@ namespace Graphics
             }
             return (float)(sum * 2) / N;
         }
-        public float findCosinusComponent2(List<PointF> mas,int N,int j,double h) {
+        public static float findCosinusComponent2(List<PointF> mas,int N,int j,double h) {
 
             float sum = 0;
             for (int i = 0; i < (int)(N/h);i++)
@@ -63,7 +63,7 @@ namespace Graphics
             return (float)(sum*2)/ (float)(N / h);
         }
 
-        public float findSinusComponent2(List<PointF> mas, int N, int j,double h)
+        public static float findSinusComponent2(List<PointF> mas, int N, int j,double h)
         {
 
             float sum = 0;
@@ -74,17 +74,17 @@ namespace Graphics
             return (float)(sum * 2) / (float)(N / h);
         }
 
-        public float findAmplitude(float aCos,float aSin)
+        public static float findAmplitude(float aCos,float aSin)
         {
             return (float)Math.Sqrt(aCos*aCos+aSin*aSin);
         }
 
-        public float findPhase(float aCos, float aSin)
+        public static float findPhase(float aCos, float aSin)
         {
             return (float)Math.Atan2(aSin,aCos);
         }
 
-        public float recoverySignal(List<float> aJmas,List<float> phaseMas, int N,int i) 
+        public static float recoverySignal(List<float> aJmas,List<float> phaseMas, int N,int i) 
         {
             float sum = 0;
 
@@ -97,7 +97,7 @@ namespace Graphics
        // return sum+aJmas[0]/2;
        return sum;
         }
-        public float recoverySignal3(List<float> aJmas, List<float> phaseMas, int N,double i)
+        public static float recoverySignal3(List<float> aJmas, List<float> phaseMas, int N,double i)
         {
             float sum = 0;
             // for (int j = 0; j < N / 2 - 1; j++)
@@ -111,7 +111,7 @@ namespace Graphics
             return sum;
         }
 
-        public float recoverySignal2(List<float> aJmas, List<float> phaseMas, int N, int i)
+        public static float recoverySignal2(List<float> aJmas, List<float> phaseMas, int N, int i)
         {
             float sum = 0;
 
