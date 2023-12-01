@@ -97,6 +97,32 @@ namespace Graphics
        // return sum+aJmas[0]/2;
        return sum;
         }
+
+        public static float recoverySignalFiltr(List<float> aJmas, List<float> phaseMas, int N, int i,int From,int To,bool mode)
+        {
+            float sum = 0;
+
+            for (int j = 1; j < aJmas.Count / 2 + 1; j++)
+            {
+                if (mode)
+                {
+                    if ((j >= From) && (j <= To))
+                    {
+                        sum += aJmas[j] * (float)Math.Cos(((float)(2 * Math.PI * j * i) / N) - phaseMas[j]);
+                    }
+                }
+                else 
+                {
+                    if ((j <= From) || (j>= To))
+                    {
+                        sum += aJmas[j] * (float)Math.Cos(((float)(2 * Math.PI * j * i) / N) - phaseMas[j]);
+                    }
+                }
+                
+
+            }
+            return sum;
+        }
         public static float recoverySignal3(List<float> aJmas, List<float> phaseMas, int N,double i)
         {
             float sum = 0;

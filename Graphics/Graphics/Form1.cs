@@ -4,12 +4,14 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml.Schema;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Graphics
 {
@@ -757,6 +759,13 @@ namespace Graphics
             chart_lab2_summary.ChartAreas[0].AxisX.Maximum = 1;
 
             chart_lab2_spectrums.ChartAreas[0].AxisX.Minimum = 0;
+
+            textBox_lab3_AverageK.Text = lab3_AverageK.ToString();
+            textBox_lab3_ParabolaK.Text = lab3_ParabolaK.ToString();
+            textBox_lab3_MedianK.Text = lab3_MedianK.ToString();
+            textBox_lab3_MedianN.Text = lab3_MedianN.ToString();
+            textBox_lab3_to.Text=lab3_FiltrTo.ToString();
+            textBox_lab3_from.Text=lab3_filtrFrom.ToString();
         }
 
         //------------------------------------------------DSP2_part---------------------------------------------------------
@@ -1201,6 +1210,8 @@ namespace Graphics
         List<PointF> sumList3 = new List<PointF>();
         List<PointF> copyList = new List<PointF>();
 
+
+
         public void UpdateSum(int mode) {
             sumList.Clear();
             sumList2.Clear();
@@ -1601,23 +1612,122 @@ namespace Graphics
             }
 
             copyList.Clear();
+
             for (int i = 0; i < sumList.Count; i++)
             {
                 double varRand = (rand.NextDouble() - 0.5);             
 
                 if (this.checkBox_lab3_Noise.Checked)
                 {
-                    copyList.Add(new PointF(sumList[i].X, sumList[i].Y + (float)((varRand) * maxAmplitude * 0.5)));
+                   // copyList.Add(new PointF(sumList[i].X, sumList[i].Y + (float)((varRand) * maxAmplitude * 0.5)));
                     sumList[i] = new PointF(sumList[i].X, sumList[i].Y + (float)((varRand) * maxAmplitude * 0.5));
                 }
             }
+
+            
+
+            if (this.checkBox_lab3_Noise.Checked)
+            {
+                for (int i = 0; i < sumList3.Count; i++)
+                {
+                    double varRand = (rand.NextDouble() - 0.5);
+                    // copyList.Add(new PointF(sumList[i].X, sumList[i].Y + (float)((varRand) * maxAmplitude * 0.5)));
+                    sumList3[i] = new PointF(sumList3[i].X, sumList3[i].Y + (float)((varRand) * maxAmplitude * 0.5));
+                }
+            }
+
+
+            this.chart_lab2_summary.Series.Remove(chart_lab2_summary.Series.FindByName("Modify"));
+            this.chart_lab2_summary.Series.Remove(chart_lab2_summary.Series.FindByName("Furier2"));
+
+            if (this.checkBox_lab3_smooth.Checked||this.checkBox_lab3_filtr.Checked)
+            {
+                this.chart_lab2_summary.Series.Add("Modify");
+                this.chart_lab2_summary.Series["Modify"].ChartType = SeriesChartType.Spline;
+                this.chart_lab2_summary.Series["Modify"].BorderWidth = 2;
+
+                this.chart_lab2_summary.Series.Add("Furier2");
+                this.chart_lab2_summary.Series["Furier2"].ChartType = SeriesChartType.Spline;
+                this.chart_lab2_summary.Series["Furier2"].BorderWidth = 2;
+                this.chart_lab2_summary.Series["Furier2"].Color = Color.Green;
+            }
+
+            if ( this.checkBox_lab3_smooth.Checked)
+            {
+
+                List<float> masAj2 = new List<float>();
+                List<float> phaseAj2 = new List<float>();
+
+                
+                if (lab3_AverageFlag)
+                {
+                    for (int i = 0; i < sumList.Count; i++)
+                    {
+                        copyList.Add(new PointF(sumList[i].X, slidingAveraging(sumList, i, lab3_AverageK)));
+                    }
+                }
+
+                if (lab3_MedianFlag)
+                {
+                    for (int i = 0; i < sumList.Count; i++)
+                    {
+                        copyList.Add(new PointF(sumList[i].X, medianAveraging(sumList, i, lab3_MedianN,lab3_MedianK)));
+                    }
+                }
+
+                if (lab3_ParabolaFlag)
+                {
+                    for (int i = 0; i < sumList.Count; i++)
+                    {
+                        copyList.Add(new PointF(sumList[i].X, parabol4(sumList, i, lab3_ParabolaK)));
+                    }
+                }
+
+                /*                foreach (var point in copyList)
+                                {
+                                    this.chart_lab2_summary.Series["Modify"].Points.AddXY(point.X, point.Y);
+                                }*/
+
+            }
+
+            if (checkBox_lab3_filtr.Checked && !this.checkBox_lab3_smooth.Checked)
+            {
+                for (int i = 0; i < sumList.Count; i++)
+                {
+                    copyList.Add(new PointF(sumList[i].X, sumList[i].Y));
+                }
+
+                /*for (int j = 0; j < lab2_k; j++)
+                {
+                    float A = Furi.findAmplitude(Furi.findCosinusComponent3(copyList, copyList.Count, j), Furi.findSinusComponent3(copyList, copyList.Count, j));
+
+                    if ((A >= lab3_filtrFrom) && (A <= lab3_FiltrTo))
+                    { masAj2.Add(A); }
+                    else
+                    { masAj2.Add(0); }
+                    phaseAj2.Add(Furi.findPhase(Furi.findCosinusComponent3(copyList, copyList.Count, j), Furi.findSinusComponent3(copyList, copyList.Count, j)));
+
+                }
+
+                copyList.Clear();
+                for (int i = 0; i < sumList.Count; i++)
+                {
+                    copyList.Add(new PointF(sumList[i].X, (Furi.recoverySignal(masAj2, phaseAj2, sumList.Count, (i)))));
+                }*/
+            }
+
+
 
             foreach (var point in sumList)
             {
                 this.chart_lab2_summary.Series[0].Points.AddXY(point.X,point.Y);
             }
+
+
             drawFurie();
         }
+
+
 
         public void clearFourier() {
             this.chart_lab2_spectrums.Series[0].Points.Clear();
@@ -1629,7 +1739,9 @@ namespace Graphics
          List<float> phaseAj = new List<float>();
          List<float> masAj1 = new List<float>();
          List<float> phaseAj1 = new List<float>();
-           // Furi furi = new Furi();
+         List<float> masAj2 = new List<float>();
+         List<float> phaseAj2 = new List<float>();
+            // Furi furi = new Furi();
             clearFourier();
             int discret = (int)prevMax * 2;
             if (lab2_k == 0)
@@ -1652,6 +1764,10 @@ namespace Graphics
                 {
                     this.chart_lab2_summary.Series[1].Points.AddXY(sumList[i].X, (Furi.recoverySignal(masAj, phaseAj, sumList.Count, i)));
                 
+                }
+                foreach (var point in copyList)
+                {
+                    this.chart_lab2_summary.Series["Modify"].Points.AddXY(point.X, point.Y);
                 }
             }
             else
@@ -1696,45 +1812,109 @@ namespace Graphics
                         phaseAj.Add(Furi.findPhase(Furi.findCosinusComponent1(sumList3, sumList3.Count, j), Furi.findSinusComponent1(sumList3, sumList3.Count, j)));
                         phaseAj1.Add(Furi.findPhase(Furi.findCosinusComponent3(sumList, sumList.Count, j), Furi.findSinusComponent3(sumList, sumList.Count, j)));
 
-                        { this.chart_lab2_spectrums.Series[0].Points.AddXY(j, masAj1[j]); };
+                    masAj2.Add(Furi.findAmplitude(Furi.findCosinusComponent3(copyList, copyList.Count, j), Furi.findSinusComponent3(copyList, copyList.Count, j)));
+                    phaseAj2.Add(Furi.findPhase(Furi.findCosinusComponent3(copyList, copyList.Count, j), Furi.findSinusComponent3(copyList, copyList.Count, j)));
+
+                    { this.chart_lab2_spectrums.Series[0].Points.AddXY(j, masAj1[j]); };
                         this.chart_lab2_phase.Series[0].Points.AddXY(j, phaseAj[j]);
                     }
+
                     double h = (double)1 /( sumList.Count - 1);
                     for (int i = 0; i < sumList.Count; i++)
                     {
                           this.chart_lab2_summary.Series[1].Points.AddXY(sumList[i].X, (Furi.recoverySignal(masAj1, phaseAj1, sumList.Count, (i))));
                     }
-                //}
 
-                /*if (lab2_k < discret)
+                if (this.checkBox_lab3_filtr.Checked)
                 {
-                    double h = sumList.Count / lab2_k;
-                    for (int j = 0; j < lab2_k; j++)
+                    for (int i = 0; i < copyList.Count; i++)
                     {
-                        masAj.Add(furi.findAmplitude(furi.findCosinusComponent2(sumList, sumList.Count,j,h), furi.findSinusComponent2(sumList, sumList.Count, j, h)));
-                        phaseAj.Add(furi.findPhase(furi.findCosinusComponent2(sumList, sumList.Count, j, h), furi.findSinusComponent2(sumList, sumList.Count, j, h)));
-                        this.chart_lab2_spectrums.Series[0].Points.AddXY((int)(j * h), masAj[j]);
-                    }
-                    for (int i = 0; i < lab2_k; i++)
-                    {
-                        this.chart_lab2_summary.Series[1].Points.AddXY(sumList[(int)(i*h)].X, (furi.recoverySignal2(masAj, phaseAj, sumList.Count, (int)(i * h))));
+                        this.chart_lab2_summary.Series["Furier2"].Points.AddXY(copyList[i].X, (Furi.recoverySignalFiltr(masAj2, phaseAj2, copyList.Count, (i), lab3_filtrFrom, lab3_FiltrTo, !checkBox_lab3_reverse.Checked)));
                     }
                 }
-                else  if (lab2_k>= discret)
+                else
                 {
-                    double h = sumList.Count / discret;
-                    for (int j = 0; j < discret; j++)
+                    for (int i = 0; i < copyList.Count; i++)
                     {
-                        masAj.Add(furi.findAmplitude(furi.findCosinusComponent2(sumList, sumList.Count, j, h), furi.findSinusComponent2(sumList, sumList.Count, j, h)));
-                        phaseAj.Add(furi.findPhase(furi.findCosinusComponent2(sumList, sumList.Count, j, h), furi.findSinusComponent2(sumList, sumList.Count, j, h)));
-                        this.chart_lab2_spectrums.Series[0].Points.AddXY((int)(j * h), masAj[j]);
+                        this.chart_lab2_summary.Series["Furier2"].Points.AddXY(copyList[i].X, (Furi.recoverySignal(masAj2, phaseAj2, copyList.Count, (i))));
                     }
-                    for (int i = 0; i < discret; i++)
-                    {
-                        this.chart_lab2_summary.Series[1].Points.AddXY(sumList[(int)(i * h)].X, (furi.recoverySignal2(masAj, phaseAj, sumList.Count, (int)(i * h))));
+                }
+
+                foreach (var point in copyList)
+                {
+                    this.chart_lab2_summary.Series["Modify"].Points.AddXY(point.X, point.Y);
+                }
+
+                int N = 20;
+                double Fd=copyList.Count;
+                double Fs = lab3_FiltrTo;
+                double Fx = lab3_FiltrTo + 1;
+
+                 double[] H = new double[N]; //Импульсная характеристика фильтра
+                 double[] H_id = new double[N]; //Идеальная импульсная характеристика
+                 double[] W = new double [N]; //Весовая функция
+
+                double Fc = (Fs + Fx) / (2 * Fd);
+
+                for (int i = 0; i < N; i++)
+                {
+                    if (i == 0) H_id[i] = 2 * Math.PI * Fc;
+                    else H_id[i] = Math.Sin(2 * Math.PI * Fc * i) / (Math.PI * i);
+                    // весовая функция Блекмена
+                    W[i] = 0.42 - 0.5 * Math.Cos((2 * Math.PI * i) / (N - 1)) + 0.08 * Math.Cos((4 * Math.PI * i) / (N - 1));
+                    H[i] = H_id[i] * W[i];
+                }
+
+                //Нормировка импульсной характеристики
+                double SUM = 0;
+                for (int i = 0; i < N; i++) { SUM += H[i]; }
+                for (int i = 0; i < N; i++) { H[i] /= SUM; } //сумма коэффициентов равна 1 
+
+                //Фильтрация входных данных
+                var result = new double[copyList.Count];
+                for (int i = 0; i < copyList.Count; i++)
+                {
+                    result[i]= 0;
+                    for (int j = 0; j < N - 1; j++)// та самая формула фильтра
+                    { 
+                        if (i - j >= 0)
+                    result[i]+= H[j] *copyList[i-j].Y; 
                     }
-                }*/
+                }
+            
+
+
+            //}
+
+            /*if (lab2_k < discret)
+            {
+                double h = sumList.Count / lab2_k;
+                for (int j = 0; j < lab2_k; j++)
+                {
+                    masAj.Add(furi.findAmplitude(furi.findCosinusComponent2(sumList, sumList.Count,j,h), furi.findSinusComponent2(sumList, sumList.Count, j, h)));
+                    phaseAj.Add(furi.findPhase(furi.findCosinusComponent2(sumList, sumList.Count, j, h), furi.findSinusComponent2(sumList, sumList.Count, j, h)));
+                    this.chart_lab2_spectrums.Series[0].Points.AddXY((int)(j * h), masAj[j]);
+                }
+                for (int i = 0; i < lab2_k; i++)
+                {
+                    this.chart_lab2_summary.Series[1].Points.AddXY(sumList[(int)(i*h)].X, (furi.recoverySignal2(masAj, phaseAj, sumList.Count, (int)(i * h))));
+                }
             }
+            else  if (lab2_k>= discret)
+            {
+                double h = sumList.Count / discret;
+                for (int j = 0; j < discret; j++)
+                {
+                    masAj.Add(furi.findAmplitude(furi.findCosinusComponent2(sumList, sumList.Count, j, h), furi.findSinusComponent2(sumList, sumList.Count, j, h)));
+                    phaseAj.Add(furi.findPhase(furi.findCosinusComponent2(sumList, sumList.Count, j, h), furi.findSinusComponent2(sumList, sumList.Count, j, h)));
+                    this.chart_lab2_spectrums.Series[0].Points.AddXY((int)(j * h), masAj[j]);
+                }
+                for (int i = 0; i < discret; i++)
+                {
+                    this.chart_lab2_summary.Series[1].Points.AddXY(sumList[(int)(i * h)].X, (furi.recoverySignal2(masAj, phaseAj, sumList.Count, (int)(i * h))));
+                }
+            }*/
+        }
         }
 
         public List<PointF> findDotsFuriSinus(int k_lab2, Sinus sinus)
@@ -1768,18 +1948,366 @@ namespace Graphics
             }
             return result;
         }
-        //----------------------------------------------------------------------------------------------------------------------------------
+
+       
+
+        //lab3----------------------------------------------------------------------------------------------------------------------------------
+
+        bool lab3_AverageFlag = true;
+        bool lab3_ParabolaFlag = false;
+        bool lab3_MedianFlag = false;
+
+        int lab3_AverageK = 5;
+        int lab3_ParabolaK = 7;
+        int lab3_MedianK = 1;
+        int lab3_MedianN = 7;
+        int lab3_filtrFrom = 0;
+        int lab3_FiltrTo = 10;
+
+        private void textBox_lab3_to_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            String line = "";
+            if (!Char.IsDigit(number) && number != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox_lab3_to_KeyUp(object sender, KeyEventArgs e)
+        {
+            String line = "";
+            line = this.textBox_lab3_to.Text;//
+            if (line != "")
+            {
+                N_number = double.Parse(line);
+                if (N_number > 0 && N_number != double.NaN)
+                {
+                    lab3_FiltrTo = (int)N_number;
+                    UpdateSum(1);
+                    //drawFurie();
+                }
+            }
+            else
+            {//очистка графиков
+                //lab2_k = 0;
+                //clearFourier();
+                UpdateSum(1);
+            }
+        }
+
+        private void textBox_lab3_from_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            String line = "";
+            if (!Char.IsDigit(number) && number != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox_lab3_from_KeyUp(object sender, KeyEventArgs e)
+        {
+            String line = "";
+            line = this.textBox_lab3_from.Text;//
+            if (line != "")
+            {
+                N_number = double.Parse(line);
+                if (N_number > 0 && N_number != double.NaN)
+                {
+                    lab3_filtrFrom= (int)N_number;
+                    UpdateSum(1);
+                    //drawFurie();
+                }
+            }
+            else
+            {//очистка графиков
+                //lab2_k = 0;
+                //clearFourier();
+                UpdateSum(1);
+            }
+        }
+        private void textBox_lab3_AverageK_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            String line = "";
+            if (!Char.IsDigit(number) && number != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox_lab3_AverageK_KeyUp(object sender, KeyEventArgs e)
+        {
+             String line = "";
+            line = this.textBox_lab3_AverageK.Text;//
+            if (line != "")
+            {
+                N_number = double.Parse(line);
+                if (N_number > 0 && N_number != double.NaN)
+                {
+                    lab3_AverageK = (int)N_number;
+                    UpdateSum(1);
+                    //drawFurie();
+                }
+            }
+            else
+            {//очистка графиков
+                //lab2_k = 0;
+                //clearFourier();
+                UpdateSum(1);
+            }
+        }
+
+        private void textBox_lab3_ParabolaK_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            String line = "";
+            if (!Char.IsDigit(number) && number != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox_lab3_ParabolaK_KeyUp(object sender, KeyEventArgs e)
+        {
+            String line = "";
+            line = this.textBox_lab3_ParabolaK.Text;//
+            if (line != "")
+            {
+                N_number = double.Parse(line);
+                if (N_number > 0 && N_number != double.NaN)
+                {
+                    lab3_ParabolaK = (int)N_number;
+                    UpdateSum(1);
+                    //drawFurie();
+                }
+            }
+            else
+            {//очистка графиков
+                //lab2_k = 0;
+                //clearFourier();
+                UpdateSum(1);
+            }
+        }
+
+        private void textBox_lab3_MedianK_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            String line = "";
+            if (!Char.IsDigit(number) && number != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void checkBox_lab3_filtrEn_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateSum(1);
+        }
+
+        private void checkBox_lab3_reverse_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateSum(1);
+        }
+
+        private void textBox_lab3_MedianK_KeyUp(object sender, KeyEventArgs e)
+        {
+            String line = "";
+            line = this.textBox_lab3_MedianK.Text;//
+            if (line != "")
+            {
+                N_number = double.Parse(line);
+                if (N_number > 0 && N_number != double.NaN)
+                {
+                    lab3_MedianK = (int)N_number;
+                    UpdateSum(1);
+                    //drawFurie();
+                }
+            }
+            else
+            {//очистка графиков
+                //lab2_k = 0;
+                //clearFourier();
+                UpdateSum(1);
+            }
+        }
+
+        private void textBox_lab3_MedianN_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            String line = "";
+            if (!Char.IsDigit(number) && number != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox_lab3_MedianN_KeyUp(object sender, KeyEventArgs e)
+        {
+            String line = "";
+            line = this.textBox_lab3_MedianN.Text;//
+            if (line != "")
+            {
+                N_number = double.Parse(line);
+                if (N_number > 0 && N_number != double.NaN)
+                {
+                    lab3_MedianN = (int)N_number;
+                    UpdateSum(1);
+                    //drawFurie();
+                }
+            }
+            else
+            {//очистка графиков
+                //lab2_k = 0;
+                //clearFourier();
+                UpdateSum(1);
+            }
+        }
+        private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage_lab3_average"])
+            {
+                 lab3_AverageFlag = true;
+                 lab3_ParabolaFlag = false;
+                 lab3_MedianFlag = false;
+            }
+
+            if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage_lab3_median"])
+            {
+                lab3_AverageFlag = false;
+                lab3_ParabolaFlag = false;
+                lab3_MedianFlag = true;
+            }
+
+            if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage_lab3_parabola"])
+            {
+                lab3_AverageFlag = false;
+                lab3_ParabolaFlag = true;
+                lab3_MedianFlag = false;
+            }
+            UpdateSum(1);
+        }
+
+        private void checkBox_lab3_smooth_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateSum(1);
+        }
+
+        private void checkBox_lab3_filtr_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateSum(1);
+        }
+
 
         public float slidingAveraging(List<PointF> sumL,int position,int gate)
         {
             float sum = 0;
             for (int i = position-((gate-1)/2); i < position + ((gate - 1) / 2); i++)
             {
-                if (i>=0)
+                if ((i>=0)&&(i<sumL.Count))
                 sum += sumL[i].Y;
             }
             return sum / gate;
         }
 
+        public float parabol4(List<PointF> sumL, int position, int gate)
+        {
+            float sum = 0;
+            int half= ((gate - 1) / 2);
+
+            if ((half == 3)&&(position>3)&&(position<(sumL.Count-3)))
+            {
+                var result=(float)(((float)1 / 231) * (5 * sumL[position-half].Y-30* sumL[position - half+1].Y+75* sumL[position - half+2].Y+131* sumL[position].Y
+                                                    +75* sumL[position +half-2].Y-30* sumL[position + half - 1].Y+5* sumL[position + half].Y));
+                return result;
+            }
+
+            if ((half == 4) && (position > 4) && (position < (sumL.Count - 4)))
+            {
+                return (float)(((float)1 / 429) * (15 * sumL[position - half].Y - 55 * sumL[position - half + 1].Y + 30 * sumL[position - half + 2].Y +135 * sumL[position - half + 3].Y + 179 * sumL[position].Y
+                                                     + 135 * sumL[position + half - 3].Y + 30 * sumL[position + half - 2].Y - 55 * sumL[position + half - 1].Y + 15 * sumL[position + half].Y));
+            }
+
+            if ((half == 5) && (position > 5) && (position < (sumL.Count - 5)))
+            {
+                return (float)(((float)1 / 429) * (18 * sumL[position - half].Y - 45 * sumL[position - half + 1].Y -10* sumL[position - half + 2].Y + 60 * sumL[position - half + 3].Y + 120 * sumL[position - half + 4].Y + 143 * sumL[position].Y
+                                                    + 120 * sumL[position + half - 4].Y + 60 * sumL[position + half - 3].Y -10 * sumL[position + half - 2].Y - 45 * sumL[position + half - 1].Y + 18 * sumL[position + half].Y));
+            }
+
+            if((half == 6) && (position > 6) && (position < (sumL.Count - 6)))
+            {
+                return (float)(((float)1 / 2431) * (110 * sumL[position - half].Y - 198 * sumL[position - half + 1].Y - 135 * sumL[position - half + 2].Y + 110 * sumL[position - half + 3].Y + 390 * sumL[position - half + 4].Y + 600 * sumL[position - half + 5].Y + 677 * sumL[position].Y
+                                                   + 600 * sumL[position + half - 4].Y + 390 * sumL[position + half - 4].Y + 110 * sumL[position + half - 3].Y - 135 * sumL[position + half - 2].Y - 198 * sumL[position + half - 1].Y + 110 * sumL[position + half].Y));
+            }
+
+            
+            return sumL[position].Y;
+        }
+
+        public float medianAveraging(List<PointF> sumL, int position, int gate,int K)
+        {
+            float sum = 0;
+            List<PointF> temp = new List<PointF>();
+            List<PointF> result = new List<PointF>();
+            for (int i = position - ((gate - 1) / 2); i <= position + ((gate - 1) / 2); i++)
+            {
+                if ((i >= 0) && (i < sumL.Count))
+                    temp.Add(sumL[i]);
+            }
+
+           
+            int length=temp.Count;
+
+            for (int i = 0; i < length; i++)
+            {
+                double min = double.MinValue;
+                int pos = 0;
+                for (int j = 0; j< temp.Count; j++)
+                {
+                    if (temp[j].Y<min) 
+                    {
+                        min = temp[j].Y;
+                        pos = j;
+                    }
+                }
+                result.Add(temp[pos]);
+                temp.Remove(temp[pos]);
+            }
+
+            int diff = (gate - result.Count);
+            int newK = K;
+            if (diff > 0)
+            {
+                while (diff != 0)
+                {
+                    if (diff % 2 == 0)
+                    {
+                        result.Remove(result[0]);
+                    }
+                    else
+                    {
+                        result.Remove(result[result.Count - 1]);
+                    }
+                    diff--;
+                }
+            }
+            else
+            {
+                while (newK != 0)
+                {
+                    result.Remove(result[0]);
+                    result.Remove(result[result.Count - 1]);
+                    newK--;
+                } 
+            }
+
+            for (int i = 0; i < result.Count; i++)
+            {
+                sum += result[i].Y;
+            }
+
+            return sum/ result.Count;
+        }
     }
 }
