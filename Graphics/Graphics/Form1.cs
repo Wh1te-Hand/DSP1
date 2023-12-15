@@ -1,17 +1,26 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Drawing;
+using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml.Schema;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
+using Emgu.CV.CvEnum;
+using Emgu.CV.Structure;
+using Emgu.CV;
+using Gray = Emgu.CV.Structure.Gray;
 
 namespace Graphics
 {
@@ -2110,6 +2119,167 @@ namespace Graphics
         {
             UpdateSum(1);
         }
+        Bitmap bitmapModify = null;
+        private void button_lab3_openImage_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog dlg = new OpenFileDialog())
+            {
+                dlg.Title = "Open Image";
+                dlg.Filter = "png files (*.png)|*.png| jpg files (*.jpg)|*.jpg";
+
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {                  
+
+                    // Create a new Bitmap object from the picture file on disk,
+                    // and assign that to the PictureBox.Image property
+                    this.pictureBox_lab3_original.Image = new Bitmap(dlg.FileName);
+                    bitmapModify=new Bitmap(dlg.FileName);
+                }
+                
+                //bitmapModify.
+                var copybit = (Bitmap)bitmapModify.Clone();
+               // double[,] kernel = { { 0, 0, 0 }, { 0, 1, 0 }, { 0, 0, 0 } };
+           //      double[,] kernel =  { { -1,-1, -1 }, { -1, 8, -1 }, { -1, -1, -1 } };
+             //  double[,] kernel = { { -2, -1, 0 }, { -1, 1, 1 }, { 0, 1, 2 } };
+                //  double[,] kernel = { { 0, -1, 0 }, { -1, 5, -1 }, { 0, -1, 0 } };
+                /*                kernel[0, 0]= 1;
+                                kernel[0, 1] = 0;
+                                kernel[0, 2] = -1;
+
+                                kernel[1, 0] = 1;
+                                kernel[1, 1] = 0;
+                                kernel[1, 2] = -1;
+
+                                kernel[2, 0] = 1;
+                                kernel[2, 1] = 0;
+                                kernel[2, 2] = -1;*/
+
+                /*                kernel[0, 0] = 0;
+                                kernel[0, 1] = -1;
+                                kernel[0, 2] = -0;
+
+                                kernel[1, 0] = -1;
+                                kernel[1, 1] = 5;
+                                kernel[1, 2] = -1;
+
+                                kernel[2, 0] = 0;
+                                kernel[2, 1] = -1;
+                                kernel[2, 2] = -0;*/
+
+                /*                byte[] inputBytes =bitmapModify
+                                byte[] outputBytes = new byte[inputBytes.Length];*/
+
+              
+            }
+        }
+
+        private void comboBox_lab3_kernels_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            double[,] kernel;
+            double[,] kernel0 = new double[3, 3] { { -1, -1, -1 }, { -1, 9, -1 }, { -1, -1, -1 } };
+            double[,] kernel1 = new double[3, 3] { { 0, -1, 0 }, { -1, 5, -1 }, { 0, -1, 0 } };
+            double[,] kernel2 = new double[3, 3] { { (double)1 / 9, (double)1 / 9, (double)1 / 9 }, { (double)1 / 9, (double)1 / 9, (double)1 / 9 }, { (double)1 / 9, (double)1 / 9, (double)1 / 9 } };
+            double[,] kernel3 = new double[3, 3] { { (double)1 / 16, (double)1 / 8, (double)1 / 16 }, { (double)1 / 8, (double)1 / 4, (double)1 / 8 }, { (double)1 / 16, (double)1 / 8, (double)1 / 16 } };
+
+            var copybit = (Bitmap)bitmapModify.Clone();
+            //  double[,] kernel = { { -2, -1, 0 }, { -1, 1, 1 }, { 0, 1, 2 } };
+            //  double[,] kernel = { { 0, -1, 0 }, { -1, 5, -1 }, { 0, -1, 0 } };
+            
+            if (this.comboBox_lab3_kernels.SelectedIndex == 0)
+                {
+                kernel = kernel0 ;
+                }
+            else
+
+
+            if (this.comboBox_lab3_kernels.SelectedIndex == 1)
+            {
+                kernel = new double[3,3]{ { 0, -1, 0 }, { -1, 5, -1 }, { 0, -1, 0 } };
+            }
+            else
+
+            if (this.comboBox_lab3_kernels.SelectedIndex == 2)
+            {
+                kernel = new double[3, 3] { { (double)1 / 9, (double)1 / 9, (double)1 / 9 }, { (double)1 / 9, (double)1 / 9, (double)1 / 9 }, { (double)1 / 9, (double)1 / 9, (double)1 / 9 } };
+            }
+            else
+
+            if (this.comboBox_lab3_kernels.SelectedIndex == 3)
+            {
+                kernel = new double[3, 3] { { (double)1 / 16, (double)1 / 8, (double)1 / 16 }, { (double)1 / 8, (double)1 / 4, (double)1 / 8 }, { (double)1 / 16, (double)1 / 8, (double)1 / 16 } };
+            }
+            else
+            if (this.comboBox_lab3_kernels.SelectedIndex == 4)
+            {
+                kernel = new double[5, 5] { { (double)-1 / 256, (double)-4 / 256, (double)-6 / 256 , (double)-4 / 256, (double)-1 / 256 }, { (double)-4 / 256, (double)-16 / 256, (double)-24 / 256, (double)-16/ 256, (double)-4 / 256 }, { (double)-6 / 256, (double)-24 / 256, (double)476 / 256 , (double)-24 / 256 , (double)-6 / 256 },
+                                               { (double)-4 / 256, (double)-16 / 256, (double)-24 / 256, (double)-16/ 256, (double)-4 / 256 },{ (double)-1 / 256, (double)-4 / 256, (double)-6 / 256 , (double)-4 / 256, (double)-1 / 256 }};
+            }
+            else
+            kernel = new double[3, 3] { { 0, 0, 0 }, { 0, 1, 0 }, { 0, 0, 0 } };
+
+
+
+            int width = bitmapModify.Width;
+            int height = bitmapModify.Height;
+
+            int kernelWidth = kernel.GetLength(0);
+            int kernelHeight = kernel.GetLength(1);
+
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    double rSum = 0, gSum = 0, bSum = 0, kSum = 0;
+
+                    for (int i = 0; i < kernelWidth; i++)
+                    {
+                        for (int j = 0; j < kernelHeight; j++)
+                        {
+                            int pixelPosX = x + (i - (kernelWidth / 2));
+                            int pixelPosY = y + (j - (kernelHeight / 2));
+                            if ((pixelPosX < 0) ||
+                              (pixelPosX >= width) ||
+                              (pixelPosY < 0) ||
+                              (pixelPosY >= height)) continue;
+
+                            double r = bitmapModify.GetPixel(pixelPosX, pixelPosY).R;//inputBytes[3 * (width * pixelPosY + pixelPosX) + 0];
+                            double g = bitmapModify.GetPixel(pixelPosX, pixelPosY).G;//inputBytes[3 * (width * pixelPosY + pixelPosX) + 1];
+                            double b = bitmapModify.GetPixel(pixelPosX, pixelPosY).B;//inputBytes[3 * (width * pixelPosY + pixelPosX) + 2];
+
+                            double kernelVal = kernel[i, j];
+
+                            rSum += r * kernelVal;
+                            gSum += g * kernelVal;
+                            bSum += b * kernelVal;
+
+                            //   kSum += kernelVal;
+                        }
+                    }
+
+                    if (kSum <= 0) kSum = 1;
+
+                    //  rSum /= kSum;
+                    if (rSum < 0) rSum = 0;
+                    if (rSum > 255) rSum = 255;
+
+                    //  gSum /= kSum;
+                    if (gSum < 0) gSum = 0;
+                    if (gSum > 255) gSum = 255;
+
+                    // bSum /= kSum;
+                    if (bSum < 0) bSum = 0;
+                    if (bSum > 255) bSum = 255;
+
+                    Color color = Color.FromArgb((byte)rSum, (byte)gSum, (byte)bSum);
+                    copybit.SetPixel(x, y, color);/*
+                        outputBytes[3 * (width * y + x) + 0] = (byte)rSum;
+                        outputBytes[3 * (width * y + x) + 1] = (byte)gSum;
+                        outputBytes[3 * (width * y + x) + 2] = (byte)bSum;*/
+                }
+            }
+            this.pictureBox_lab3_modify.Image = copybit;
+        }
+
 
         private void textBox_lab3_MedianK_KeyUp(object sender, KeyEventArgs e)
         {
@@ -2143,6 +2313,7 @@ namespace Graphics
             }
         }
 
+
         private void textBox_lab3_MedianN_KeyUp(object sender, KeyEventArgs e)
         {
             String line = "";
@@ -2164,6 +2335,8 @@ namespace Graphics
                 UpdateSum(1);
             }
         }
+
+
         private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage_lab3_average"])
@@ -2309,5 +2482,228 @@ namespace Graphics
 
             return sum/ result.Count;
         }
+
+
+        //----------------------------------------------------------------------------#4------------------------------------------------------------
+        //----------------------------------------------------------------------------#4------------------------------------------------------------
+        //----------------------------------------------------------------------------#4------------------------------------------------------------
+
+        Bitmap bitmapIllum;
+        Bitmap findIllum;
+        List<(int, int)> lab4_findList = new List<(int, int)>();
+        int lab4_x=0;
+        int lab4_y =0;
+        int lab4_h=0;
+        int lab4_w=0;
+        private void button_lab4_image_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog dlg = new OpenFileDialog())
+            {
+                dlg.Title = "Open Image";
+                dlg.Filter = "png files (*.png)|*.png| jpg files (*.jpg)|*.jpg";
+
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    this.pictureBox_lab4_startImage.Image = new Bitmap(dlg.FileName);
+                    bitmapIllum = new Bitmap(dlg.FileName);
+                }
+                UpdateIlluminator();
+            }
+        }
+
+        private void UpdateIlluminator()
+        {
+            if (lab4_x != 0 && lab4_y != 0 && lab4_w != 0 && lab4_h != 0)
+            {
+                if (bitmapIllum.Width != 0)
+                {
+                    var copybit = new Bitmap(lab4_w, lab4_h); //change
+
+                    int width = copybit.Width;
+                    int height = copybit.Height;
+
+                    for (int x = 0; x < width; x++)
+                    {
+                        for (int y = 0; y < height; y++)
+                        {
+                            copybit.SetPixel(x, y, bitmapIllum.GetPixel(x + lab4_x, y + lab4_y));
+                        }
+                    }
+                    this.pictureBox_lab4_illuminator.Image = copybit;
+                    findIllum = (Bitmap)copybit.Clone();
+                }
+            }
+        }
+
+
+        private void trackBar_lab4_x_ValueChanged(object sender, EventArgs e)
+        {
+            if (bitmapIllum != null && bitmapIllum.Width != 0)
+                if (((trackBar_lab4_x.Value * bitmapIllum.Width) / trackBar_lab4_x.Maximum + (trackBar_lab4_w.Value * bitmapIllum.Width) / (trackBar_lab4_w.Maximum * 2)) < bitmapIllum.Width)
+                {
+                    {
+                        lab4_x = (trackBar_lab4_x.Value * bitmapIllum.Width) / trackBar_lab4_x.Maximum;
+                        lab4_y = (trackBar_lab4_y.Value * bitmapIllum.Height) / trackBar_lab4_y.Maximum;
+                        lab4_h = (trackBar_lab4_h.Value * bitmapIllum.Width) / (trackBar_lab4_h.Maximum * 2);
+                        lab4_w = (trackBar_lab4_w.Value * bitmapIllum.Width) / (trackBar_lab4_w.Maximum * 2);
+                        UpdateIlluminator();
+                    }
+                }
+        }
+
+
+        private void trackBar_lab4_y_ValueChanged(object sender, EventArgs e)
+        {
+            if (bitmapIllum != null && bitmapIllum.Width != 0)
+            {
+                if (((trackBar_lab4_y.Value * bitmapIllum.Height) / trackBar_lab4_y.Maximum +
+                (trackBar_lab4_h.Value * bitmapIllum.Width) / (trackBar_lab4_h.Maximum * 2)) < bitmapIllum.Height)
+                {
+                    lab4_x = (trackBar_lab4_x.Value * bitmapIllum.Width) / trackBar_lab4_x.Maximum;
+                    lab4_y = (trackBar_lab4_y.Value * bitmapIllum.Height) / trackBar_lab4_y.Maximum;
+                    lab4_h = (trackBar_lab4_h.Value * bitmapIllum.Width) / (trackBar_lab4_h.Maximum * 2);
+                    lab4_w = (trackBar_lab4_w.Value * bitmapIllum.Width) / (trackBar_lab4_w.Maximum * 2);
+                    UpdateIlluminator();
+                }
+            }
+        }
+
+        private void trackBar_lab4_h_ValueChanged(object sender, EventArgs e)
+        {
+            if (bitmapIllum != null && bitmapIllum.Width != 0)
+            {
+                if (((trackBar_lab4_y.Value * bitmapIllum.Height) / trackBar_lab4_y.Maximum +
+                (trackBar_lab4_h.Value * bitmapIllum.Width) / (trackBar_lab4_h.Maximum * 2)) < bitmapIllum.Height)
+                {
+                    lab4_x = (trackBar_lab4_x.Value * bitmapIllum.Width) / trackBar_lab4_x.Maximum;
+                    lab4_y = (trackBar_lab4_y.Value * bitmapIllum.Height) / trackBar_lab4_y.Maximum;
+                    lab4_h = (trackBar_lab4_h.Value * bitmapIllum.Width) / (trackBar_lab4_h.Maximum * 2);
+                    lab4_w = (trackBar_lab4_w.Value * bitmapIllum.Width) / (trackBar_lab4_w.Maximum * 2);
+                    UpdateIlluminator();
+                }
+            }
+        }
+
+        private void trackBar_lab4_w_ValueChanged(object sender, EventArgs e)
+        {
+            if (bitmapIllum != null && bitmapIllum.Width != 0)
+            {
+                if (((trackBar_lab4_x.Value * bitmapIllum.Width) / trackBar_lab4_x.Maximum + (trackBar_lab4_w.Value * bitmapIllum.Width) / (trackBar_lab4_w.Maximum * 2)) < bitmapIllum.Width)
+                {
+                    lab4_x = (trackBar_lab4_x.Value * bitmapIllum.Width) / trackBar_lab4_x.Maximum;
+                    lab4_y = (trackBar_lab4_y.Value * bitmapIllum.Height) / trackBar_lab4_y.Maximum;
+                    lab4_h = (trackBar_lab4_h.Value * bitmapIllum.Width) / (trackBar_lab4_h.Maximum * 2);
+                    lab4_w = (trackBar_lab4_w.Value * bitmapIllum.Width) / (trackBar_lab4_w.Maximum * 2);
+                    UpdateIlluminator();
+                }
+            }
+        }
+
+        private void button_lab4_find_Click(object sender, EventArgs e)
+        {
+            int width = bitmapIllum.Width;
+            int height = bitmapIllum.Height;
+            bool flagwrong = false;
+            lab4_findList.Clear();
+
+                for (int x = 0; x < width - lab4_w; x++)
+                {
+                    for (int y = 0; y < height - lab4_h; y++)
+                    {
+
+                        for (int i = 0; i < findIllum.Width; i++)
+                        {
+                            for (int j = 0; j < findIllum.Height; j++)
+                            {
+                                int pixelPosX = x + (i);
+                                int pixelPosY = y + (j);
+
+                                Color r = findIllum.GetPixel(i, j);//inputBytes[3 * (width * pixelPosY + pixelPosX) + 0];
+                                Color g = bitmapIllum.GetPixel(pixelPosX, pixelPosY);
+                                if (r != g)
+                                {
+                                    flagwrong = true;
+                                    break;
+                                }
+                                //   kSum += kernelVal;
+                            }
+
+                            if (flagwrong)
+                            {
+                                break;
+                            }
+                        }
+
+                        if (flagwrong == false)
+                        {
+                            lab4_findList.Add((x, y));
+                        }
+                        flagwrong = false;
+                    }
+                }
+            Bitmap copybitmap = (Bitmap)bitmapIllum.Clone();
+            if (lab4_findList.Count != 0)
+                {
+                this.pictureBox_lab4_map.Image = CalculateCorrelationMap(bitmapIllum,findIllum);                
+                Color color = Color.FromArgb(255, 0, 0);
+                    foreach (var item in lab4_findList)
+                    {
+                        int startx = item.Item1;
+                        int starty = item.Item2;
+
+                        for (int x = 0; x < lab4_w; x++)
+                        {
+                            for (int j = -1; j < 1; j++)
+                            {
+                                copybitmap.SetPixel(startx + x, starty + j, color);
+                                copybitmap.SetPixel(startx + x, starty + lab4_h + j, color);
+                            }
+                        }
+
+                        for (int y = 0; y < lab4_h; y++)
+                        {
+                            for (int j = -1; j < 1; j++)
+                            {
+                                copybitmap.SetPixel(startx + j, starty + y, color);
+                                copybitmap.SetPixel(startx + lab4_w + j, starty + y, color);
+                            }
+                        }
+                    }
+                }
+                this.pictureBox_lab4_startImage.Image = copybitmap;
+            
+        }
+
+        public Bitmap CalculateCorrelationMap(Bitmap sourceImage, Bitmap targetImage)
+        {
+            Image<Gray, float> image1 = new Image<Gray, float>(sourceImage);
+            Image<Gray, float> image2 = new Image<Gray, float>(targetImage);
+
+            Image<Gray, float> correlationMap = image1.MatchTemplate(image2, TemplateMatchingType.CcorrNormed);
+            CvInvoke.Normalize(correlationMap, correlationMap, 0, 1, NormType.MinMax, DepthType.Cv32F);
+            for (int i = 0; i < correlationMap.Rows; i++)
+            {
+                for (int j = 0; j < correlationMap.Cols; j++)
+                {
+                    if (correlationMap[i, j].Intensity < 0.7)
+                    {
+                        correlationMap[i, j] = new Gray(0);
+                    }
+                }
+            }
+
+            correlationMap._Mul(255);
+
+            Bitmap correlationBitmap = correlationMap.Bitmap;
+
+            return correlationBitmap;
+        }
+
+
+        //----------------------------------------------------------------------------#4 signal------------------------------------------------------------
+        //----------------------------------------------------------------------------#4 signal------------------------------------------------------------
+        //----------------------------------------------------------------------------#4 signal------------------------------------------------------------
+        //----------------------------------------------------------------------------#4 signal------------------------------------------------------------
+
     }
 }

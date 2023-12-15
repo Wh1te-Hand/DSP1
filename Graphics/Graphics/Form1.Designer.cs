@@ -28,29 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea15 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series23 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series24 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series25 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea16 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series26 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea17 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend13 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series27 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series28 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series29 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea18 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend14 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series30 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series31 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea19 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea20 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend15 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series32 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea21 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series33 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl_graphic = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -104,6 +108,7 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.chart_all = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.checkBox_lab3_reverse = new System.Windows.Forms.CheckBox();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage_lab3_average = new System.Windows.Forms.TabPage();
             this.textBox_lab3_AverageK = new System.Windows.Forms.TextBox();
@@ -156,10 +161,76 @@
             this.textBox_lab2_F = new System.Windows.Forms.TextBox();
             this.textBox_lab2_A = new System.Windows.Forms.TextBox();
             this.DSP3 = new System.Windows.Forms.TabPage();
-            this.checkBox_lab3_reverse = new System.Windows.Forms.CheckBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.pictureBox_lab3_modify = new System.Windows.Forms.PictureBox();
             this.groupBox15 = new System.Windows.Forms.GroupBox();
+            this.button_lab3_openImage = new System.Windows.Forms.Button();
+            this.label23 = new System.Windows.Forms.Label();
+            this.comboBox_lab3_kernels = new System.Windows.Forms.ComboBox();
             this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.pictureBox_lab3_original = new System.Windows.Forms.PictureBox();
+            this.DSP4Signal = new System.Windows.Forms.TabPage();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.groupBox22 = new System.Windows.Forms.GroupBox();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.groupBox23 = new System.Windows.Forms.GroupBox();
+            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.DSP4Image = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox18 = new System.Windows.Forms.GroupBox();
+            this.pictureBox_lab4_startImage = new System.Windows.Forms.PictureBox();
+            this.groupBox19 = new System.Windows.Forms.GroupBox();
+            this.groupBox21 = new System.Windows.Forms.GroupBox();
+            this.groupBox20 = new System.Windows.Forms.GroupBox();
+            this.pictureBox_lab4_illuminator = new System.Windows.Forms.PictureBox();
+            this.groupBox24 = new System.Windows.Forms.GroupBox();
+            this.button_lab4_find = new System.Windows.Forms.Button();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.trackBar_lab4_w = new System.Windows.Forms.TrackBar();
+            this.trackBar_lab4_h = new System.Windows.Forms.TrackBar();
+            this.trackBar_lab4_y = new System.Windows.Forms.TrackBar();
+            this.trackBar_lab4_x = new System.Windows.Forms.TrackBar();
+            this.button1 = new System.Windows.Forms.Button();
+            this.DSP4Sound = new System.Windows.Forms.TabPage();
+            this.pictureBox_lab4_map = new System.Windows.Forms.PictureBox();
+            this.groupBox17 = new System.Windows.Forms.GroupBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.trackBar2 = new System.Windows.Forms.TrackBar();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.groupBox25 = new System.Windows.Forms.GroupBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label44 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.trackBar3 = new System.Windows.Forms.TrackBar();
+            this.trackBar4 = new System.Windows.Forms.TrackBar();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             this.tabControl_graphic.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -202,6 +273,39 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_lab2_d)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_lab2_phase)).BeginInit();
             this.DSP3.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.groupBox14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_lab3_modify)).BeginInit();
+            this.groupBox15.SuspendLayout();
+            this.groupBox16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_lab3_original)).BeginInit();
+            this.DSP4Signal.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage6.SuspendLayout();
+            this.groupBox22.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
+            this.groupBox23.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
+            this.DSP4Image.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.groupBox18.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_lab4_startImage)).BeginInit();
+            this.groupBox19.SuspendLayout();
+            this.groupBox21.SuspendLayout();
+            this.groupBox20.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_lab4_illuminator)).BeginInit();
+            this.groupBox24.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_lab4_w)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_lab4_h)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_lab4_y)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_lab4_x)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_lab4_map)).BeginInit();
+            this.groupBox17.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
+            this.groupBox25.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar4)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl_graphic
@@ -213,6 +317,9 @@
             this.tabControl_graphic.Controls.Add(this.tabPage2);
             this.tabControl_graphic.Controls.Add(this.tabPage3);
             this.tabControl_graphic.Controls.Add(this.DSP3);
+            this.tabControl_graphic.Controls.Add(this.DSP4Signal);
+            this.tabControl_graphic.Controls.Add(this.DSP4Image);
+            this.tabControl_graphic.Controls.Add(this.DSP4Sound);
             this.tabControl_graphic.Location = new System.Drawing.Point(0, 1);
             this.tabControl_graphic.Name = "tabControl_graphic";
             this.tabControl_graphic.SelectedIndex = 0;
@@ -251,33 +358,33 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chart_sinus.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
-            chartArea15.Name = "ChartArea1";
-            this.chart_sinus.ChartAreas.Add(chartArea15);
-            legend11.Name = "Legend1";
-            this.chart_sinus.Legends.Add(legend11);
+            chartArea1.Name = "ChartArea1";
+            this.chart_sinus.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart_sinus.Legends.Add(legend1);
             this.chart_sinus.Location = new System.Drawing.Point(0, 21);
             this.chart_sinus.Name = "chart_sinus";
-            series23.BorderWidth = 3;
-            series23.ChartArea = "ChartArea1";
-            series23.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series23.Legend = "Legend1";
-            series23.LegendText = "sinus";
-            series23.Name = "Series1";
-            series24.BorderWidth = 3;
-            series24.ChartArea = "ChartArea1";
-            series24.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series24.Legend = "Legend1";
-            series24.LegendText = "triangle";
-            series24.Name = "Series2";
-            series25.BorderWidth = 3;
-            series25.ChartArea = "ChartArea1";
-            series25.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series25.Legend = "Legend1";
-            series25.LegendText = "rectangle";
-            series25.Name = "Series3";
-            this.chart_sinus.Series.Add(series23);
-            this.chart_sinus.Series.Add(series24);
-            this.chart_sinus.Series.Add(series25);
+            series1.BorderWidth = 3;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Legend = "Legend1";
+            series1.LegendText = "sinus";
+            series1.Name = "Series1";
+            series2.BorderWidth = 3;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.LegendText = "triangle";
+            series2.Name = "Series2";
+            series3.BorderWidth = 3;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.LegendText = "rectangle";
+            series3.Name = "Series3";
+            this.chart_sinus.Series.Add(series1);
+            this.chart_sinus.Series.Add(series2);
+            this.chart_sinus.Series.Add(series3);
             this.chart_sinus.Size = new System.Drawing.Size(952, 595);
             this.chart_sinus.TabIndex = 0;
             this.chart_sinus.Text = "chart1";
@@ -793,19 +900,19 @@
             this.chart_summary.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea16.Name = "ChartArea1";
-            this.chart_summary.ChartAreas.Add(chartArea16);
-            legend12.Name = "Legend1";
-            this.chart_summary.Legends.Add(legend12);
+            chartArea2.Name = "ChartArea1";
+            this.chart_summary.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart_summary.Legends.Add(legend2);
             this.chart_summary.Location = new System.Drawing.Point(6, 36);
             this.chart_summary.Name = "chart_summary";
-            series26.BorderWidth = 3;
-            series26.ChartArea = "ChartArea1";
-            series26.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series26.Color = System.Drawing.Color.Red;
-            series26.Legend = "Legend1";
-            series26.Name = "summary";
-            this.chart_summary.Series.Add(series26);
+            series4.BorderWidth = 3;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Color = System.Drawing.Color.Red;
+            series4.Legend = "Legend1";
+            series4.Name = "summary";
+            this.chart_summary.Series.Add(series4);
             this.chart_summary.Size = new System.Drawing.Size(825, 174);
             this.chart_summary.TabIndex = 0;
             this.chart_summary.Text = "chart_summary";
@@ -828,28 +935,28 @@
             this.chart_all.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea17.Name = "ChartArea1";
-            this.chart_all.ChartAreas.Add(chartArea17);
-            legend13.Name = "Legend1";
-            this.chart_all.Legends.Add(legend13);
+            chartArea3.Name = "ChartArea1";
+            this.chart_all.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart_all.Legends.Add(legend3);
             this.chart_all.Location = new System.Drawing.Point(0, 21);
             this.chart_all.Name = "chart_all";
-            series27.BorderWidth = 2;
-            series27.ChartArea = "ChartArea1";
-            series27.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series27.Legend = "Legend1";
-            series27.Name = "sinus";
-            series28.ChartArea = "ChartArea1";
-            series28.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series28.Legend = "Legend1";
-            series28.Name = "triangle";
-            series29.ChartArea = "ChartArea1";
-            series29.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series29.Legend = "Legend1";
-            series29.Name = "rectangle";
-            this.chart_all.Series.Add(series27);
-            this.chart_all.Series.Add(series28);
-            this.chart_all.Series.Add(series29);
+            series5.BorderWidth = 2;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series5.Legend = "Legend1";
+            series5.Name = "sinus";
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Legend = "Legend1";
+            series6.Name = "triangle";
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series7.Legend = "Legend1";
+            series7.Name = "rectangle";
+            this.chart_all.Series.Add(series5);
+            this.chart_all.Series.Add(series6);
+            this.chart_all.Series.Add(series7);
             this.chart_all.Size = new System.Drawing.Size(831, 229);
             this.chart_all.TabIndex = 0;
             this.chart_all.Text = "chart_all";
@@ -878,6 +985,18 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "DSP2";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox_lab3_reverse
+            // 
+            this.checkBox_lab3_reverse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBox_lab3_reverse.AutoSize = true;
+            this.checkBox_lab3_reverse.Location = new System.Drawing.Point(1062, 358);
+            this.checkBox_lab3_reverse.Name = "checkBox_lab3_reverse";
+            this.checkBox_lab3_reverse.Size = new System.Drawing.Size(81, 20);
+            this.checkBox_lab3_reverse.TabIndex = 62;
+            this.checkBox_lab3_reverse.Text = "Reverse";
+            this.checkBox_lab3_reverse.UseVisualStyleBackColor = true;
+            this.checkBox_lab3_reverse.CheckedChanged += new System.EventHandler(this.checkBox_lab3_reverse_CheckedChanged);
             // 
             // tabControl2
             // 
@@ -1138,24 +1257,24 @@
             this.chart_lab2_summary.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea18.Name = "ChartArea1";
-            this.chart_lab2_summary.ChartAreas.Add(chartArea18);
-            legend14.Name = "Legend1";
-            this.chart_lab2_summary.Legends.Add(legend14);
+            chartArea4.Name = "ChartArea1";
+            this.chart_lab2_summary.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart_lab2_summary.Legends.Add(legend4);
             this.chart_lab2_summary.Location = new System.Drawing.Point(6, 36);
             this.chart_lab2_summary.Name = "chart_lab2_summary";
-            series30.BorderWidth = 2;
-            series30.ChartArea = "ChartArea1";
-            series30.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series30.Legend = "Legend1";
-            series30.Name = "Summary";
-            series31.ChartArea = "ChartArea1";
-            series31.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series31.Color = System.Drawing.Color.Red;
-            series31.Legend = "Legend1";
-            series31.Name = "Fourier";
-            this.chart_lab2_summary.Series.Add(series30);
-            this.chart_lab2_summary.Series.Add(series31);
+            series8.BorderWidth = 2;
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series8.Legend = "Legend1";
+            series8.Name = "Summary";
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series9.Color = System.Drawing.Color.Red;
+            series9.Legend = "Legend1";
+            series9.Name = "Fourier";
+            this.chart_lab2_summary.Series.Add(series8);
+            this.chart_lab2_summary.Series.Add(series9);
             this.chart_lab2_summary.Size = new System.Drawing.Size(996, 270);
             this.chart_lab2_summary.TabIndex = 0;
             this.chart_lab2_summary.Text = "chart1";
@@ -1178,8 +1297,8 @@
             this.chart_lab2_common.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea19.Name = "ChartArea1";
-            this.chart_lab2_common.ChartAreas.Add(chartArea19);
+            chartArea5.Name = "ChartArea1";
+            this.chart_lab2_common.ChartAreas.Add(chartArea5);
             this.chart_lab2_common.Location = new System.Drawing.Point(0, 21);
             this.chart_lab2_common.Name = "chart_lab2_common";
             this.chart_lab2_common.Size = new System.Drawing.Size(1002, 260);
@@ -1217,16 +1336,16 @@
             this.chart_lab2_phase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea20.Name = "ChartArea1";
-            this.chart_lab2_phase.ChartAreas.Add(chartArea20);
-            legend15.Name = "Legend1";
-            this.chart_lab2_phase.Legends.Add(legend15);
+            chartArea6.Name = "ChartArea1";
+            this.chart_lab2_phase.ChartAreas.Add(chartArea6);
+            legend5.Name = "Legend1";
+            this.chart_lab2_phase.Legends.Add(legend5);
             this.chart_lab2_phase.Location = new System.Drawing.Point(6, 21);
             this.chart_lab2_phase.Name = "chart_lab2_phase";
-            series32.ChartArea = "ChartArea1";
-            series32.Legend = "Legend1";
-            series32.Name = "Summary";
-            this.chart_lab2_phase.Series.Add(series32);
+            series10.ChartArea = "ChartArea1";
+            series10.Legend = "Legend1";
+            series10.Name = "Summary";
+            this.chart_lab2_phase.Series.Add(series10);
             this.chart_lab2_phase.Size = new System.Drawing.Size(996, 270);
             this.chart_lab2_phase.TabIndex = 0;
             this.chart_lab2_phase.Text = "chart1";
@@ -1249,14 +1368,14 @@
             this.chart_lab2_spectrums.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea21.Name = "ChartArea1";
-            this.chart_lab2_spectrums.ChartAreas.Add(chartArea21);
+            chartArea7.Name = "ChartArea1";
+            this.chart_lab2_spectrums.ChartAreas.Add(chartArea7);
             this.chart_lab2_spectrums.Location = new System.Drawing.Point(0, 21);
             this.chart_lab2_spectrums.Name = "chart_lab2_spectrums";
-            series33.BorderWidth = 3;
-            series33.ChartArea = "ChartArea1";
-            series33.Name = "Series1";
-            this.chart_lab2_spectrums.Series.Add(series33);
+            series11.BorderWidth = 3;
+            series11.ChartArea = "ChartArea1";
+            series11.Name = "Series1";
+            this.chart_lab2_spectrums.Series.Add(series11);
             this.chart_lab2_spectrums.Size = new System.Drawing.Size(1010, 260);
             this.chart_lab2_spectrums.TabIndex = 0;
             this.chart_lab2_spectrums.Text = "chart2";
@@ -1477,9 +1596,7 @@
             // 
             // DSP3
             // 
-            this.DSP3.Controls.Add(this.groupBox16);
-            this.DSP3.Controls.Add(this.groupBox15);
-            this.DSP3.Controls.Add(this.groupBox14);
+            this.DSP3.Controls.Add(this.tableLayoutPanel1);
             this.DSP3.Location = new System.Drawing.Point(4, 25);
             this.DSP3.Name = "DSP3";
             this.DSP3.Size = new System.Drawing.Size(1287, 684);
@@ -1487,53 +1604,789 @@
             this.DSP3.Text = "DSP3";
             this.DSP3.UseVisualStyleBackColor = true;
             // 
-            // checkBox_lab3_reverse
+            // tableLayoutPanel1
             // 
-            this.checkBox_lab3_reverse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBox_lab3_reverse.AutoSize = true;
-            this.checkBox_lab3_reverse.Location = new System.Drawing.Point(1062, 358);
-            this.checkBox_lab3_reverse.Name = "checkBox_lab3_reverse";
-            this.checkBox_lab3_reverse.Size = new System.Drawing.Size(81, 20);
-            this.checkBox_lab3_reverse.TabIndex = 62;
-            this.checkBox_lab3_reverse.Text = "Reverse";
-            this.checkBox_lab3_reverse.UseVisualStyleBackColor = true;
-            this.checkBox_lab3_reverse.CheckedChanged += new System.EventHandler(this.checkBox_lab3_reverse_CheckedChanged);
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 255F));
+            this.tableLayoutPanel1.Controls.Add(this.groupBox14, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox15, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox16, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1287, 684);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
             // groupBox14
             // 
-            this.groupBox14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox14.Location = new System.Drawing.Point(3, 3);
+            this.groupBox14.Controls.Add(this.pictureBox_lab3_modify);
+            this.groupBox14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox14.Location = new System.Drawing.Point(519, 3);
             this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(511, 678);
+            this.groupBox14.Size = new System.Drawing.Size(510, 678);
             this.groupBox14.TabIndex = 0;
             this.groupBox14.TabStop = false;
-            this.groupBox14.Text = "groupBox14";
+            this.groupBox14.Text = "Modify";
+            // 
+            // pictureBox_lab3_modify
+            // 
+            this.pictureBox_lab3_modify.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox_lab3_modify.Location = new System.Drawing.Point(3, 18);
+            this.pictureBox_lab3_modify.Name = "pictureBox_lab3_modify";
+            this.pictureBox_lab3_modify.Size = new System.Drawing.Size(504, 657);
+            this.pictureBox_lab3_modify.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox_lab3_modify.TabIndex = 0;
+            this.pictureBox_lab3_modify.TabStop = false;
             // 
             // groupBox15
             // 
-            this.groupBox15.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox15.Location = new System.Drawing.Point(520, 10);
-            this.groupBox15.MaximumSize = new System.Drawing.Size(700, 678);
+            this.groupBox15.Controls.Add(this.button_lab3_openImage);
+            this.groupBox15.Controls.Add(this.label23);
+            this.groupBox15.Controls.Add(this.comboBox_lab3_kernels);
+            this.groupBox15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox15.Location = new System.Drawing.Point(1035, 3);
             this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Size = new System.Drawing.Size(511, 0);
+            this.groupBox15.Size = new System.Drawing.Size(249, 678);
             this.groupBox15.TabIndex = 1;
             this.groupBox15.TabStop = false;
-            this.groupBox15.Text = "groupBox15";
+            this.groupBox15.Text = "Control";
+            // 
+            // button_lab3_openImage
+            // 
+            this.button_lab3_openImage.Location = new System.Drawing.Point(168, 80);
+            this.button_lab3_openImage.Name = "button_lab3_openImage";
+            this.button_lab3_openImage.Size = new System.Drawing.Size(75, 23);
+            this.button_lab3_openImage.TabIndex = 2;
+            this.button_lab3_openImage.Text = "Image";
+            this.button_lab3_openImage.UseVisualStyleBackColor = true;
+            this.button_lab3_openImage.Click += new System.EventHandler(this.button_lab3_openImage_Click);
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(52, 21);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(49, 16);
+            this.label23.TabIndex = 1;
+            this.label23.Text = "Kernel-";
+            // 
+            // comboBox_lab3_kernels
+            // 
+            this.comboBox_lab3_kernels.FormattingEnabled = true;
+            this.comboBox_lab3_kernels.Items.AddRange(new object[] {
+            "Ridge",
+            "Sharpen",
+            "Blur",
+            "Gaussing blur",
+            "Super mask))"});
+            this.comboBox_lab3_kernels.Location = new System.Drawing.Point(122, 18);
+            this.comboBox_lab3_kernels.Name = "comboBox_lab3_kernels";
+            this.comboBox_lab3_kernels.Size = new System.Drawing.Size(121, 24);
+            this.comboBox_lab3_kernels.TabIndex = 0;
+            this.comboBox_lab3_kernels.SelectedIndexChanged += new System.EventHandler(this.comboBox_lab3_kernels_SelectedIndexChanged);
             // 
             // groupBox16
             // 
-            this.groupBox16.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox16.Location = new System.Drawing.Point(1037, 10);
+            this.groupBox16.Controls.Add(this.pictureBox_lab3_original);
+            this.groupBox16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox16.Location = new System.Drawing.Point(3, 3);
             this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(245, 686);
+            this.groupBox16.Size = new System.Drawing.Size(510, 678);
             this.groupBox16.TabIndex = 2;
             this.groupBox16.TabStop = false;
-            this.groupBox16.Text = "Control";
+            this.groupBox16.Text = "Original";
+            // 
+            // pictureBox_lab3_original
+            // 
+            this.pictureBox_lab3_original.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox_lab3_original.Location = new System.Drawing.Point(3, 18);
+            this.pictureBox_lab3_original.Name = "pictureBox_lab3_original";
+            this.pictureBox_lab3_original.Size = new System.Drawing.Size(504, 657);
+            this.pictureBox_lab3_original.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox_lab3_original.TabIndex = 0;
+            this.pictureBox_lab3_original.TabStop = false;
+            // 
+            // DSP4Signal
+            // 
+            this.DSP4Signal.Controls.Add(this.tabControl1);
+            this.DSP4Signal.Location = new System.Drawing.Point(4, 25);
+            this.DSP4Signal.Name = "DSP4Signal";
+            this.DSP4Signal.Padding = new System.Windows.Forms.Padding(3);
+            this.DSP4Signal.Size = new System.Drawing.Size(1287, 684);
+            this.DSP4Signal.TabIndex = 5;
+            this.DSP4Signal.Text = "DSP4_Signal";
+            this.DSP4Signal.UseVisualStyleBackColor = true;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage6);
+            this.tabControl1.Controls.Add(this.tabPage7);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(3, 3);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1281, 678);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.groupBox25);
+            this.tabPage6.Controls.Add(this.groupBox17);
+            this.tabPage6.Controls.Add(this.groupBox22);
+            this.tabPage6.Controls.Add(this.groupBox23);
+            this.tabPage6.Location = new System.Drawing.Point(4, 25);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(1273, 649);
+            this.tabPage6.TabIndex = 0;
+            this.tabPage6.Text = "Configure signal";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // groupBox22
+            // 
+            this.groupBox22.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox22.Controls.Add(this.chart2);
+            this.groupBox22.Location = new System.Drawing.Point(3, 317);
+            this.groupBox22.MaximumSize = new System.Drawing.Size(2000, 1200);
+            this.groupBox22.Name = "groupBox22";
+            this.groupBox22.Size = new System.Drawing.Size(1008, 312);
+            this.groupBox22.TabIndex = 8;
+            this.groupBox22.TabStop = false;
+            this.groupBox22.Text = "Second Signal";
+            // 
+            // chart2
+            // 
+            this.chart2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea8.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea8);
+            this.chart2.Location = new System.Drawing.Point(6, 36);
+            this.chart2.Name = "chart2";
+            series12.BorderWidth = 2;
+            series12.ChartArea = "ChartArea1";
+            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series12.IsVisibleInLegend = false;
+            series12.Name = "Second signal";
+            this.chart2.Series.Add(series12);
+            this.chart2.Size = new System.Drawing.Size(996, 270);
+            this.chart2.TabIndex = 0;
+            this.chart2.Text = "chart1";
+            // 
+            // groupBox23
+            // 
+            this.groupBox23.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox23.Controls.Add(this.chart3);
+            this.groupBox23.Location = new System.Drawing.Point(6, 6);
+            this.groupBox23.MaximumSize = new System.Drawing.Size(2000, 400);
+            this.groupBox23.Name = "groupBox23";
+            this.groupBox23.Size = new System.Drawing.Size(1008, 305);
+            this.groupBox23.TabIndex = 7;
+            this.groupBox23.TabStop = false;
+            this.groupBox23.Text = "First signal";
+            // 
+            // chart3
+            // 
+            this.chart3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea9.Name = "ChartArea1";
+            this.chart3.ChartAreas.Add(chartArea9);
+            this.chart3.Location = new System.Drawing.Point(0, 21);
+            this.chart3.Name = "chart3";
+            series13.BorderWidth = 2;
+            series13.ChartArea = "ChartArea1";
+            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series13.Color = System.Drawing.Color.Red;
+            series13.Name = "FirstSignal";
+            this.chart3.Series.Add(series13);
+            this.chart3.Size = new System.Drawing.Size(1002, 272);
+            this.chart3.TabIndex = 0;
+            this.chart3.Text = "chart2";
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.Location = new System.Drawing.Point(4, 25);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(1273, 649);
+            this.tabPage7.TabIndex = 1;
+            this.tabPage7.Text = "Signal statistic";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // DSP4Image
+            // 
+            this.DSP4Image.Controls.Add(this.tableLayoutPanel2);
+            this.DSP4Image.Location = new System.Drawing.Point(4, 25);
+            this.DSP4Image.Name = "DSP4Image";
+            this.DSP4Image.Size = new System.Drawing.Size(1287, 684);
+            this.DSP4Image.TabIndex = 4;
+            this.DSP4Image.Text = "DSP4_Image";
+            this.DSP4Image.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 327F));
+            this.tableLayoutPanel2.Controls.Add(this.groupBox18, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.groupBox19, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.groupBox24, 2, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1287, 684);
+            this.tableLayoutPanel2.TabIndex = 3;
+            // 
+            // groupBox18
+            // 
+            this.groupBox18.Controls.Add(this.pictureBox_lab4_startImage);
+            this.groupBox18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox18.Location = new System.Drawing.Point(3, 3);
+            this.groupBox18.Name = "groupBox18";
+            this.groupBox18.Size = new System.Drawing.Size(474, 678);
+            this.groupBox18.TabIndex = 0;
+            this.groupBox18.TabStop = false;
+            this.groupBox18.Text = "Full image";
+            // 
+            // pictureBox_lab4_startImage
+            // 
+            this.pictureBox_lab4_startImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox_lab4_startImage.Location = new System.Drawing.Point(3, 18);
+            this.pictureBox_lab4_startImage.Name = "pictureBox_lab4_startImage";
+            this.pictureBox_lab4_startImage.Size = new System.Drawing.Size(468, 657);
+            this.pictureBox_lab4_startImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox_lab4_startImage.TabIndex = 0;
+            this.pictureBox_lab4_startImage.TabStop = false;
+            // 
+            // groupBox19
+            // 
+            this.groupBox19.Controls.Add(this.groupBox21);
+            this.groupBox19.Controls.Add(this.groupBox20);
+            this.groupBox19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox19.Location = new System.Drawing.Point(483, 3);
+            this.groupBox19.Name = "groupBox19";
+            this.groupBox19.Size = new System.Drawing.Size(474, 678);
+            this.groupBox19.TabIndex = 1;
+            this.groupBox19.TabStop = false;
+            this.groupBox19.Text = "Some control";
+            // 
+            // groupBox21
+            // 
+            this.groupBox21.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox21.Controls.Add(this.pictureBox_lab4_map);
+            this.groupBox21.Location = new System.Drawing.Point(6, 21);
+            this.groupBox21.Name = "groupBox21";
+            this.groupBox21.Size = new System.Drawing.Size(462, 337);
+            this.groupBox21.TabIndex = 2;
+            this.groupBox21.TabStop = false;
+            this.groupBox21.Text = "Statistic";
+            // 
+            // groupBox20
+            // 
+            this.groupBox20.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox20.Controls.Add(this.pictureBox_lab4_illuminator);
+            this.groupBox20.Location = new System.Drawing.Point(6, 364);
+            this.groupBox20.Name = "groupBox20";
+            this.groupBox20.Size = new System.Drawing.Size(462, 314);
+            this.groupBox20.TabIndex = 1;
+            this.groupBox20.TabStop = false;
+            this.groupBox20.Text = "Image control";
+            // 
+            // pictureBox_lab4_illuminator
+            // 
+            this.pictureBox_lab4_illuminator.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox_lab4_illuminator.Location = new System.Drawing.Point(3, 18);
+            this.pictureBox_lab4_illuminator.Name = "pictureBox_lab4_illuminator";
+            this.pictureBox_lab4_illuminator.Size = new System.Drawing.Size(456, 293);
+            this.pictureBox_lab4_illuminator.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox_lab4_illuminator.TabIndex = 0;
+            this.pictureBox_lab4_illuminator.TabStop = false;
+            // 
+            // groupBox24
+            // 
+            this.groupBox24.Controls.Add(this.button_lab4_find);
+            this.groupBox24.Controls.Add(this.label32);
+            this.groupBox24.Controls.Add(this.label31);
+            this.groupBox24.Controls.Add(this.label29);
+            this.groupBox24.Controls.Add(this.label28);
+            this.groupBox24.Controls.Add(this.trackBar_lab4_w);
+            this.groupBox24.Controls.Add(this.trackBar_lab4_h);
+            this.groupBox24.Controls.Add(this.trackBar_lab4_y);
+            this.groupBox24.Controls.Add(this.trackBar_lab4_x);
+            this.groupBox24.Controls.Add(this.button1);
+            this.groupBox24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox24.Location = new System.Drawing.Point(963, 3);
+            this.groupBox24.Name = "groupBox24";
+            this.groupBox24.Size = new System.Drawing.Size(321, 678);
+            this.groupBox24.TabIndex = 2;
+            this.groupBox24.TabStop = false;
+            this.groupBox24.Text = "Control";
+            // 
+            // button_lab4_find
+            // 
+            this.button_lab4_find.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_lab4_find.Location = new System.Drawing.Point(240, 364);
+            this.button_lab4_find.Name = "button_lab4_find";
+            this.button_lab4_find.Size = new System.Drawing.Size(75, 23);
+            this.button_lab4_find.TabIndex = 17;
+            this.button_lab4_find.Text = "Find";
+            this.button_lab4_find.UseVisualStyleBackColor = true;
+            this.button_lab4_find.Click += new System.EventHandler(this.button_lab4_find_Click);
+            // 
+            // label32
+            // 
+            this.label32.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(20, 613);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(23, 16);
+            this.label32.TabIndex = 16;
+            this.label32.Text = "w=";
+            // 
+            // label31
+            // 
+            this.label31.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(20, 538);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(21, 16);
+            this.label31.TabIndex = 15;
+            this.label31.Text = "h=";
+            // 
+            // label29
+            // 
+            this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(20, 468);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(21, 16);
+            this.label29.TabIndex = 14;
+            this.label29.Text = "y=";
+            // 
+            // label28
+            // 
+            this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(20, 405);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(20, 16);
+            this.label28.TabIndex = 13;
+            this.label28.Text = "x=";
+            // 
+            // trackBar_lab4_w
+            // 
+            this.trackBar_lab4_w.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.trackBar_lab4_w.Location = new System.Drawing.Point(46, 613);
+            this.trackBar_lab4_w.Maximum = 40;
+            this.trackBar_lab4_w.Name = "trackBar_lab4_w";
+            this.trackBar_lab4_w.Size = new System.Drawing.Size(269, 56);
+            this.trackBar_lab4_w.TabIndex = 11;
+            this.trackBar_lab4_w.ValueChanged += new System.EventHandler(this.trackBar_lab4_w_ValueChanged);
+            // 
+            // trackBar_lab4_h
+            // 
+            this.trackBar_lab4_h.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.trackBar_lab4_h.Location = new System.Drawing.Point(46, 538);
+            this.trackBar_lab4_h.Maximum = 40;
+            this.trackBar_lab4_h.Name = "trackBar_lab4_h";
+            this.trackBar_lab4_h.Size = new System.Drawing.Size(269, 56);
+            this.trackBar_lab4_h.TabIndex = 10;
+            this.trackBar_lab4_h.ValueChanged += new System.EventHandler(this.trackBar_lab4_h_ValueChanged);
+            // 
+            // trackBar_lab4_y
+            // 
+            this.trackBar_lab4_y.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.trackBar_lab4_y.Location = new System.Drawing.Point(46, 468);
+            this.trackBar_lab4_y.Maximum = 40;
+            this.trackBar_lab4_y.Name = "trackBar_lab4_y";
+            this.trackBar_lab4_y.Size = new System.Drawing.Size(273, 56);
+            this.trackBar_lab4_y.TabIndex = 9;
+            this.trackBar_lab4_y.ValueChanged += new System.EventHandler(this.trackBar_lab4_y_ValueChanged);
+            // 
+            // trackBar_lab4_x
+            // 
+            this.trackBar_lab4_x.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.trackBar_lab4_x.Location = new System.Drawing.Point(46, 393);
+            this.trackBar_lab4_x.Maximum = 40;
+            this.trackBar_lab4_x.Name = "trackBar_lab4_x";
+            this.trackBar_lab4_x.Size = new System.Drawing.Size(273, 56);
+            this.trackBar_lab4_x.TabIndex = 8;
+            this.trackBar_lab4_x.ValueChanged += new System.EventHandler(this.trackBar_lab4_x_ValueChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(240, 21);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Image";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button_lab4_image_Click);
+            // 
+            // DSP4Sound
+            // 
+            this.DSP4Sound.Location = new System.Drawing.Point(4, 25);
+            this.DSP4Sound.Name = "DSP4Sound";
+            this.DSP4Sound.Padding = new System.Windows.Forms.Padding(3);
+            this.DSP4Sound.Size = new System.Drawing.Size(1287, 684);
+            this.DSP4Sound.TabIndex = 6;
+            this.DSP4Sound.Text = "DSP4_Sound";
+            this.DSP4Sound.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox_lab4_map
+            // 
+            this.pictureBox_lab4_map.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox_lab4_map.Location = new System.Drawing.Point(3, 18);
+            this.pictureBox_lab4_map.Name = "pictureBox_lab4_map";
+            this.pictureBox_lab4_map.Size = new System.Drawing.Size(456, 316);
+            this.pictureBox_lab4_map.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox_lab4_map.TabIndex = 0;
+            this.pictureBox_lab4_map.TabStop = false;
+            // 
+            // groupBox17
+            // 
+            this.groupBox17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox17.Controls.Add(this.label41);
+            this.groupBox17.Controls.Add(this.label26);
+            this.groupBox17.Controls.Add(this.textBox3);
+            this.groupBox17.Controls.Add(this.comboBox1);
+            this.groupBox17.Controls.Add(this.button3);
+            this.groupBox17.Controls.Add(this.label33);
+            this.groupBox17.Controls.Add(this.button2);
+            this.groupBox17.Controls.Add(this.label34);
+            this.groupBox17.Controls.Add(this.label38);
+            this.groupBox17.Controls.Add(this.trackBar1);
+            this.groupBox17.Controls.Add(this.trackBar2);
+            this.groupBox17.Controls.Add(this.label39);
+            this.groupBox17.Controls.Add(this.label40);
+            this.groupBox17.Controls.Add(this.textBox1);
+            this.groupBox17.Controls.Add(this.textBox2);
+            this.groupBox17.Location = new System.Drawing.Point(1028, 6);
+            this.groupBox17.MaximumSize = new System.Drawing.Size(250, 1000);
+            this.groupBox17.Name = "groupBox17";
+            this.groupBox17.Size = new System.Drawing.Size(239, 305);
+            this.groupBox17.TabIndex = 9;
+            this.groupBox17.TabStop = false;
+            this.groupBox17.Text = "Parametrs";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(101, 196);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(0, 16);
+            this.label26.TabIndex = 32;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Sinus",
+            "Triangle",
+            "Rectangle",
+            " "});
+            this.comboBox1.Location = new System.Drawing.Point(0, 215);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(108, 24);
+            this.comboBox1.TabIndex = 28;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(7, 196);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(88, 16);
+            this.label33.TabIndex = 31;
+            this.label33.Text = "Current chart -";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(158, 216);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 28;
+            this.button2.Text = "Delete";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(7, 59);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(17, 16);
+            this.label34.TabIndex = 26;
+            this.label34.Text = "f=";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(6, 131);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(22, 16);
+            this.label38.TabIndex = 23;
+            this.label38.Text = "d=";
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.Enabled = false;
+            this.trackBar1.Location = new System.Drawing.Point(35, 131);
+            this.trackBar1.Maximum = 20;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(198, 56);
+            this.trackBar1.TabIndex = 22;
+            this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trackBar1.Value = 10;
+            // 
+            // trackBar2
+            // 
+            this.trackBar2.Location = new System.Drawing.Point(35, 59);
+            this.trackBar2.Maximum = 20;
+            this.trackBar2.Name = "trackBar2";
+            this.trackBar2.Size = new System.Drawing.Size(198, 56);
+            this.trackBar2.TabIndex = 18;
+            this.trackBar2.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trackBar2.Value = 5;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(7, 24);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(23, 16);
+            this.label39.TabIndex = 9;
+            this.label39.Text = "A=";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(132, 24);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(22, 16);
+            this.label40.TabIndex = 6;
+            this.label40.Text = "F=";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(160, 21);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(73, 22);
+            this.textBox1.TabIndex = 5;
+            this.textBox1.Text = "5";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(35, 21);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(73, 22);
+            this.textBox2.TabIndex = 0;
+            this.textBox2.Text = "5";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(6, 251);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(51, 16);
+            this.label41.TabIndex = 24;
+            this.label41.Text = "Name=";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(64, 248);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(129, 22);
+            this.textBox3.TabIndex = 1;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(158, 276);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 0;
+            this.button3.Text = "Add";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // groupBox25
+            // 
+            this.groupBox25.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox25.Controls.Add(this.label42);
+            this.groupBox25.Controls.Add(this.label43);
+            this.groupBox25.Controls.Add(this.textBox4);
+            this.groupBox25.Controls.Add(this.comboBox2);
+            this.groupBox25.Controls.Add(this.button4);
+            this.groupBox25.Controls.Add(this.label44);
+            this.groupBox25.Controls.Add(this.button5);
+            this.groupBox25.Controls.Add(this.label45);
+            this.groupBox25.Controls.Add(this.label46);
+            this.groupBox25.Controls.Add(this.trackBar3);
+            this.groupBox25.Controls.Add(this.trackBar4);
+            this.groupBox25.Controls.Add(this.label47);
+            this.groupBox25.Controls.Add(this.label48);
+            this.groupBox25.Controls.Add(this.textBox5);
+            this.groupBox25.Controls.Add(this.textBox6);
+            this.groupBox25.Location = new System.Drawing.Point(1022, 317);
+            this.groupBox25.MaximumSize = new System.Drawing.Size(250, 1000);
+            this.groupBox25.Name = "groupBox25";
+            this.groupBox25.Size = new System.Drawing.Size(239, 305);
+            this.groupBox25.TabIndex = 33;
+            this.groupBox25.TabStop = false;
+            this.groupBox25.Text = "Parametrs";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(6, 251);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(51, 16);
+            this.label42.TabIndex = 24;
+            this.label42.Text = "Name=";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(101, 196);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(0, 16);
+            this.label43.TabIndex = 32;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(64, 248);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(129, 22);
+            this.textBox4.TabIndex = 1;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Sinus",
+            "Triangle",
+            "Rectangle",
+            " "});
+            this.comboBox2.Location = new System.Drawing.Point(0, 215);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(108, 24);
+            this.comboBox2.TabIndex = 28;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(158, 276);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "Add";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(7, 196);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(88, 16);
+            this.label44.TabIndex = 31;
+            this.label44.Text = "Current chart -";
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(158, 216);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 28;
+            this.button5.Text = "Delete";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(7, 59);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(17, 16);
+            this.label45.TabIndex = 26;
+            this.label45.Text = "f=";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(6, 131);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(22, 16);
+            this.label46.TabIndex = 23;
+            this.label46.Text = "d=";
+            // 
+            // trackBar3
+            // 
+            this.trackBar3.Enabled = false;
+            this.trackBar3.Location = new System.Drawing.Point(35, 131);
+            this.trackBar3.Maximum = 20;
+            this.trackBar3.Name = "trackBar3";
+            this.trackBar3.Size = new System.Drawing.Size(198, 56);
+            this.trackBar3.TabIndex = 22;
+            this.trackBar3.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trackBar3.Value = 10;
+            // 
+            // trackBar4
+            // 
+            this.trackBar4.Location = new System.Drawing.Point(35, 59);
+            this.trackBar4.Maximum = 20;
+            this.trackBar4.Name = "trackBar4";
+            this.trackBar4.Size = new System.Drawing.Size(198, 56);
+            this.trackBar4.TabIndex = 18;
+            this.trackBar4.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trackBar4.Value = 5;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(7, 24);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(23, 16);
+            this.label47.TabIndex = 9;
+            this.label47.Text = "A=";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(132, 24);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(22, 16);
+            this.label48.TabIndex = 6;
+            this.label48.Text = "F=";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(160, 21);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(73, 22);
+            this.textBox5.TabIndex = 5;
+            this.textBox5.Text = "5";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(35, 21);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(73, 22);
+            this.textBox6.TabIndex = 0;
+            this.textBox6.Text = "5";
             // 
             // Form1
             // 
@@ -1597,6 +2450,43 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_lab2_d)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_lab2_phase)).EndInit();
             this.DSP3.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.groupBox14.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_lab3_modify)).EndInit();
+            this.groupBox15.ResumeLayout(false);
+            this.groupBox15.PerformLayout();
+            this.groupBox16.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_lab3_original)).EndInit();
+            this.DSP4Signal.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage6.ResumeLayout(false);
+            this.groupBox22.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
+            this.groupBox23.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
+            this.DSP4Image.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.groupBox18.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_lab4_startImage)).EndInit();
+            this.groupBox19.ResumeLayout(false);
+            this.groupBox21.ResumeLayout(false);
+            this.groupBox20.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_lab4_illuminator)).EndInit();
+            this.groupBox24.ResumeLayout(false);
+            this.groupBox24.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_lab4_w)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_lab4_h)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_lab4_y)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_lab4_x)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_lab4_map)).EndInit();
+            this.groupBox17.ResumeLayout(false);
+            this.groupBox17.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
+            this.groupBox25.ResumeLayout(false);
+            this.groupBox25.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1709,9 +2599,76 @@
         private System.Windows.Forms.TextBox textBox_lab3_MedianK;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.CheckBox checkBox_lab3_reverse;
-        private System.Windows.Forms.GroupBox groupBox16;
-        private System.Windows.Forms.GroupBox groupBox15;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox14;
+        private System.Windows.Forms.PictureBox pictureBox_lab3_modify;
+        private System.Windows.Forms.GroupBox groupBox15;
+        private System.Windows.Forms.Button button_lab3_openImage;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.ComboBox comboBox_lab3_kernels;
+        private System.Windows.Forms.GroupBox groupBox16;
+        private System.Windows.Forms.PictureBox pictureBox_lab3_original;
+        private System.Windows.Forms.TabPage DSP4Image;
+        private System.Windows.Forms.TabPage DSP4Signal;
+        private System.Windows.Forms.TabPage DSP4Sound;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.GroupBox groupBox18;
+        private System.Windows.Forms.GroupBox groupBox19;
+        private System.Windows.Forms.GroupBox groupBox21;
+        private System.Windows.Forms.GroupBox groupBox20;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.GroupBox groupBox22;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
+        private System.Windows.Forms.GroupBox groupBox23;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.PictureBox pictureBox_lab4_startImage;
+        private System.Windows.Forms.PictureBox pictureBox_lab4_illuminator;
+        private System.Windows.Forms.GroupBox groupBox24;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TrackBar trackBar_lab4_w;
+        private System.Windows.Forms.TrackBar trackBar_lab4_h;
+        private System.Windows.Forms.TrackBar trackBar_lab4_y;
+        private System.Windows.Forms.TrackBar trackBar_lab4_x;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_lab4_find;
+        private System.Windows.Forms.PictureBox pictureBox_lab4_map;
+        private System.Windows.Forms.GroupBox groupBox25;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.TrackBar trackBar3;
+        private System.Windows.Forms.TrackBar trackBar4;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.GroupBox groupBox17;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.TrackBar trackBar2;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 
